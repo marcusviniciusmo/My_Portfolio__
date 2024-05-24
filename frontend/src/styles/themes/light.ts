@@ -4,4 +4,7 @@ import { defaultTheme } from '../../@types/styles';
 export const LightTheme: defaultTheme = {
   title: 'Light',
   backgroundImage: BackgroundImageLight,
+  colors: {
+    text: '#000000',
+  },
 };

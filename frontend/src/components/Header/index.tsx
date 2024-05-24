@@ -6,10 +6,8 @@ import { HeaderContainer } from './styles';
 export function Header() {
   return (
     <HeaderContainer>
-      <h1>HEADER COMPONENT</h1>
-
       <NavLink to="/">
-        <Home className="headerIcon" />
+        <Home className="headerIcon" titleAccess="Home" />
       </NavLink>
 
       <ThemeSwitcher />
