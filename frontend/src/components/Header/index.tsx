@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { Home } from '@mui/icons-material';
+import { ThemeSwitcher } from '../ThemeSwitcher';
 import { HeaderContainer } from './styles';
 
 export function Header() {
@@ -11,7 +12,7 @@ export function Header() {
         <Home className="headerIcon" />
       </NavLink>
 
-      <button>Theme Switcher</button>
+      <ThemeSwitcher />
     </HeaderContainer>
   );
 }
