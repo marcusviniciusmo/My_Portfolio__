@@ -14,6 +14,10 @@
     npm i react-router-dom
   }
 
+  ### - REACT SWITCH {
+    npm i react-switch
+  }
+
   ### - STYLED COMPONENTS {
     npm i styled-components
   }
