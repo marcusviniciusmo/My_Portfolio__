@@ -1,3 +1,5 @@
 import { defaultTheme } from '../../@types/styles';
 
-export const DarkTheme: defaultTheme = {};
+export const DarkTheme: defaultTheme = {
+  title: 'Dark',
+};

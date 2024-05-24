@@ -1,6 +1,8 @@
 import 'styled-components';
 
-export type defaultTheme = object;
+export type defaultTheme = {
+  title: string;
+};
 
 type ThemeType = typeof defaultTheme;
 
