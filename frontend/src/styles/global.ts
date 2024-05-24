@@ -17,6 +17,10 @@ export const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
   }
 
+  body {
+    background-image: url(${({ theme }) => theme.backgroundImage});
+  }
+
   button {
     cursor: pointer;
     border: none;

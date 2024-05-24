@@ -2,6 +2,7 @@ import 'styled-components';
 
 export type defaultTheme = {
   title: string;
+  backgroundImage: string;
 };
 
 type ThemeType = typeof defaultTheme;
