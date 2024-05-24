@@ -5,6 +5,7 @@ import { Resume } from '../components/Resume';
 import { Projects } from '../components/Projects';
 import { Certificates } from '../components/Certificates';
 import { Testimonials } from '../components/Testimonials';
+import { Blogs } from '../components/Blogs';
 
 export function Router() {
   return (
@@ -15,6 +16,7 @@ export function Router() {
       <Route path="/projects" element={<Projects />} />
       <Route path="/certificates" element={<Certificates />} />
       <Route path="/testimonials" element={<Testimonials />} />
+      <Route path="/blogs" element={<Blogs />} />
     </Routes>
   );
 }
