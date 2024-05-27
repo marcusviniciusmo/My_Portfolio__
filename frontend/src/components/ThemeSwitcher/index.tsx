@@ -4,8 +4,28 @@ import { LightMode, DarkMode } from '@mui/icons-material';
 import { ThemeContext } from '../../context/ThemeContext';
 import { IconContainer } from './styles';
 
+interface ThemeSwitcherProps {
+  onColor: string;
+  offColor: string;
+  onHandleColor: string;
+  offHandleColor: string;
+  shadowLight: string;
+  shadowDark: string;
+  activeBoxShadow: string;
+}
+
 export function ThemeSwitcher() {
   const { theme, toggleTheme } = useContext(ThemeContext);
+
+  const themeSwitcherColors: ThemeSwitcherProps = {
+    onColor: '#3A3A3C',
+    offColor: '#C0C0C0',
+    onHandleColor: '#FFFFFF',
+    offHandleColor: '#FFFFFF',
+    shadowLight: '3px 3px 3px 3px rgba(0, 0, 0, 0.2)',
+    shadowDark: '3px 3px 3px 3px rgba(255, 255, 255, 0.2)',
+    activeBoxShadow: '3px 3px 3px 3px rgba(0, 0, 0, 0.3)',
+  };
 
   return (
     <Switch
@@ -13,15 +33,15 @@ export function ThemeSwitcher() {
       checked={theme.title === 'Dark'}
       checkedIcon={false}
       uncheckedIcon={false}
-      onColor="#3A3A3C"
-      offColor="#C0C0C0"
-      onHandleColor="#FFFFFF"
-      offHandleColor="#FFFFFF"
-      activeBoxShadow="3px 3px 3px 3px rgba(0, 0, 0, 0.3)"
+      onColor={themeSwitcherColors.onColor}
+      offColor={themeSwitcherColors.offColor}
+      onHandleColor={themeSwitcherColors.onHandleColor}
+      offHandleColor={themeSwitcherColors.offHandleColor}
+      activeBoxShadow={themeSwitcherColors.activeBoxShadow}
       boxShadow={
         theme.title === 'Light'
-          ? '3px 3px 3px 3px rgba(0, 0, 0, 0.2)'
-          : '3px 3px 3px 3px rgba(255, 255, 255, 0.2)'
+          ? themeSwitcherColors.shadowLight
+          : themeSwitcherColors.shadowDark
       }
       checkedHandleIcon={
         <IconContainer>

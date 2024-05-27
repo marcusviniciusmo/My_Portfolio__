@@ -2,6 +2,9 @@ import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
   :root {
+    --colorIconDark: darkblue;
+    --colorIconLight: orange;
+
     font-size: 62.5%;
   }
 

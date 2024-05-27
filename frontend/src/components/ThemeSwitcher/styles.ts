@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 export const IconContainer = styled.div`
-  color: ${({ theme }) => (theme.title === 'Light' ? 'darkblue' : 'orange')};
+  color: ${({ theme }) =>
+    theme.title === 'Light' ? 'var(--colorIconDark)' : 'var(--colorIconLight)'};
   width: 100%;
   height: 100%;
   display: flex;
