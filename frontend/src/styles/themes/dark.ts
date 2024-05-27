@@ -5,6 +5,23 @@ export const DarkTheme: defaultTheme = {
   title: 'Dark',
   backgroundImage: BackgroundImageDark,
   colors: {
+    background: '#111111',
     text: '#FFFFFF',
+    shadow: '0 20px 13px rgba(255, 255, 255, 0.1)',
+
+    backgroundSocialIcon: '#212425',
+    linkedinLogo: '#E9E9EA',
+    githubLogo: '#FFFFFF',
+    whatsappLogo: '#B5FFAA',
+    instagramLogo: '#E1146C',
+    emailLogo: '#2EDCFD',
+
+    backgroundRole: '#1D1D1D',
+    textRole: '#A6A6A6',
+
+    backgroundProfileInfos: '#1D1D1D',
+    borderBottomInfo: '#3D3A3A',
+    backgroundIconInfo: '#000000',
+    textProfileInfoLabel: '#A6A6A6',
   },
 };

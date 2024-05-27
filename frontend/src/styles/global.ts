@@ -1,9 +1,21 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
-  :root {
+  :root {    
+    --textWhite: #FFFFFF;
+
+    --gradientHoverBackgroundFrom: #FA5252;
+    --gradientHoverBackgroundTo: #DD2476;
+
     --colorIconDark: darkblue;
     --colorIconLight: orange;
+
+    --colorProfileInfoDataHover: #FA5252;
+
+    --colorProfileIconSmartphone: #E93B81;
+    --colorProfileIconEmail: #6AB5B9;
+    --colorProfileIconLocation: #FD7590;
+    --colorProfileIconBirthday: #C17CEB;
 
     font-size: 62.5%;
   }
@@ -30,10 +42,40 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   a {
-    text-decoration: none;
+    all: unset;
   }
 
   &:focus {
     outline: 0;
+  }
+
+  &.backgroundGradientToRight {
+    color: var(--textWhite);
+    background: linear-gradient(
+      to right,
+      var(--gradientHoverBackgroundFrom),
+      var(--gradientHoverBackgroundTo)
+    );
+  }
+
+  &.gradientHover {
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+
+    &:hover {
+      color: var(--textWhite);
+      background: linear-gradient(
+        var(--gradientDirection),
+        var(--gradientHoverBackgroundFrom),
+        var(--gradientHoverBackgroundTo)
+      );
+    }
+  }
+
+  &.gradientHoverToRight {
+    --gradientDirection: to right;
+  }
+
+  &.gradientHoverToLeft {
+    --gradientDirection: to left;
   }
 `;

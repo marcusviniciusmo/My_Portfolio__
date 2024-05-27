@@ -5,6 +5,23 @@ export const LightTheme: defaultTheme = {
   title: 'Light',
   backgroundImage: BackgroundImageLight,
   colors: {
+    background: '#FFFFFF',
     text: '#000000',
+    shadow: '0 20px 13px rgba(0, 0, 0, 0.03)',
+
+    backgroundSocialIcon: '#F3F6F6',
+    linkedinLogo: '#0175B4',
+    githubLogo: '#181515',
+    whatsappLogo: '#23D366',
+    instagramLogo: '#F04B5A',
+    emailLogo: '#0363B8',
+
+    backgroundRole: '#FFFFFF',
+    textRole: '#7B7B7B',
+
+    backgroundProfileInfos: '#F3F6F6',
+    borderBottomInfo: '#E3E3E3',
+    backgroundIconInfo: '#FFFFFF',
+    textProfileInfoLabel: '#44566C',
   },
 };
