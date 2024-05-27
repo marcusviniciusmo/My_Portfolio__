@@ -1,4 +1,5 @@
 import ProfilePhoto from '../../assets/profilePhoto.jpeg';
+import { DownloadCV } from '../DownloadCV';
 import {
   LinkedIn,
   GitHub,
@@ -8,7 +9,6 @@ import {
   Smartphone,
   LocationOn,
   CalendarMonth,
-  Download,
 } from '@mui/icons-material';
 import {
   ProfileContainer,
@@ -24,7 +24,6 @@ import {
   ProfileInfo,
   ProfileInfoLabel,
   ProfileInfoData,
-  DownloadCurriculumButton,
 } from './styles';
 
 export function Profile() {
@@ -161,10 +160,7 @@ export function Profile() {
           </Info>
         </ProfileInfos>
 
-        <DownloadCurriculumButton className="backgroundGradientToRight gradientHover gradientHoverToLeft">
-          <Download className="downloadIcon" fontSize="large" />
-          Download CV
-        </DownloadCurriculumButton>
+        <DownloadCV />
       </Content>
     </ProfileContainer>
   );
