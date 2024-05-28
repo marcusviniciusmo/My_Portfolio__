@@ -23,5 +23,8 @@ export const DarkTheme: defaultTheme = {
     borderBottomInfo: '#3D3A3A',
     backgroundIconInfo: '#000000',
     textProfileInfoLabel: '#A6A6A6',
+
+    backgroundMenuItem: '#212325',
+    textMenuItem: '#A6A6A6',
   },
 };

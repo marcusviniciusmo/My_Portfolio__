@@ -22,6 +22,9 @@ export type defaultTheme = {
     borderBottomInfo: string;
     backgroundIconInfo: string;
     textProfileInfoLabel: string;
+
+    backgroundMenuItem: string;
+    textMenuItem: string;
   };
 };
 

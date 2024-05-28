@@ -23,5 +23,8 @@ export const LightTheme: defaultTheme = {
     borderBottomInfo: '#E3E3E3',
     backgroundIconInfo: '#FFFFFF',
     textProfileInfoLabel: '#44566C',
+
+    backgroundMenuItem: '#F3F6F6',
+    textMenuItem: '#44566C',
   },
 };
