@@ -1,15 +1,10 @@
 import styled from 'styled-components';
 
 export const MenuContainer = styled.nav`
-  background: ${({ theme }) => theme.colors.background};
   width: 14.5rem;
-  height: 100%;
   margin: 0 0 4rem;
   padding: 3rem;
-  border-radius: 1.6rem;
   display: block;
-  position: relative;
-  top: 17.6rem;
 `;
 
 export const MenuItemsList = styled.ul`

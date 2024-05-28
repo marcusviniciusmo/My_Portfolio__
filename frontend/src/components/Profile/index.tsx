@@ -6,7 +6,7 @@ import { ProfileContainer, Image, Content, Name, Role } from './styles';
 
 export function Profile() {
   return (
-    <ProfileContainer>
+    <ProfileContainer className="contentMarginTop">
       <Image src={ProfilePhoto} alt="Marcus_profile_photo" />
 
       <Content>
