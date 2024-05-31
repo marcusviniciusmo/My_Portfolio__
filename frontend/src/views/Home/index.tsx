@@ -10,7 +10,7 @@ import {
 
 export function Home() {
   return (
-    <HomeContainer>
+    <HomeContainer className="contentContainer">
       <Title>Front-End Developer & Lifelong Learner</Title>
       <Subtitle>
         I create user experiences through code and design, driven by a passion

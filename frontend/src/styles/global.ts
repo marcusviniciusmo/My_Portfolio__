@@ -79,11 +79,18 @@ export const GlobalStyle = createGlobalStyle`
     --gradientDirection: to left;
   }
 
-  &.contentMarginTop {
+  &.pageMarginTop {
     background: ${({ theme }) => theme.colors.background};
     height: 100%;
     border-radius: 2rem;
     position: relative;
     top: 17.6rem;
+  }
+
+  &.contentContainer {
+    color: ${({ theme }) => theme.colors.text};
+    padding: 4.8rem 5.6rem;
+    display: flex;
+    flex-direction: column;
   }
 `;

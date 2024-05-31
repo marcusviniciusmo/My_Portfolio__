@@ -1,11 +1,7 @@
 import styled from 'styled-components';
 
 export const HomeContainer = styled.div`
-  color: ${({ theme }) => theme.colors.text};
   margin-top: 2rem;
-  padding: 4.8rem 5.6rem;
-  display: flex;
-  flex-direction: column;
   align-items: center;
   text-align: center;
   gap: 4rem;

@@ -12,7 +12,7 @@ import { NavLink } from 'react-router-dom';
 
 export function Menu() {
   return (
-    <MenuContainer className="contentMarginTop">
+    <MenuContainer className="pageMarginTop">
       <MenuItemsList>
         <NavLink to="/about">
           <MenuItem className="gradientHover gradientHoverToRight">
