@@ -1,10 +1,7 @@
 import styled from 'styled-components';
+import { StyledTitleProps } from '../../@types/TitleContentPage';
 
-interface TitleProps {
-  left: string;
-}
-
-export const Title = styled.h2<TitleProps>`
+export const Title = styled.h2<StyledTitleProps>`
   font-family: 'Roboto Slab';
   font-size: 4rem;
   font-weight: 700;
