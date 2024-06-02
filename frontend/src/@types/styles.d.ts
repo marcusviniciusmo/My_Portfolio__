@@ -29,6 +29,10 @@ export type defaultTheme = {
     borderInput: string;
     textLabelInput: string;
     borderInputFocused: string;
+
+    textLabelTextarea: string;
+    borderTextarea: string;
+    borderTextareaFocused: string;
   };
 };
 

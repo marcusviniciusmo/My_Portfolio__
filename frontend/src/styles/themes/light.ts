@@ -30,5 +30,9 @@ export const LightTheme: defaultTheme = {
     borderInput: '#F3F6F6',
     textLabelInput: '#44566C',
     borderInputFocused: '#E3E3E3',
+
+    textLabelTextarea: '#44566C',
+    borderTextarea: '#F3F6F6',
+    borderTextareaFocused: '#E3E3E3',
   },
 };

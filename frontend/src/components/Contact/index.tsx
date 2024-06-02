@@ -10,7 +10,7 @@ export function Contact() {
       <p>Thanks for taking the time to reach out.</p>
       <Input placeholder="Name" />
       <Input placeholder="Email" />
-      <Textarea />
+      <Textarea placeholder="Message" />
       <button>Submit</button>
     </div>
   );

@@ -30,5 +30,9 @@ export const DarkTheme: defaultTheme = {
     borderInput: '#212425',
     textLabelInput: '#A6A6A6',
     borderInputFocused: '#3D3A3A',
+
+    textLabelTextarea: '#A6A6A6',
+    borderTextarea: '#212425',
+    borderTextareaFocused: '#3D3A3A',
   },
 };
