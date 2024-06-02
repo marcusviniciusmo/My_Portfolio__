@@ -9,14 +9,15 @@ export function Input({ placeholder }: InputProps) {
   const [value, setValue] = useState('');
 
   return (
-    <InputContainer>
+    <InputContainer className="fieldContainer">
       <StyledInput
         type="text"
+        className="fieldStyled"
         value={value}
         required
         onChange={(e) => setValue(e.target.value)}
       />
-      <Label>{placeholder}</Label>
+      <Label className="fieldLabel">{placeholder}</Label>
     </InputContainer>
   );
 }

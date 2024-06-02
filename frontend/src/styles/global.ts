@@ -17,6 +17,8 @@ export const GlobalStyle = createGlobalStyle`
     --colorProfileIconLocation: #FD7590;
     --colorProfileIconBirthday: #C17CEB;
 
+    --max-z-index: 999;
+
     font-size: 62.5%;
   }
 
@@ -92,5 +94,36 @@ export const GlobalStyle = createGlobalStyle`
     padding: 4.8rem 5.6rem;
     display: flex;
     flex-direction: column;
+  }
+
+  &.fieldContainer {
+    background: ${({ theme }) => theme.colors.background};
+    position: relative;
+  }
+
+  &.fieldLabel {
+    background: ${({ theme }) => theme.colors.background};
+    font-size: 1.6rem;
+    margin: 0 2rem;
+    padding: 0 1.5rem;
+    position: absolute;
+    top: 2rem;
+    left: -1rem;
+    user-select: none;
+    pointer-events: none;
+    transition: all 0.2s ease;
+  }
+
+  &.fieldStyled {
+    color: ${({ theme }) => theme.colors.text};
+    background: transparent;
+    font-size: 1.6rem;
+    line-height: 4rem;
+    width: 100%;
+    padding: 1rem 3rem;
+    border-radius: 1rem;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+    z-index: var(--max-z-index);
   }
 `;

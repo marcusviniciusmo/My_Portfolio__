@@ -11,12 +11,13 @@ export function Textarea({ placeholder }: TextareaProps) {
   return (
     <TextareaContainer className="fieldContainer">
       <StyledTextarea
+        className="fieldStyled"
         rows={5}
         value={value}
         required
         onChange={(e) => setValue(e.target.value)}
       />
-      <Label>{placeholder}</Label>
+      <Label className="fieldLabel">{placeholder}</Label>
     </TextareaContainer>
   );
 }
