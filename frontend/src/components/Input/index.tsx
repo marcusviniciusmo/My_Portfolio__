@@ -2,11 +2,15 @@ import { useState } from 'react';
 import { InputContainer, StyledInput, Label } from './styles';
 
 interface InputProps {
+  name: string;
   placeholder: string;
+  value: string;
+  onChange: (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => void;
 }
 
-export function Input({ placeholder }: InputProps) {
-  const [value, setValue] = useState('');
+export function Input({ name, placeholder, value, onChange }: InputProps) {
   const [focused, setFocused] = useState(false);
 
   return (
@@ -14,11 +18,12 @@ export function Input({ placeholder }: InputProps) {
       <StyledInput
         type="text"
         className="fieldStyled"
+        name={name}
         value={value}
-        required
-        onChange={(e) => setValue(e.target.value)}
+        onChange={onChange}
         onFocus={() => setFocused(true)}
         onBlur={() => setFocused(false)}
+        required
       />
       <Label className="fieldLabel">
         {focused || value ? placeholder : placeholder + ' *'}
