@@ -1,5 +1,6 @@
 import { TitleContentPage } from '../TitleContentPage';
 import { Input } from '../Input';
+import { Textarea } from '../Textarea';
 
 export function Contact() {
   return (
@@ -9,7 +10,7 @@ export function Contact() {
       <p>Thanks for taking the time to reach out.</p>
       <Input placeholder="Name" />
       <Input placeholder="Email" />
-      <textarea />
+      <Textarea />
       <button>Submit</button>
     </div>
   );
