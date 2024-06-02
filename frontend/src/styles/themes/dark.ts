@@ -26,5 +26,9 @@ export const DarkTheme: defaultTheme = {
 
     backgroundMenuItem: '#212325',
     textMenuItem: '#A6A6A6',
+
+    borderInput: '#212425',
+    textLabelInput: '#A6A6A6',
+    borderInputFocused: '#3D3A3A',
   },
 };

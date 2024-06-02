@@ -26,5 +26,9 @@ export const LightTheme: defaultTheme = {
 
     backgroundMenuItem: '#F3F6F6',
     textMenuItem: '#44566C',
+
+    borderInput: '#F3F6F6',
+    textLabelInput: '#44566C',
+    borderInputFocused: '#E3E3E3',
   },
 };
