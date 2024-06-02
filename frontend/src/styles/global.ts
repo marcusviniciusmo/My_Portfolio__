@@ -98,6 +98,7 @@ export const GlobalStyle = createGlobalStyle`
 
   &.fieldContainer {
     background: ${({ theme }) => theme.colors.background};
+    flex: 1;
     position: relative;
   }
 

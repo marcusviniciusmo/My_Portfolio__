@@ -7,6 +7,7 @@ interface TextareaProps {
 
 export function Textarea({ placeholder }: TextareaProps) {
   const [value, setValue] = useState('');
+  const [focused, setFocused] = useState(false);
 
   return (
     <TextareaContainer className="fieldContainer">
@@ -16,8 +17,12 @@ export function Textarea({ placeholder }: TextareaProps) {
         value={value}
         required
         onChange={(e) => setValue(e.target.value)}
+        onFocus={() => setFocused(true)}
+        onBlur={() => setFocused(false)}
       />
-      <Label className="fieldLabel">{placeholder}</Label>
+      <Label className="fieldLabel">
+        {focused || value ? placeholder : placeholder + ' *'}
+      </Label>
     </TextareaContainer>
   );
 }

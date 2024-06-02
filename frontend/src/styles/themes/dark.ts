@@ -34,5 +34,8 @@ export const DarkTheme: defaultTheme = {
     textLabelTextarea: '#A6A6A6',
     borderTextarea: '#212425',
     borderTextareaFocused: '#3D3A3A',
+
+    borderButtonSubmit: '#3D3A3A',
+    textButton: '#A6A6A6',
   },
 };

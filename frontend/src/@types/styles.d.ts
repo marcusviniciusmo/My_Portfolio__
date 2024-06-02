@@ -33,6 +33,9 @@ export type defaultTheme = {
     textLabelTextarea: string;
     borderTextarea: string;
     borderTextareaFocused: string;
+
+    borderButtonSubmit: string;
+    textButton: string;
   };
 };
 

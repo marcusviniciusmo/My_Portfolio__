@@ -34,5 +34,8 @@ export const LightTheme: defaultTheme = {
     textLabelTextarea: '#44566C',
     borderTextarea: '#F3F6F6',
     borderTextareaFocused: '#E3E3E3',
+
+    borderButtonSubmit: '#E3E3E3',
+    textButton: '#7B7B7B',
   },
 };
