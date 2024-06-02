@@ -25,4 +25,8 @@
   ### - STYLED COMPONENTS {
     npm i styled-components
   }
+
+  ### - REACT TOASTIFY {
+    npm i react-toastify
+  }
 */
