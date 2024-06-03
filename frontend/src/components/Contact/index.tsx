@@ -1,7 +1,9 @@
 import emailjs from 'emailjs-com';
 import React, { useState } from 'react';
+import { toast } from 'react-toastify';
 import { TitleContentPage } from '../TitleContentPage';
 import { Input } from '../Input';
+import { Toastify } from '../Toastify';
 import { Textarea } from '../Textarea';
 import {
   ContactContainer,
@@ -42,10 +44,10 @@ export function Contact() {
     emailjs
       .sendForm(serviceId, templateId, form, userId)
       .then((result) => {
-        console.log(result.text);
+        toast.success(`${result.text}!! Message sent!`);
       })
       .catch((error) => {
-        console.log(error);
+        toast.error(`Error!! ${error}`);
       });
   }
 
@@ -79,6 +81,7 @@ export function Contact() {
         />
 
         <SubmitButton>Submit</SubmitButton>
+        <Toastify />
       </ContactForm>
     </ContactContainer>
   );
