@@ -4,15 +4,22 @@ import {
   CertificatesList,
   CertificatesListType,
 } from '../../data/certificates';
+import { CertificateModal } from '../../modal/Certificate';
 
 export function Certificates() {
   const [certificatesList, setCertificatesList] = useState<
     CertificatesListType[]
   >([]);
+  const [selectedCertificate, setSelectedCertificate] =
+    useState<CertificatesListType | null>(null);
 
   useEffect(() => {
     setCertificatesList(CertificatesList);
   }, []);
+
+  function selectCertificate(certificate: CertificatesListType | null) {
+    setSelectedCertificate(certificate);
+  }
 
   return (
     <div className="contentContainer">
@@ -24,6 +31,7 @@ export function Certificates() {
           return (
             <div
               key={certificate.id}
+              onClick={() => selectCertificate(certificate)}
               style={{
                 border: '1px solid #CECECE',
                 display: 'flex',
@@ -39,17 +47,17 @@ export function Certificates() {
                 style={{ width: '20rem', height: '20rem' }}
               />
               <span>{certificate.name}</span>
-              <span>{certificate.workload}</span>
-              <span>{certificate.instructor}</span>
-              <span>{certificate.institution}</span>
-              <span>{certificate.conclusion}</span>
-              <span>{certificate.score}</span>
-              <span>{certificate.sharingLink}</span>
-              <span>{certificate.area}</span>
             </div>
           );
         })}
       </div>
+
+      {selectedCertificate && (
+        <CertificateModal
+          certificate={selectedCertificate}
+          toggleModal={() => selectCertificate(null)}
+        />
+      )}
     </div>
   );
 }
