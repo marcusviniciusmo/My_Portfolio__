@@ -36,6 +36,8 @@ export type defaultTheme = {
 
     borderButtonSubmit: string;
     textButton: string;
+
+    backgroundTableModalCertificate: string;
   };
 };
 

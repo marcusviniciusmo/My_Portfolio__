@@ -37,5 +37,7 @@ export const LightTheme: defaultTheme = {
 
     borderButtonSubmit: '#E3E3E3',
     textButton: '#7B7B7B',
+
+    backgroundTableModalCertificate: '#F3F6F6',
   },
 };

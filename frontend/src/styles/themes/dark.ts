@@ -37,5 +37,7 @@ export const DarkTheme: defaultTheme = {
 
     borderButtonSubmit: '#3D3A3A',
     textButton: '#A6A6A6',
+
+    backgroundTableModalCertificate: '#212325',
   },
 };

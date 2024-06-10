@@ -1,3 +1,13 @@
+import { Close } from '@mui/icons-material';
+import {
+  CertificateModalContainer,
+  Content,
+  Header,
+  Body,
+  ImageContainer,
+  Data,
+} from './styles';
+
 interface CertificateModalProps {
   certificate: {
     image: string;
@@ -9,7 +19,6 @@ interface CertificateModalProps {
     type: string;
     score?: string;
     sharingLink?: string;
-    area: string;
   };
   toggleModal: () => void;
 }
@@ -19,32 +28,73 @@ export function CertificateModal({
   toggleModal,
 }: CertificateModalProps) {
   return (
-    <div
-      style={{
-        position: 'fixed',
-        top: '0',
-        left: '0',
-        width: '100%',
-        height: '100%',
-        background: 'rgba(0, 0, 0, 0.7)',
-        zIndex: 999,
-      }}
-    >
-      <h1>CERTIFICATE MODAL</h1>
-      <span onClick={toggleModal}>X</span>
-      <img
-        src={certificate.image}
-        alt=""
-        style={{ width: '40rem', height: '40rem' }}
-      />
-      <span>{certificate.name}</span>
-      <span>{certificate.workload}</span>
-      <span>{certificate.instructor}</span>
-      <span>{certificate.institution}</span>
-      <span>{certificate.conclusion}</span>
-      <span>{certificate.score}</span>
-      <span>{certificate.sharingLink}</span>
-      <span>{certificate.area}</span>
-    </div>
+    <CertificateModalContainer>
+      <Content>
+        <Header>
+          <span onClick={toggleModal}>
+            <Close titleAccess="Close" fontSize="large" />
+          </span>
+        </Header>
+
+        <Body>
+          <ImageContainer background={certificate.image} />
+
+          <Data>
+            <tr>
+              <th>Name</th>
+              <td>{certificate.name}</td>
+            </tr>
+
+            {certificate.workload && (
+              <tr>
+                <th>Workload</th>
+                <td>{certificate.workload}</td>
+              </tr>
+            )}
+
+            {certificate.instructor && (
+              <tr>
+                <th>Instructor</th>
+                <td>{certificate.instructor}</td>
+              </tr>
+            )}
+
+            {certificate.institution && (
+              <tr>
+                <th>Institution</th>
+                <td>{certificate.institution}</td>
+              </tr>
+            )}
+
+            <tr>
+              <th>Conclusion</th>
+              <td>{certificate.conclusion}</td>
+            </tr>
+
+            {certificate.score && (
+              <tr>
+                <th>Score</th>
+                <td>{certificate.score}</td>
+              </tr>
+            )}
+
+            {certificate.sharingLink && (
+              <tr>
+                <th>Link</th>
+                <td>
+                  <a
+                    href={certificate.sharingLink}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Check here
+                  </a>
+                </td>
+              </tr>
+            )}
+          </Data>
+        </Body>
+      </Content>
+    </CertificateModalContainer>
   );
 }
