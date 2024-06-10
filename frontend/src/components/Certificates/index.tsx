@@ -5,17 +5,35 @@ import {
   CertificatesListType,
 } from '../../data/certificates';
 import { CertificateModal } from '../../modal/Certificate';
+import {
+  CertificatesContainer,
+  CertificateContainer,
+  borderColors,
+} from './styles';
 
 export function Certificates() {
   const [certificatesList, setCertificatesList] = useState<
     CertificatesListType[]
   >([]);
+  const [hashIndexMap, setHashIndexMap] = useState<Map<string, number>>(
+    new Map(),
+  );
   const [selectedCertificate, setSelectedCertificate] =
     useState<CertificatesListType | null>(null);
 
   useEffect(() => {
     setCertificatesList(CertificatesList);
   }, []);
+
+  useEffect(() => {
+    const map = new Map<string, number>();
+
+    certificatesList.forEach((certificate, index) => {
+      map.set(certificate.id, index);
+    });
+
+    setHashIndexMap(map);
+  }, [certificatesList]);
 
   function selectCertificate(certificate: CertificatesListType | null) {
     setSelectedCertificate(certificate);
@@ -24,33 +42,29 @@ export function Certificates() {
   return (
     <div className="contentContainer">
       <TitleContentPage title="Certificates" left="24.2" />
-      <h1>CERTIFICATES COMPONENT</h1>
 
-      <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+      <CertificatesContainer>
         {certificatesList.map((certificate) => {
           return (
-            <div
+            <CertificateContainer
               key={certificate.id}
               onClick={() => selectCertificate(certificate)}
-              style={{
-                border: '1px solid #CECECE',
-                display: 'flex',
-                flexDirection: 'column',
-                width: '21rem',
-                margin: '1rem',
-                overflow: 'hidden',
-              }}
+              borderColor={
+                borderColors[
+                  hashIndexMap.get(certificate.id)! % borderColors.length
+                ]
+              }
             >
               <img
                 src={certificate.image}
                 alt=""
-                style={{ width: '20rem', height: '20rem' }}
+                title={`${certificate.name} certificate`}
               />
               <span>{certificate.name}</span>
-            </div>
+            </CertificateContainer>
           );
         })}
-      </div>
+      </CertificatesContainer>
 
       {selectedCertificate && (
         <CertificateModal
