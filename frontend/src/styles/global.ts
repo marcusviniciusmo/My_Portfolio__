@@ -19,6 +19,11 @@ export const GlobalStyle = createGlobalStyle`
 
     --max-z-index: 999;
 
+    --boxShadowDark: ${({ theme }) =>
+      theme.title === 'Dark' &&
+      `0 0 5px ${theme.colors.text},
+      inset 0 0 5px ${theme.colors.text}`};
+
     font-size: 62.5%;
   }
 
@@ -89,7 +94,15 @@ export const GlobalStyle = createGlobalStyle`
     top: 17.6rem;
   }
 
+  /**DELETE */
   &.contentContainer {
+    color: ${({ theme }) => theme.colors.text};
+    padding: 4.8rem 5.6rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &.pageContainer {
     color: ${({ theme }) => theme.colors.text};
     padding: 4.8rem 5.6rem;
     display: flex;

@@ -1,38 +1,32 @@
 import styled from 'styled-components';
 
-export const HomeContainer = styled.div`
-  margin-top: 2rem;
+export const HomeContainer = styled.div.attrs({
+  className: 'pageContainer',
+})`
+  font-family: 'Poppins';
   align-items: center;
   text-align: center;
-  gap: 4rem;
+  gap: 2rem;
 `;
 
 export const Title = styled.h1`
-  font-family: 'Orbitron';
-  font-size: 3rem;
-  font-weight: 800;
-  word-break: break-all;
+  font-size: 3.5rem;
 `;
 
 export const Subtitle = styled.p`
-  font-family: 'Poppins';
-  font-size: 1.8rem;
+  font-size: 2rem;
 `;
 
-export const AvatarContainer = styled.img`
+export const Avatar = styled.img`
   width: 20rem;
   height: 20rem;
   border-radius: 50%;
-  margin-block: 5rem;
-  box-shadow:
-    0 0 5px ${({ theme }) => theme.colors.text},
-    0 0 5px ${({ theme }) => theme.colors.text};
+  margin-block: 4rem;
+  box-shadow: var(--boxShadowDark);
 `;
 
 export const Setup = styled.img`
   width: 60rem;
   height: 30rem;
-  box-shadow: ${({ theme }) =>
-    theme.title === 'Dark' &&
-    `0 0 5px ${theme.colors.text}, inset 0 0 5px ${theme.colors.text}`};
+  box-shadow: var(--boxShadowDark);
 `;
