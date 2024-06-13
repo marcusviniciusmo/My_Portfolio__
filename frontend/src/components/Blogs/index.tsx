@@ -33,14 +33,14 @@ export function Blogs() {
 
   return (
     <div className="contentContainer">
-      <TitleContentPage title="Blogs" left="12.8" />
+      <TitleContentPage title="Blogs" $left="12.8" />
       <BlogsContainer>
         {blogsList.map((blog) => {
           return (
             <BlogContainer
               key={blog.id}
               title={blog.name}
-              borderColor={
+              $borderColor={
                 borderColors[hashIndexMap.get(blog.id)! % borderColors.length]
               }
             >

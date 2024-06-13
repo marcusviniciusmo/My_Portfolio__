@@ -1,8 +1,8 @@
 export interface TitleContentPageProps {
   title: string;
-  left: string;
+  $left: string;
 }
 
 export interface StyledTitleProps {
-  left: string;
+  $left: string;
 }

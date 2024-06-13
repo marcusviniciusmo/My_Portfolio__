@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+interface BlogContainerProps {
+  $borderColor: string;
+}
+
 export const borderColors = ['#FCF4FF', '#EEFBFF', '#FFF0F0'];
 
 export const BlogsContainer = styled.div`
@@ -10,9 +14,9 @@ export const BlogsContainer = styled.div`
   column-gap: 4rem;
 `;
 
-export const BlogContainer = styled.div<{ borderColor: string }>`
+export const BlogContainer = styled.div<BlogContainerProps>`
   background: ${(props) =>
-    props.theme.title === 'Dark' ? 'transparent' : props.borderColor};
+    props.theme.title === 'Dark' ? 'transparent' : props.$borderColor};
   border: ${({ theme }) => theme.title === 'Dark' && '2px solid #212425'};
   margin-bottom: 0.8rem;
   padding: 2rem;

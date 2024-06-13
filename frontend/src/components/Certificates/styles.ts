@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+interface CertificateContainerProps {
+  $borderColor: string;
+}
+
 export const borderColors = ['#FCF4FF', '#EEFBFF', '#FFF0F0'];
 
 export const CertificatesContainer = styled.div`
@@ -8,9 +12,9 @@ export const CertificatesContainer = styled.div`
   flex-wrap: wrap;
 `;
 
-export const CertificateContainer = styled.div<{ borderColor: string }>`
+export const CertificateContainer = styled.div<CertificateContainerProps>`
   background: ${(props) =>
-    props.theme.title === 'Dark' ? ' transparent' : props.borderColor};
+    props.theme.title === 'Dark' ? ' transparent' : props.$borderColor};
   border: ${({ theme }) => theme.title === 'Dark' && '0.5px solid #CECECE'};
   font-family: 'Roboto Slab';
   font-weight: bold;

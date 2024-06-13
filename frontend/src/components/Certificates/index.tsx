@@ -41,7 +41,7 @@ export function Certificates() {
 
   return (
     <div className="contentContainer">
-      <TitleContentPage title="Certificates" left="24.2" />
+      <TitleContentPage title="Certificates" $left="24.2" />
 
       <CertificatesContainer>
         {certificatesList.map((certificate) => {
@@ -49,7 +49,7 @@ export function Certificates() {
             <CertificateContainer
               key={certificate.id}
               onClick={() => selectCertificate(certificate)}
-              borderColor={
+              $borderColor={
                 borderColors[
                   hashIndexMap.get(certificate.id)! % borderColors.length
                 ]
