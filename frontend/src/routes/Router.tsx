@@ -5,9 +5,9 @@ import { About } from '../components/About';
 import { Resume } from '../components/Resume';
 import { Projects } from '../components/Projects';
 import { Certificates } from '../components/Certificates';
-import { Testimonials } from '../components/Testimonials';
 import { Blogs } from '../components/Blogs';
 import { Contact } from '../components/Contact';
+import { Testimonials } from '../views/Testimonials';
 
 export function Router() {
   return (
