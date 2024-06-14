@@ -2,11 +2,12 @@ import { Routes, Route } from 'react-router-dom';
 import { DefaultLayout } from '../layout/DefaultLayout/DefaultLayout';
 import { Home } from '../views/Home';
 import { About } from '../components/About';
-import { Resume } from '../components/Resume';
 import { Projects } from '../components/Projects';
 import { Certificates } from '../components/Certificates';
 import { Blogs } from '../components/Blogs';
 import { Contact } from '../components/Contact';
+
+import { Resume } from '../views/Resume';
 import { Testimonials } from '../views/Testimonials';
 
 export function Router() {
