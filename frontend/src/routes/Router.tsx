@@ -3,12 +3,12 @@ import { DefaultLayout } from '../layout/DefaultLayout/DefaultLayout';
 import { Home } from '../views/Home';
 import { Certificates } from '../components/Certificates';
 import { Blogs } from '../components/Blogs';
-import { Contact } from '../components/Contact';
 
 import { About } from '../views/About';
 import { Resume } from '../views/Resume';
 import { Projects } from '../views/Projects';
 import { Testimonials } from '../views/Testimonials';
+import { Contact } from '../views/Contact';
 
 export function Router() {
   return (

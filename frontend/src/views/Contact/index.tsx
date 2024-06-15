@@ -1,10 +1,10 @@
 import emailjs from 'emailjs-com';
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
-import { TitleContentPage } from '../TitleContentPage';
-import { Input } from '../Input';
-import { Toastify } from '../Toastify';
-import { Textarea } from '../Textarea';
+import { TitleContentPage } from '../../components/TitleContentPage';
+import { Input } from '../../components/Input';
+import { Toastify } from '../../components/Toastify';
+import { Textarea } from '../../components/Textarea';
 import {
   ContactContainer,
   Text,
