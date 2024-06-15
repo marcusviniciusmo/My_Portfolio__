@@ -1,11 +1,11 @@
 import { Routes, Route } from 'react-router-dom';
 import { DefaultLayout } from '../layout/DefaultLayout/DefaultLayout';
 import { Home } from '../views/Home';
-import { About } from '../components/About';
 import { Certificates } from '../components/Certificates';
 import { Blogs } from '../components/Blogs';
 import { Contact } from '../components/Contact';
 
+import { About } from '../views/About';
 import { Resume } from '../views/Resume';
 import { Projects } from '../views/Projects';
 import { Testimonials } from '../views/Testimonials';
