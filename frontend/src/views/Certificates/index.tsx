@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { TitleContentPage } from '../TitleContentPage';
+import { TitleContentPage } from '../../components/TitleContentPage';
 import {
   CertificatesList,
   CertificatesListType,
