@@ -1,23 +1,15 @@
 import emailjs from 'emailjs-com';
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
+
 import { TitleContentPage } from '../../components/TitleContentPage';
 import { Input } from '../../components/Input';
 import { Toastify } from '../../components/Toastify';
 import { Textarea } from '../../components/Textarea';
-import {
-  ContactContainer,
-  Text,
-  ContactForm,
-  ContactInputs,
-  SubmitButton,
-} from './styles';
 
-interface ContactFormType {
-  name: string;
-  email: string;
-  message: string;
-}
+import { ContactFormType } from '../../@types/Contact';
+
+import { ContactContainer, Text, Form, Inputs, SubmitButton } from './styles';
 
 export function Contact() {
   const [formData, setFormData] = useState<ContactFormType>({
@@ -26,11 +18,13 @@ export function Contact() {
     message: '',
   });
 
+  const CONTACT_TEXT = 'Thanks for taking the time to reach out.';
+
   function handleChange(
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) {
     const { name, value } = event.target;
-    setFormData({ ...formData, [name]: value });
+    setFormData((prevState) => ({ ...prevState, [name]: value }));
   }
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -52,13 +46,13 @@ export function Contact() {
   }
 
   return (
-    <ContactContainer className="contentContainer">
+    <ContactContainer>
       <TitleContentPage title="Contact" $left="16.8" />
 
-      <ContactForm onSubmit={handleSubmit}>
-        <Text>Thanks for taking the time to reach out.</Text>
+      <Form onSubmit={handleSubmit}>
+        <Text>{CONTACT_TEXT}</Text>
 
-        <ContactInputs>
+        <Inputs>
           <Input
             name="name"
             placeholder="Name"
@@ -71,7 +65,7 @@ export function Contact() {
             value={formData.email}
             onChange={handleChange}
           />
-        </ContactInputs>
+        </Inputs>
 
         <Textarea
           name="message"
@@ -82,7 +76,7 @@ export function Contact() {
 
         <SubmitButton>Submit</SubmitButton>
         <Toastify />
-      </ContactForm>
+      </Form>
     </ContactContainer>
   );
 }

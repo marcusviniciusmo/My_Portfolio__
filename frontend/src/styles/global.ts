@@ -4,6 +4,7 @@ export const GlobalStyle = createGlobalStyle`
   :root {    
     --textWhite: #FFFFFF;
 
+    /** DELETE */
     --gradientHoverBackgroundFrom: #FA5252;
     --gradientHoverBackgroundTo: #DD2476;
 
@@ -18,6 +19,9 @@ export const GlobalStyle = createGlobalStyle`
     --colorProfileIconBirthday: #C17CEB;
 
     --max-z-index: 999;
+
+    --gradientBackgroundFrom: #FA5252;
+    --gradientBackgroundTo: #DD2476;
 
     --boxShadowDark: ${({ theme }) =>
       theme.title === 'Dark' &&

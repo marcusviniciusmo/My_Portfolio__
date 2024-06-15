@@ -1,22 +1,24 @@
 import styled from 'styled-components';
+import { setBackgroundGradient } from '../../utils/Functions';
 
-export const ContactContainer = styled.div``;
+export const ContactContainer = styled.div.attrs({
+  className: 'pageContainer',
+})``;
 
-export const Text = styled.h1`
-  font-weight: normal;
-  text-align: center;
-  margin-bottom: 5rem;
-  word-break: break-all;
-`;
-
-export const ContactForm = styled.form`
-  margin-top: 5rem;
+export const Form = styled.form`
+  margin-top: 4rem;
   display: flex;
   flex-direction: column;
   gap: 3rem;
 `;
 
-export const ContactInputs = styled.div`
+export const Text = styled.h1`
+  font-weight: normal;
+  text-align: center;
+  margin-bottom: 2rem;
+`;
+
+export const Inputs = styled.div`
   width: 100%;
   display: flex;
   gap: 2rem;
@@ -29,16 +31,16 @@ export const SubmitButton = styled.button`
   font-weight: bold;
   width: 14.3rem;
   height: 5rem;
+  margin: 0 auto;
   padding: 1rem 2.5rem;
   border-radius: 2rem;
-  margin: 0 auto;
 
   &:hover {
-    background: linear-gradient(
-      to right,
-      var(--gradientHoverBackgroundFrom),
-      var(--gradientHoverBackgroundTo)
-    );
+    ${setBackgroundGradient(
+      'to right',
+      'var(--gradientBackgroundFrom)',
+      'var(--gradientBackgroundTo)',
+    )}
     color: var(--textWhite);
   }
 `;
