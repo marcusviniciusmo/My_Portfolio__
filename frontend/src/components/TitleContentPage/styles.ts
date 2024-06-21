@@ -1,25 +1,20 @@
 import styled from 'styled-components';
-import { StyledTitleProps } from '../../@types/TitleContentPage';
+import { setBackgroundGradient } from '../../utils/Functions';
 
-export const Title = styled.h2<StyledTitleProps>`
+export const Title = styled.h2`
   font-family: 'Roboto Slab';
   font-size: 4rem;
-  font-weight: 700;
   display: inline-block;
   position: relative;
 
   &::after {
     content: '';
-    background-image: linear-gradient(
-      to right,
-      var(--gradientHoverBackgroundFrom),
-      var(--gradientHoverBackgroundTo)
-    );
-    width: 19.2rem;
+    ${setBackgroundGradient()};
+    width: 19rem;
     height: 0.2rem;
+    margin-left: 2.5rem;
     border-radius: 0.6rem;
     position: absolute;
     top: 50%;
-    left: ${(props) => props.left}rem;
   }
 `;

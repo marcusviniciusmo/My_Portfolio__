@@ -1,7 +1,7 @@
 export function setBackgroundGradient(
-  direction: string,
-  fromColor: string,
-  toColor: string,
+  direction: string = 'to right',
+  fromColor: string = 'var(--gradientBackgroundFrom)',
+  toColor: string = 'var(--gradientBackgroundTo)',
 ) {
   return `background: linear-gradient(
     ${direction},

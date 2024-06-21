@@ -36,11 +36,7 @@ export const SubmitButton = styled.button`
   border-radius: 2rem;
 
   &:hover {
-    ${setBackgroundGradient(
-      'to right',
-      'var(--gradientBackgroundFrom)',
-      'var(--gradientBackgroundTo)',
-    )}
+    ${setBackgroundGradient()};
     color: var(--textWhite);
   }
 `;
