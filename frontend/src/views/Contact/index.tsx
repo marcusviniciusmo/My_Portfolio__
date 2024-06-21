@@ -54,7 +54,7 @@ export function Contact() {
 
   return (
     <ContactContainer>
-      <TitleContentPage title="Contact" $left="16.8" />
+      <TitleContentPage title="Contact" />
 
       <Form onSubmit={handleSubmit}>
         <Text>{CONTACT_TEXT}</Text>

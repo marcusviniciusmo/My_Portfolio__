@@ -39,7 +39,7 @@ export function Blogs() {
 
   return (
     <BlogsContainer>
-      <TitleContentPage title="Blogs" $left="12.8" />
+      <TitleContentPage title="Blogs" />
 
       <div
         className="blogsContainer"

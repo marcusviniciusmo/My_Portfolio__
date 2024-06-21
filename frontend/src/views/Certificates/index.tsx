@@ -46,7 +46,7 @@ export function Certificates() {
 
   return (
     <CertificatesContainer>
-      <TitleContentPage title="Certificates" $left="24.2" />
+      <TitleContentPage title="Certificates" />
 
       <div
         className="certificateContainer"

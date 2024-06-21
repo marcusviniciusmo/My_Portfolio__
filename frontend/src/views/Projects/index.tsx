@@ -5,7 +5,7 @@ import { ProjectsContainer } from './styles';
 export function Projects() {
   return (
     <ProjectsContainer>
-      <TitleContentPage title="Projects" $left="17.6" />
+      <TitleContentPage title="Projects" />
       <h1>PROJECTS COMPONENT</h1>
     </ProjectsContainer>
   );
