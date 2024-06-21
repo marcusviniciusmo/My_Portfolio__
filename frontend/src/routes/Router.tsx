@@ -1,13 +1,14 @@
 import { Routes, Route } from 'react-router-dom';
-import { DefaultLayout } from '../layout/DefaultLayout/DefaultLayout';
-import { Home } from '../views/Home';
-import { Blogs } from '../components/Blogs';
 
+import { DefaultLayout } from '../layout/DefaultLayout/DefaultLayout';
+
+import { Home } from '../views/Home';
 import { About } from '../views/About';
 import { Resume } from '../views/Resume';
 import { Projects } from '../views/Projects';
 import { Certificates } from '../views/Certificates';
 import { Testimonials } from '../views/Testimonials';
+import { Blogs } from '../views/Blogs';
 import { Contact } from '../views/Contact';
 
 export function Router() {
