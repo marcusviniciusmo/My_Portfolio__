@@ -1,14 +1,9 @@
 import RocketseatBlog from '../assets/rocketseatBlog.png';
 import CursoEmVideoBlog from '../assets/cursoEmVideoBlog.jpeg';
 
-export interface BlogsListType {
-  id: string;
-  name: string;
-  image: string;
-  url: string;
-}
+import { BlogType } from '../@types/Blogs';
 
-export const BlogsList: BlogsListType[] = [
+export const BlogsList: BlogType[] = [
   {
     id: '1',
     name: 'Blog da Rocketseat',
