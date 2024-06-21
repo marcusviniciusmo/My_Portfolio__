@@ -10,8 +10,10 @@ import { Textarea } from '../../components/Textarea';
 import { ContactFormType } from '../../@types/Contact';
 
 import { ContactContainer, Text, Form, Inputs, SubmitButton } from './styles';
+import { Loading } from '../../components/Loading';
 
 export function Contact() {
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [formData, setFormData] = useState<ContactFormType>({
     name: '',
     email: '',
@@ -35,6 +37,8 @@ export function Contact() {
     const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
     const form = event.target as HTMLFormElement;
 
+    setIsLoading(true);
+
     emailjs
       .sendForm(serviceId, templateId, form, userId)
       .then((result) => {
@@ -42,6 +46,9 @@ export function Contact() {
       })
       .catch((error) => {
         toast.error(`Error!! ${error}`);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   }
 
@@ -76,6 +83,7 @@ export function Contact() {
 
         <SubmitButton>Submit</SubmitButton>
         <Toastify />
+        {isLoading && <Loading />}
       </Form>
     </ContactContainer>
   );
