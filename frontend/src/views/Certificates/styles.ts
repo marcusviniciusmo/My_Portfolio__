@@ -1,21 +1,29 @@
 import styled from 'styled-components';
+import { CertificateProps } from '../../@types/Certificates';
 
-interface CertificateContainerProps {
-  $borderColor: string;
-}
-
-export const borderColors = ['#FCF4FF', '#EEFBFF', '#FFF0F0'];
-
-export const CertificatesContainer = styled.div`
-  margin-block: 3rem 2.4rem;
-  display: flex;
-  flex-wrap: wrap;
+export const CertificatesContainer = styled.div.attrs({
+  className: 'pageContainer',
+})`
+  div.certificateContainer {
+    margin-block: 3rem 2.4rem;
+    display: flex;
+    flex-wrap: wrap;
+  }
 `;
 
-export const CertificateContainer = styled.div<CertificateContainerProps>`
+export const Name = styled.span`
+  width: 100%;
+  height: 8.5rem;
+`;
+
+export const Certificate = styled.div<CertificateProps>`
   background: ${(props) =>
     props.theme.title === 'Dark' ? ' transparent' : props.$borderColor};
-  border: ${({ theme }) => theme.title === 'Dark' && '0.5px solid #CECECE'};
+  border: ${({ theme }) =>
+    theme.title === 'Dark' && `2px solid ${theme.colors.border}`};
+  opacity: ${(props) =>
+    props.$isListInHover ? (props.$isItemInHover ? 1 : 0.5) : 1};
+  box-shadow: var(--boxShadow);
   font-family: 'Roboto Slab';
   font-weight: bold;
   width: 20rem;
@@ -26,28 +34,18 @@ export const CertificateContainer = styled.div<CertificateContainerProps>`
   flex-direction: column;
   align-items: center;
   text-align: center;
-  overflow: hidden;
   gap: 1.2rem;
-  box-shadow:
-    0px 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0px 2px 4px -2px rgba(0, 0, 0, 0.1);
-
-  img {
-    width: 18rem;
-    height: 18rem;
-  }
-
-  span {
-    min-height: 5rem;
-  }
+  overflow: hidden;
+  cursor: pointer;
 
   &:hover {
-    border: ${({ theme }) => theme.title === 'Light' && '0.5px solid #AEAEAE'};
-    opacity: ${({ theme }) => theme.title === 'Dark' && '0.7'};
-    cursor: pointer;
-
-    span {
+    ${Name} {
       text-decoration: underline;
     }
   }
+`;
+
+export const Image = styled.img`
+  width: 18rem;
+  height: 18rem;
 `;

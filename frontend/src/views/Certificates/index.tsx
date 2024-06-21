@@ -1,70 +1,76 @@
 import { useEffect, useState } from 'react';
+
 import { TitleContentPage } from '../../components/TitleContentPage';
-import {
-  CertificatesList,
-  CertificatesListType,
-} from '../../data/certificates';
 import { CertificateModal } from '../../modal/Certificate';
-import {
-  CertificatesContainer,
-  CertificateContainer,
-  borderColors,
-} from './styles';
+
+import { CertificatesList } from '../../data/certificates';
+import { CertificateType } from '../../@types/Certificates';
+import { getIndexMap, setBorderColor } from '../../utils/Functions';
+
+import { borderColors } from '../../styles/global';
+import { CertificatesContainer, Certificate, Image, Name } from './styles';
 
 export function Certificates() {
-  const [certificatesList, setCertificatesList] = useState<
-    CertificatesListType[]
-  >([]);
-  const [hashIndexMap, setHashIndexMap] = useState<Map<string, number>>(
-    new Map(),
-  );
+  const [certificates, setCertificates] = useState<CertificateType[]>([]);
+  const [isItemHover, setIsItemHover] = useState<boolean>(false);
+  const [itemInHover, setItemInHover] = useState<string | null>(null);
+  const [indexMap, setIndexMap] = useState<Map<string, number>>(new Map());
   const [selectedCertificate, setSelectedCertificate] =
-    useState<CertificatesListType | null>(null);
+    useState<CertificateType | null>(null);
 
   useEffect(() => {
-    setCertificatesList(CertificatesList);
+    setCertificates(CertificatesList);
   }, []);
 
   useEffect(() => {
-    const map = new Map<string, number>();
+    const map = getIndexMap(certificates);
 
-    certificatesList.forEach((certificate, index) => {
-      map.set(certificate.id, index);
-    });
+    setIndexMap(map);
+  }, [certificates]);
 
-    setHashIndexMap(map);
-  }, [certificatesList]);
-
-  function selectCertificate(certificate: CertificatesListType | null) {
+  function selectCertificate(certificate: CertificateType | null) {
     setSelectedCertificate(certificate);
   }
 
+  function getBorderColor(listId: string) {
+    return setBorderColor(borderColors, indexMap, listId);
+  }
+
+  function handleMouseEnterList(isHover: boolean) {
+    setIsItemHover(isHover);
+  }
+
+  function handleMouseEnterItem(itemId: string | null) {
+    setItemInHover(itemId);
+  }
+
   return (
-    <div className="contentContainer">
+    <CertificatesContainer>
       <TitleContentPage title="Certificates" $left="24.2" />
 
-      <CertificatesContainer>
-        {certificatesList.map((certificate) => {
+      <div
+        className="certificateContainer"
+        onMouseEnter={() => handleMouseEnterList(true)}
+        onMouseLeave={() => handleMouseEnterList(false)}
+      >
+        {certificates.map((certificate) => {
           return (
-            <CertificateContainer
+            <Certificate
               key={certificate.id}
+              $borderColor={getBorderColor(certificate.id)}
+              $isListInHover={isItemHover}
+              $isItemInHover={certificate.id === itemInHover}
+              title={`${certificate.name} certificate`}
               onClick={() => selectCertificate(certificate)}
-              $borderColor={
-                borderColors[
-                  hashIndexMap.get(certificate.id)! % borderColors.length
-                ]
-              }
+              onMouseEnter={() => handleMouseEnterItem(certificate.id)}
+              onMouseLeave={() => handleMouseEnterItem(null)}
             >
-              <img
-                src={certificate.image}
-                alt=""
-                title={`${certificate.name} certificate`}
-              />
-              <span>{certificate.name}</span>
-            </CertificateContainer>
+              <Image src={certificate.image} alt="" />
+              <Name>{certificate.name}</Name>
+            </Certificate>
           );
         })}
-      </CertificatesContainer>
+      </div>
 
       {selectedCertificate && (
         <CertificateModal
@@ -72,6 +78,6 @@ export function Certificates() {
           toggleModal={() => selectCertificate(null)}
         />
       )}
-    </div>
+    </CertificatesContainer>
   );
 }

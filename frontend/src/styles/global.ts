@@ -1,5 +1,11 @@
 import { createGlobalStyle } from 'styled-components';
 
+export const borderColors = [
+  'var(--borderColor1)',
+  'var(--borderColor2)',
+  'var(--borderColor3)',
+];
+
 export const GlobalStyle = createGlobalStyle`
   :root {    
     --textWhite: #FFFFFF;
@@ -23,10 +29,11 @@ export const GlobalStyle = createGlobalStyle`
     --gradientBackgroundFrom: #FA5252;
     --gradientBackgroundTo: #DD2476;
 
-    --boxShadowDark: ${({ theme }) =>
-      theme.title === 'Dark' &&
-      `0 0 5px ${theme.colors.text},
-      inset 0 0 5px ${theme.colors.text}`};
+    --borderColor1: #FCF4FF;
+    --borderColor2: #EEFBFF;
+    --borderColor3: #FFF0F0;
+
+    --boxShadow: ${({ theme }) => `0 2px 4px -2px ${theme.colors.border}`};
 
     font-size: 62.5%;
   }

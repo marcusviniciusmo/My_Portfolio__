@@ -28,21 +28,9 @@ import SpringReactWeeKDsVendas from '../assets/certificates/_SpringReactWeek_DSV
 import TechnologicalDevelopment from '../assets/certificates/_TechnologicalDevelopment.png';
 import Word2016 from '../assets/certificates/_Word2016.jpeg';
 
-export interface CertificatesListType {
-  id: string;
-  name: string;
-  image: string;
-  workload?: string;
-  instructor?: string;
-  institution?: string;
-  conclusion: string;
-  type: 'graduation' | 'certification' | 'certificate';
-  score?: string;
-  sharingLink?: string;
-  area: string;
-}
+import { CertificateType } from '../@types/Certificates';
 
-export const CertificatesList: CertificatesListType[] = [
+export const CertificatesList: CertificateType[] = [
   {
     id: '1',
     name: 'NLW Unite, Reactjs - 2024',
@@ -120,7 +108,7 @@ export const CertificatesList: CertificatesListType[] = [
   },
   {
     id: '7',
-    name: 'DignityAtWork',
+    name: 'Dignity At Work',
     image: DignityAtWork,
     institution: 'HSE',
     conclusion: 'February 2023',

@@ -6,6 +6,7 @@ export type defaultTheme = {
   colors: {
     background: string;
     text: string;
+    border: string;
     shadow: string;
 
     backgroundSocialIcon: string;

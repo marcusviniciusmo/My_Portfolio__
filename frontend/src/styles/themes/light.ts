@@ -7,6 +7,7 @@ export const LightTheme: defaultTheme = {
   colors: {
     background: '#FFFFFF',
     text: '#000000',
+    border: 'rgba(0, 0, 0, 0.5)',
     shadow: '0 20px 13px rgba(0, 0, 0, 0.03)',
 
     backgroundSocialIcon: '#F3F6F6',

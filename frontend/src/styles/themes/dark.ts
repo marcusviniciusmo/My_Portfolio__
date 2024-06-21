@@ -7,6 +7,7 @@ export const DarkTheme: defaultTheme = {
   colors: {
     background: '#111111',
     text: '#FFFFFF',
+    border: 'rgba(255, 255, 255, 0.5)',
     shadow: '0 20px 13px rgba(255, 255, 255, 0.1)',
 
     backgroundSocialIcon: '#212425',
