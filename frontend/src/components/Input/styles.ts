@@ -1,19 +1,16 @@
 import styled from 'styled-components';
 
-export const InputContainer = styled.div``;
+export const InputContainer = styled.div.attrs({
+  className: 'fieldInputContainer',
+})``;
 
-export const Label = styled.label`
-  color: ${({ theme }) => theme.colors.textLabelInput};
-`;
+export const Label = styled.label.attrs({
+  className: 'fieldInputLabel',
+})``;
 
-export const StyledInput = styled.input`
-  border: 2px solid ${({ theme }) => theme.colors.borderInput};
-
-  &:focus,
-  &:valid {
-    border: 2px solid ${({ theme }) => theme.colors.borderInputFocused};
-  }
-
+export const StyledInput = styled.input.attrs({
+  className: 'fieldInputStyled',
+})`
   &:focus + ${Label}, &:valid + ${Label} {
     transform: translate(0.5rem, -3rem) scale(0.88);
     z-index: var(--max-z-index);

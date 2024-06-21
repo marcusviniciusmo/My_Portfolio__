@@ -113,14 +113,14 @@ export const GlobalStyle = createGlobalStyle`
     flex-direction: column;
   }
 
-  &.fieldContainer,
+  &.fieldInputContainer,
   &.fieldTextareaContainer {
     background: ${({ theme }) => theme.colors.background};
     flex: 1;
     position: relative;
   }
 
-  &.fieldStyled,
+  &.fieldInputStyled,
   &.fieldTextareaStyled {
     color: ${({ theme }) => theme.colors.text};
     border: 2px solid ${({ theme }) => theme.colors.borderFieldForm};
@@ -140,7 +140,7 @@ export const GlobalStyle = createGlobalStyle`
     }
   }
 
-  &.fieldLabel,
+  &.fieldInputLabel,
   &.fieldTextareaLabel {
     background: ${({ theme }) => theme.colors.background};
     color: ${({ theme }) => theme.colors.textFieldFormLabel};

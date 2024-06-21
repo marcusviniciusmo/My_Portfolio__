@@ -31,10 +31,6 @@ export type defaultTheme = {
     backgroundMenuItem: string;
     textMenuItem: string;
 
-    borderInput: string;
-    textLabelInput: string;
-    borderInputFocused: string;
-
     borderButtonSubmit: string;
     textButton: string;
 
