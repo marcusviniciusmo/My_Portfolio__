@@ -7,7 +7,8 @@ export const borderColors = [
 ];
 
 export const GlobalStyle = createGlobalStyle`
-  :root {    
+  :root {
+    --backgroundWhite: #FFFFFF;
     --textWhite: #FFFFFF;
 
     /** DELETE */
