@@ -9,6 +9,10 @@ export type defaultTheme = {
     border: string;
     shadow: string;
 
+    textFieldFormLabel: string;
+    borderFieldForm: string;
+    borderFieldFormFocused: string;
+
     backgroundSocialIcon: string;
     linkedinLogo: string;
     githubLogo: string;
@@ -30,10 +34,6 @@ export type defaultTheme = {
     borderInput: string;
     textLabelInput: string;
     borderInputFocused: string;
-
-    textLabelTextarea: string;
-    borderTextarea: string;
-    borderTextareaFocused: string;
 
     borderButtonSubmit: string;
     textButton: string;

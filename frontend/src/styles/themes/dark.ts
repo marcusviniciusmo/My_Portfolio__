@@ -10,6 +10,10 @@ export const DarkTheme: defaultTheme = {
     border: 'rgba(255, 255, 255, 0.5)',
     shadow: '0 20px 13px rgba(255, 255, 255, 0.1)',
 
+    textFieldFormLabel: '#A6A6A6',
+    borderFieldForm: '#212425',
+    borderFieldFormFocused: '#3D3A3A',
+
     backgroundSocialIcon: '#212425',
     linkedinLogo: '#E9E9EA',
     githubLogo: '#FFFFFF',
@@ -31,10 +35,6 @@ export const DarkTheme: defaultTheme = {
     borderInput: '#212425',
     textLabelInput: '#A6A6A6',
     borderInputFocused: '#3D3A3A',
-
-    textLabelTextarea: '#A6A6A6',
-    borderTextarea: '#212425',
-    borderTextareaFocused: '#3D3A3A',
 
     borderButtonSubmit: '#3D3A3A',
     textButton: '#A6A6A6',

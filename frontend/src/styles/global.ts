@@ -113,27 +113,17 @@ export const GlobalStyle = createGlobalStyle`
     flex-direction: column;
   }
 
-  &.fieldContainer {
+  &.fieldContainer,
+  &.fieldTextareaContainer {
     background: ${({ theme }) => theme.colors.background};
     flex: 1;
     position: relative;
   }
 
-  &.fieldLabel {
-    background: ${({ theme }) => theme.colors.background};
-    font-size: 1.6rem;
-    margin: 0 2rem;
-    padding: 0 1.5rem;
-    position: absolute;
-    top: 2rem;
-    left: -1rem;
-    user-select: none;
-    pointer-events: none;
-    transition: all 0.2s ease;
-  }
-
-  &.fieldStyled {
+  &.fieldStyled,
+  &.fieldTextareaStyled {
     color: ${({ theme }) => theme.colors.text};
+    border: 2px solid ${({ theme }) => theme.colors.borderFieldForm};
     background: transparent;
     font-size: 1.6rem;
     line-height: 4rem;
@@ -143,5 +133,25 @@ export const GlobalStyle = createGlobalStyle`
     outline: none;
     transition: all 0.3s ease-in-out;
     z-index: var(--max-z-index);
+
+    &:focus,
+    &:valid {
+      border: 2px solid ${({ theme }) => theme.colors.borderFieldFormFocused};
+    }
+  }
+
+  &.fieldLabel,
+  &.fieldTextareaLabel {
+    background: ${({ theme }) => theme.colors.background};
+    color: ${({ theme }) => theme.colors.textFieldFormLabel};
+    font-size: 1.6rem;
+    margin: 0 2rem;
+    padding: 0 1.5rem;
+    position: absolute;
+    top: 2rem;
+    left: -1rem;
+    user-select: none;
+    pointer-events: none;
+    transition: all 0.2s ease;
   }
 `;

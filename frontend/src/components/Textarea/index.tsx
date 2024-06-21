@@ -1,14 +1,8 @@
 import { useState } from 'react';
-import { TextareaContainer, StyledTextarea, Label } from './styles';
 
-interface TextareaProps {
-  name: string;
-  placeholder: string;
-  value: string;
-  onChange: (
-    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => void;
-}
+import { TextareaProps } from '../../@types/Textarea';
+
+import { TextareaContainer, StyledTextarea, Label } from './styles';
 
 export function Textarea({
   name,
@@ -19,9 +13,8 @@ export function Textarea({
   const [focused, setFocused] = useState(false);
 
   return (
-    <TextareaContainer className="fieldContainer">
+    <TextareaContainer>
       <StyledTextarea
-        className="fieldStyled"
         name={name}
         rows={5}
         value={value}
@@ -30,9 +23,8 @@ export function Textarea({
         onBlur={() => setFocused(false)}
         required
       />
-      <Label className="fieldLabel">
-        {focused || value ? placeholder : placeholder + ' *'}
-      </Label>
+
+      <Label>{focused || value ? placeholder : placeholder + ' *'}</Label>
     </TextareaContainer>
   );
 }
