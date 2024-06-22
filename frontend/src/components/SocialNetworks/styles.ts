@@ -9,7 +9,6 @@ export const SocialNetworksContainer = styled.div`
 
 export const SocialIcon = styled.span`
   background: ${({ theme }) => theme.colors.backgroundSocialIcon};
-  color: ${(props) => props.color};
   width: 4rem;
   height: 4rem;
   border-radius: 0.8rem;
