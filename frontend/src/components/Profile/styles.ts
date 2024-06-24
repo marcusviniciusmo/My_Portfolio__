@@ -24,14 +24,14 @@ export const Content = styled.div`
 `;
 
 export const Name = styled.h1`
-  color: ${({ theme }) => theme.colors.text};
+  color: ${({ theme }) => theme.colors.primaryText};
   font-size: 2.6rem;
   margin-block: 2.4rem 0.4rem;
 `;
 
 export const Role = styled.h3`
-  background: ${({ theme }) => theme.colors.backgroundRole};
-  color: ${({ theme }) => theme.colors.textRole};
+  background: ${({ theme }) => theme.colors.secondaryBackground};
+  color: ${({ theme }) => theme.colors.tertiaryText};
   font-weight: inherit;
   margin-bottom: 1.6rem;
   padding: 0.6rem 2rem;

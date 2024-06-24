@@ -34,7 +34,7 @@ export const GlobalStyle = createGlobalStyle`
     --borderColor2: #EEFBFF;
     --borderColor3: #FFF0F0;
 
-    --boxShadow: ${({ theme }) => `0 2px 4px -2px ${theme.colors.border}`};
+    --boxShadow: ${({ theme }) => `0 2px 4px -2px ${theme.colors.borderAlfa}`};
 
     font-size: 62.5%;
   }
@@ -99,7 +99,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   &.pageMarginTop {
-    background: ${({ theme }) => theme.colors.background};
+    background: ${({ theme }) => theme.colors.primaryBackground};
     height: 100%;
     border-radius: 2rem;
     position: relative;
@@ -107,7 +107,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   &.pageContainer {
-    color: ${({ theme }) => theme.colors.text};
+    color: ${({ theme }) => theme.colors.primaryText};
     padding: 4.8rem 5.6rem;
     display: flex;
     flex-direction: column;
@@ -115,15 +115,15 @@ export const GlobalStyle = createGlobalStyle`
 
   &.fieldInputContainer,
   &.fieldTextareaContainer {
-    background: ${({ theme }) => theme.colors.background};
+    background: ${({ theme }) => theme.colors.primaryBackground};
     flex: 1;
     position: relative;
   }
 
   &.fieldInputStyled,
   &.fieldTextareaStyled {
-    color: ${({ theme }) => theme.colors.text};
-    border: 2px solid ${({ theme }) => theme.colors.borderFieldForm};
+    color: ${({ theme }) => theme.colors.primaryText};
+    border: 2px solid ${({ theme }) => theme.colors.secondaryBorder};
     background: transparent;
     font-size: 1.6rem;
     line-height: 4rem;
@@ -136,14 +136,14 @@ export const GlobalStyle = createGlobalStyle`
 
     &:focus,
     &:valid {
-      border: 2px solid ${({ theme }) => theme.colors.borderFieldFormFocused};
+      border: 2px solid ${({ theme }) => theme.colors.primaryBorder};
     }
   }
 
   &.fieldInputLabel,
   &.fieldTextareaLabel {
-    background: ${({ theme }) => theme.colors.background};
-    color: ${({ theme }) => theme.colors.textFieldFormLabel};
+    background: ${({ theme }) => theme.colors.primaryBackground};
+    color: ${({ theme }) => theme.colors.secondaryText};
     font-size: 1.6rem;
     margin: 0 2rem;
     padding: 0 1.5rem;

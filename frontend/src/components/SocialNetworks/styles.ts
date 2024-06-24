@@ -8,7 +8,7 @@ export const SocialNetworksContainer = styled.div`
 `;
 
 export const SocialIcon = styled.span`
-  background: ${({ theme }) => theme.colors.backgroundSocialIcon};
+  background: ${({ theme }) => theme.colors.secondaryBackground};
   width: 4rem;
   height: 4rem;
   border-radius: 0.8rem;
@@ -18,22 +18,22 @@ export const SocialIcon = styled.span`
   cursor: pointer;
 
   &.linkedinLogo {
-    color: ${({ theme }) => theme.colors.linkedinLogo};
+    color: ${({ theme }) => theme.icons.linkedinLogo};
   }
 
   &.githubLogo {
-    color: ${({ theme }) => theme.colors.githubLogo};
+    color: ${({ theme }) => theme.icons.githubLogo};
   }
 
   &.whatsappLogo {
-    color: ${({ theme }) => theme.colors.whatsappLogo};
+    color: ${({ theme }) => theme.icons.whatsappLogo};
   }
 
   &.instagramLogo {
-    color: ${({ theme }) => theme.colors.instagramLogo};
+    color: ${({ theme }) => theme.icons.instagramLogo};
   }
 
   &.emailLogo {
-    color: ${({ theme }) => theme.colors.emailLogo};
+    color: ${({ theme }) => theme.icons.emailLogo};
   }
 `;

@@ -13,8 +13,8 @@ export const MenuItemsList = styled.ul`
 `;
 
 export const MenuItem = styled.div`
-  background: ${({ theme }) => theme.colors.backgroundMenuItem};
-  color: ${({ theme }) => theme.colors.textMenuItem};
+  background: ${({ theme }) => theme.colors.secondaryBackground};
+  color: ${({ theme }) => theme.colors.secondaryText};
   font-size: 1.3rem;
   font-weight: bold;
   width: 100%;

@@ -8,7 +8,7 @@ export const HeaderContainer = styled.header`
   justify-content: space-between;
 
   .headerIcon {
-    color: ${({ theme }) => theme.colors.text};
+    color: ${({ theme }) => theme.colors.primaryText};
     font-size: 4.2rem;
     padding-top: 0.4rem;
     transition: filter 300ms;

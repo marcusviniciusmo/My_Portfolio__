@@ -10,7 +10,7 @@ const Spin = keyframes`
 `;
 
 export const LoadingContainer = styled.div`
-  background: ${({ theme }) => theme.colors.background};
+  background: ${({ theme }) => theme.colors.primaryBackground};
   width: 100%;
   height: 100%;
   display: flex;
@@ -23,8 +23,8 @@ export const LoadingContainer = styled.div`
 `;
 
 export const Spinner = styled.div`
-  border: ${({ theme }) => `8px solid ${theme.colors.border}`};
-  border-top: ${({ theme }) => `8px solid ${theme.colors.text}`};
+  border: ${({ theme }) => `8px solid ${theme.colors.borderAlfa}`};
+  border-top: ${({ theme }) => `8px solid ${theme.colors.primaryText}`};
   width: 5rem;
   height: 5rem;
   border-radius: 50%;

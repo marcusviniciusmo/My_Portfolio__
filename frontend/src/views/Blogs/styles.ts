@@ -20,7 +20,7 @@ export const Blog = styled.div<BlogProps>`
   background: ${(props) =>
     props.theme.title === 'Dark' ? 'transparent' : props.$borderColor};
   border: ${({ theme }) =>
-    theme.title === 'Dark' && `2px solid ${theme.colors.border}`};
+    theme.title === 'Dark' && `2px solid ${theme.colors.borderAlfa}`};
   opacity: ${(props) =>
     props.$isListInHover ? (props.$isItemInHover ? 1 : 0.5) : 1};
   box-shadow: var(--boxShadow);

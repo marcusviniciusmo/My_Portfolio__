@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const ProfileInfosContainer = styled.div`
-  background: ${({ theme }) => theme.colors.backgroundProfileInfos};
+  background: ${({ theme }) => theme.colors.secondaryBackground};
   margin-top: 2.8rem;
   padding: 2.8rem;
   border-radius: 1.6rem;
@@ -17,12 +17,12 @@ export const Info = styled.div`
   }
 
   &:not(:last-child) {
-    border-bottom: 1px solid ${({ theme }) => theme.colors.borderBottomInfo};
+    border-bottom: 1px solid ${({ theme }) => theme.colors.primaryBorder};
   }
 `;
 
 export const InfoIcon = styled.span`
-  background: ${({ theme }) => theme.colors.backgroundIconInfo};
+  background: ${({ theme }) => theme.colors.primaryBackground};
   width: 4rem;
   height: 4rem;
   border-radius: 0.8rem;
@@ -57,12 +57,12 @@ export const ProfileInfo = styled.div`
 `;
 
 export const ProfileInfoLabel = styled.p`
-  color: ${({ theme }) => theme.colors.textProfileInfoLabel};
+  color: ${({ theme }) => theme.colors.secondaryText};
   font-size: 1.2rem;
 `;
 
 export const ProfileInfoData = styled.p`
-  color: ${({ theme }) => theme.colors.text};
+  color: ${({ theme }) => theme.colors.primaryText};
   word-break: break-all;
 
   a {

@@ -17,7 +17,7 @@ export const CertificateModalContainer = styled.div`
 `;
 
 export const Content = styled.div`
-  background: ${({ theme }) => theme.colors.background};
+  background: ${({ theme }) => theme.colors.primaryBackground};
   box-shadow: ${({ theme }) => theme.title === 'Dark' && '0 0 5px #CECECE'};
   width: 90rem;
   height: 50rem;
@@ -66,10 +66,10 @@ export const ImageContainer = styled.div<ImageProps>`
 
 export const Data = styled.table`
   font-size: 1.4rem;
-  color: ${({ theme }) => theme.colors.text};
+  color: ${({ theme }) => theme.colors.primaryText};
 
   tr {
-    background: ${({ theme }) => theme.colors.backgroundTableModalCertificate};
+    background: ${({ theme }) => theme.colors.secondaryBackground};
 
     &:hover {
       opacity: 0.5;

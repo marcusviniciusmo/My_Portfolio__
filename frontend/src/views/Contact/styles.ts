@@ -25,9 +25,9 @@ export const Inputs = styled.div`
 `;
 
 export const SubmitButton = styled.button`
-  background: ${({ theme }) => theme.colors.background};
-  color: ${({ theme }) => theme.colors.textButton};
-  border: 2px solid ${({ theme }) => theme.colors.borderButtonSubmit};
+  background: ${({ theme }) => theme.colors.primaryBackground};
+  color: ${({ theme }) => theme.colors.tertiaryText};
+  border: 2px solid ${({ theme }) => theme.colors.primaryBorder};
   font-weight: bold;
   width: 14.3rem;
   height: 5rem;
