@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { setBackgroundGradient } from '../../utils/Functions';
 
 export const SocialNetworksContainer = styled.div`
   margin-inline: 1.2rem;
@@ -35,5 +36,10 @@ export const SocialIcon = styled.span`
 
   &.emailLogo {
     color: ${({ theme }) => theme.icons.emailLogo};
+  }
+
+  &:hover {
+    color: var(--textWhite);
+    ${setBackgroundGradient()}
   }
 `;

@@ -1,26 +1,6 @@
 import styled from 'styled-components';
 import { ProfileInfoDataProps } from '../../@types/ProfileInfo';
-
-export const ProfileInfoContainer = styled.div`
-  background: ${({ theme }) => theme.colors.secondaryBackground};
-  margin-top: 2.8rem;
-  padding: 2.8rem;
-  border-radius: 1.6rem;
-
-  div.profileInfoContainer {
-    padding-bottom: 1rem;
-    display: flex;
-    align-items: center;
-
-    &:not(:first-child) {
-      padding-top: 1rem;
-    }
-
-    &:not(:last-child) {
-      border-bottom: 1px solid ${({ theme }) => theme.colors.primaryBorder};
-    }
-  }
-`;
+import { setBackgroundGradient } from '../../utils/Functions';
 
 export const Icon = styled.span`
   background: ${({ theme }) => theme.colors.primaryBackground};
@@ -47,6 +27,34 @@ export const Icon = styled.span`
 
   &.birthdayIcon {
     color: ${({ theme }) => theme.icons.birhtdayIcon};
+  }
+`;
+
+export const ProfileInfoContainer = styled.div`
+  background: ${({ theme }) => theme.colors.secondaryBackground};
+  margin-top: 2.8rem;
+  padding: 2.8rem;
+  border-radius: 1.6rem;
+
+  div.profileInfoContainer {
+    padding-bottom: 1rem;
+    display: flex;
+    align-items: center;
+
+    &:not(:first-child) {
+      padding-top: 1rem;
+    }
+
+    &:not(:last-child) {
+      border-bottom: 1px solid ${({ theme }) => theme.colors.primaryBorder};
+    }
+
+    &:hover {
+      ${Icon} {
+        color: var(--textWhite);
+        ${setBackgroundGradient()}
+      }
+    }
   }
 `;
 
