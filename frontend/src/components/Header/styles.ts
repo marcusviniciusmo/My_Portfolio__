@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { setBackgroundGradient } from '../../utils/Functions';
 
 export const HeaderContainer = styled.header`
   margin-inline: 8rem;
@@ -7,14 +8,19 @@ export const HeaderContainer = styled.header`
   align-items: center;
   justify-content: space-between;
 
-  .headerIcon {
+  .homeIcon {
     color: ${({ theme }) => theme.colors.primaryText};
+    box-shadow: var(--boxShadow);
     font-size: 4.2rem;
-    padding-top: 0.4rem;
+    padding: 0.5rem;
+    border-radius: 1rem;
     transition: filter 300ms;
+    cursor: pointer;
   }
 
-  .headerIcon:hover {
-    filter: drop-shadow(0 0 10px #ffffff);
+  .homeIcon:hover {
+    ${setBackgroundGradient()};
+    color: var(--textWhite);
+    filter: drop-shadow(0 0 10px var(--textWhite));
   }
 `;
