@@ -1,6 +1,6 @@
 import ProfilePhoto from '../../assets/profilePhoto.jpeg';
 import { SocialNetworks } from '../SocialNetworks';
-import { ProfileInfos } from '../ProfileInfo';
+import { ProfileInfo } from '../ProfileInfo';
 import { DownloadCV } from '../DownloadCV';
 import { ProfileContainer, Image, Content, Name, Role } from './styles';
 
@@ -15,7 +15,7 @@ export function Profile() {
 
         <SocialNetworks />
 
-        <ProfileInfos />
+        <ProfileInfo />
 
         <DownloadCV />
       </Content>

@@ -1,27 +1,28 @@
 import styled from 'styled-components';
+import { ProfileInfoDataProps } from '../../@types/ProfileInfo';
 
-export const ProfileInfosContainer = styled.div`
+export const ProfileInfoContainer = styled.div`
   background: ${({ theme }) => theme.colors.secondaryBackground};
   margin-top: 2.8rem;
   padding: 2.8rem;
   border-radius: 1.6rem;
+
+  div.profileInfoContainer {
+    padding-bottom: 1rem;
+    display: flex;
+    align-items: center;
+
+    &:not(:first-child) {
+      padding-top: 1rem;
+    }
+
+    &:not(:last-child) {
+      border-bottom: 1px solid ${({ theme }) => theme.colors.primaryBorder};
+    }
+  }
 `;
 
-export const Info = styled.div`
-  padding-bottom: 1rem;
-  display: flex;
-  align-items: center;
-
-  &:not(:first-child) {
-    padding-top: 1rem;
-  }
-
-  &:not(:last-child) {
-    border-bottom: 1px solid ${({ theme }) => theme.colors.primaryBorder};
-  }
-`;
-
-export const InfoIcon = styled.span`
+export const Icon = styled.span`
   background: ${({ theme }) => theme.colors.primaryBackground};
   width: 4rem;
   height: 4rem;
@@ -30,47 +31,44 @@ export const InfoIcon = styled.span`
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  box-shadow:
-    0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--boxShadow);
 
   &.smartphoneIcon {
-    color: var(--colorProfileIconSmartphone);
+    color: ${({ theme }) => theme.icons.phoneIcon};
   }
 
   &.emailIcon {
-    color: var(--colorProfileIconEmail);
+    color: ${({ theme }) => theme.icons.emailIcon};
   }
 
   &.locationIcon {
-    color: var(--colorProfileIconLocation);
+    color: ${({ theme }) => theme.icons.locationIcon};
   }
 
   &.birthdayIcon {
-    color: var(--colorProfileIconBirthday);
+    color: ${({ theme }) => theme.icons.birhtdayIcon};
   }
 `;
 
-export const ProfileInfo = styled.div`
+export const Info = styled.div`
   text-align: left;
   margin-left: 1rem;
 `;
 
-export const ProfileInfoLabel = styled.p`
+export const Label = styled.p`
   color: ${({ theme }) => theme.colors.secondaryText};
   font-size: 1.2rem;
 `;
 
-export const ProfileInfoData = styled.p`
+export const Data = styled.p<ProfileInfoDataProps>`
   color: ${({ theme }) => theme.colors.primaryText};
-  word-break: break-all;
 
   a {
-    cursor: pointer;
+    cursor: ${(props) => (props.$link ? 'pointer' : 'default')};
     transition-duration: 0.3s;
 
     &:hover {
-      color: var(--colorProfileInfoDataHover);
+      color: var(--gradientBackgroundFrom);
     }
   }
 `;

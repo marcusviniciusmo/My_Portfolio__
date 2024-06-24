@@ -24,5 +24,10 @@ export const LightTheme: defaultTheme = {
     whatsappLogo: '#23D366',
     instagramLogo: '#F04B5A',
     emailLogo: '#0363B8',
+
+    phoneIcon: '#E93B81',
+    emailIcon: '#6AB5B9',
+    locationIcon: '#FD7590',
+    birhtdayIcon: '#C17CEB',
   },
 };

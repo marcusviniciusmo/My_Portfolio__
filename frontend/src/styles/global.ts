@@ -18,13 +18,6 @@ export const GlobalStyle = createGlobalStyle`
     --colorIconDark: darkblue;
     --colorIconLight: orange;
 
-    --colorProfileInfoDataHover: #FA5252;
-
-    --colorProfileIconSmartphone: #E93B81;
-    --colorProfileIconEmail: #6AB5B9;
-    --colorProfileIconLocation: #FD7590;
-    --colorProfileIconBirthday: #C17CEB;
-
     --max-z-index: 999;
 
     --gradientBackgroundFrom: #FA5252;

@@ -23,6 +23,11 @@ export type defaultTheme = {
     whatsappLogo: string;
     instagramLogo: string;
     emailLogo: string;
+
+    phoneIcon: string;
+    emailIcon: string;
+    locationIcon: string;
+    birhtdayIcon: string;
   };
 };
 

@@ -24,5 +24,10 @@ export const DarkTheme: defaultTheme = {
     whatsappLogo: '#B5FFAA',
     instagramLogo: '#E1146C',
     emailLogo: '#2EDCFD',
+
+    phoneIcon: '#E93B81',
+    emailIcon: '#6AB5B9',
+    locationIcon: '#FD7590',
+    birhtdayIcon: '#C17CEB',
   },
 };
