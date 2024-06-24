@@ -61,15 +61,6 @@ export const GlobalStyle = createGlobalStyle`
     outline: 0;
   }
 
-  &.backgroundGradientToRight {
-    color: var(--textWhite);
-    background: linear-gradient(
-      to right,
-      var(--gradientHoverBackgroundFrom),
-      var(--gradientHoverBackgroundTo)
-    );
-  }
-
   &.gradientHover {
     transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
 
@@ -85,10 +76,6 @@ export const GlobalStyle = createGlobalStyle`
 
   &.gradientHoverToRight {
     --gradientDirection: to right;
-  }
-
-  &.gradientHoverToLeft {
-    --gradientDirection: to left;
   }
 
   &.pageMarginTop {
