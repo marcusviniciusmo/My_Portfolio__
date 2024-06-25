@@ -1,100 +1,130 @@
 import { Close } from '@mui/icons-material';
-import {
-  CertificateModalContainer,
-  Content,
-  Header,
-  Body,
-  ImageContainer,
-  Data,
-} from './styles';
 
-interface CertificateModalProps {
-  certificate: {
-    image: string;
-    name: string;
-    workload?: string;
-    instructor?: string;
-    institution?: string;
-    conclusion: string;
-    type: string;
-    score?: string;
-    sharingLink?: string;
-  };
-  toggleModal: () => void;
-}
+import { CertificateModalProps as ModalProps } from '../../@types/Certificates';
 
-export function CertificateModal({
-  certificate,
-  toggleModal,
-}: CertificateModalProps) {
+import * as Styles from './styles';
+import { useState } from 'react';
+
+export function CertificateModal({ certificate, toggleModal }: ModalProps) {
+  const [isListInHover, setIsHoverInList] = useState<boolean>(false);
+  const [isItemHover, setIsItemHover] = useState<string | null>(null);
+
+  function handleMouseEnterList(isHover: boolean) {
+    setIsHoverInList(isHover);
+  }
+
+  function handleMouseEnterItem(itemLabel: string | null) {
+    setIsItemHover(itemLabel);
+  }
+
   return (
-    <CertificateModalContainer>
-      <Content>
-        <Header>
+    <Styles.CertificateModalContainer>
+      <div className="certificateModalContent">
+        <Styles.Header>
           <span onClick={toggleModal}>
             <Close titleAccess="Close" fontSize="large" />
           </span>
-        </Header>
+        </Styles.Header>
 
-        <Body>
-          <ImageContainer background={certificate.image} />
+        <Styles.Body>
+          <Styles.ImageContainer $background={certificate.image} />
 
-          <Data>
-            <tr>
-              <th>Name</th>
-              <td>{certificate.name}</td>
-            </tr>
+          <Styles.DataTable
+            onMouseEnter={() => handleMouseEnterList(true)}
+            onMouseLeave={() => handleMouseEnterList(false)}
+          >
+            <tbody>
+              <Styles.Row
+                $isListInHover={isListInHover}
+                $isItemInHover={isItemHover === 'name'}
+                onMouseEnter={() => handleMouseEnterItem('name')}
+                onMouseLeave={() => handleMouseEnterItem(null)}
+              >
+                <th>Name</th>
+                <td>{certificate.name}</td>
+              </Styles.Row>
 
-            {certificate.workload && (
-              <tr>
-                <th>Workload</th>
-                <td>{certificate.workload}</td>
-              </tr>
-            )}
+              {certificate.workload && (
+                <Styles.Row
+                  $isListInHover={isListInHover}
+                  $isItemInHover={isItemHover === 'workload'}
+                  onMouseEnter={() => handleMouseEnterItem('workload')}
+                  onMouseLeave={() => handleMouseEnterItem(null)}
+                >
+                  <th>Workload</th>
+                  <td>{certificate.workload}</td>
+                </Styles.Row>
+              )}
 
-            {certificate.instructor && (
-              <tr>
-                <th>Instructor</th>
-                <td>{certificate.instructor}</td>
-              </tr>
-            )}
+              {certificate.instructor && (
+                <Styles.Row
+                  $isListInHover={isListInHover}
+                  $isItemInHover={isItemHover === 'instructor'}
+                  onMouseEnter={() => handleMouseEnterItem('instructor')}
+                  onMouseLeave={() => handleMouseEnterItem(null)}
+                >
+                  <th>Instructor</th>
+                  <td>{certificate.instructor}</td>
+                </Styles.Row>
+              )}
 
-            {certificate.institution && (
-              <tr>
-                <th>Institution</th>
-                <td>{certificate.institution}</td>
-              </tr>
-            )}
+              {certificate.institution && (
+                <Styles.Row
+                  $isListInHover={isListInHover}
+                  $isItemInHover={isItemHover === 'institution'}
+                  onMouseEnter={() => handleMouseEnterItem('institution')}
+                  onMouseLeave={() => handleMouseEnterItem(null)}
+                >
+                  <th>Institution</th>
+                  <td>{certificate.institution}</td>
+                </Styles.Row>
+              )}
 
-            <tr>
-              <th>Conclusion</th>
-              <td>{certificate.conclusion}</td>
-            </tr>
+              <Styles.Row
+                $isListInHover={isListInHover}
+                $isItemInHover={isItemHover === 'conclusion'}
+                onMouseEnter={() => handleMouseEnterItem('conclusion')}
+                onMouseLeave={() => handleMouseEnterItem(null)}
+              >
+                <th>Conclusion</th>
+                <td>{certificate.conclusion}</td>
+              </Styles.Row>
 
-            {certificate.score && (
-              <tr>
-                <th>Score</th>
-                <td>{certificate.score}</td>
-              </tr>
-            )}
+              {certificate.score && (
+                <Styles.Row
+                  $isListInHover={isListInHover}
+                  $isItemInHover={isItemHover === 'score'}
+                  onMouseEnter={() => handleMouseEnterItem('score')}
+                  onMouseLeave={() => handleMouseEnterItem(null)}
+                >
+                  <th>Score</th>
+                  <td>{certificate.score}</td>
+                </Styles.Row>
+              )}
 
-            {certificate.sharingLink && (
-              <tr>
-                <th>Link</th>
-                <td>
-                  <a
-                    href={certificate.sharingLink}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Check here
-                  </a>
-                </td>
-              </tr>
-            )}
-          </Data>
-        </Body>
-      </Content>
-    </CertificateModalContainer>
+              {certificate.sharingLink && (
+                <Styles.Row
+                  $isListInHover={isListInHover}
+                  $isItemInHover={isItemHover === 'sharingLink'}
+                  onMouseEnter={() => handleMouseEnterItem('sharingLink')}
+                  onMouseLeave={() => handleMouseEnterItem(null)}
+                >
+                  <th>Link</th>
+                  <td>
+                    <a
+                      href={certificate.sharingLink}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Check here
+                    </a>
+                  </td>
+                </Styles.Row>
+              )}
+            </tbody>
+          </Styles.DataTable>
+        </Styles.Body>
+      </div>
+    </Styles.CertificateModalContainer>
   );
 }

@@ -17,3 +17,27 @@ export interface CertificateProps {
   $isListInHover: boolean;
   $isItemInHover: boolean;
 }
+
+export interface CertificateModalProps {
+  certificate: {
+    image: string;
+    name: string;
+    workload?: string;
+    instructor?: string;
+    institution?: string;
+    conclusion: string;
+    type: string;
+    score?: string;
+    sharingLink?: string;
+  };
+  toggleModal: () => void;
+}
+
+export interface ImageModalProps {
+  $background: string;
+}
+
+export interface RowTableModalProps {
+  $isListInHover: boolean;
+  $isItemInHover: boolean;
+}

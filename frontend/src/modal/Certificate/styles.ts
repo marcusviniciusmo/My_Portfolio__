@@ -1,11 +1,9 @@
 import styled from 'styled-components';
-
-interface ImageProps {
-  background: string;
-}
+import { ImageModalProps, RowTableModalProps } from '../../@types/Certificates';
 
 export const CertificateModalContainer = styled.div`
-  background: rgba(0, 0, 0, 0.7);
+  background: var(--backgroundOpacityModal);
+  z-index: var(--max-z-index);
   width: 100%;
   height: 100%;
   display: flex;
@@ -13,15 +11,14 @@ export const CertificateModalContainer = styled.div`
   justify-content: center;
   position: fixed;
   inset: 0;
-  z-index: var(--max-z-index);
-`;
 
-export const Content = styled.div`
-  background: ${({ theme }) => theme.colors.primaryBackground};
-  box-shadow: ${({ theme }) => theme.title === 'Dark' && '0 0 5px #CECECE'};
-  width: 90rem;
-  height: 50rem;
-  border-radius: 2rem;
+  div.certificateModalContent {
+    background: ${({ theme }) => theme.colors.primaryBackground};
+    box-shadow: var(--boxShadowModal);
+    width: 90rem;
+    height: 50rem;
+    border-radius: 2rem;
+  }
 `;
 
 export const Header = styled.div`
@@ -45,16 +42,14 @@ export const Body = styled.div`
   gap: 8rem;
 `;
 
-export const ImageContainer = styled.div<ImageProps>`
-  background: url(${(props) => props.background}) no-repeat;
+export const ImageContainer = styled.div<ImageModalProps>`
+  background: url(${(props) => props.$background}) no-repeat;
+  box-shadow: var(--boxShadow);
   background-position: 50% 50%;
   background-size: 70rem 70rem;
   width: 35rem;
   height: 35rem;
   border-radius: 0.8rem;
-  box-shadow:
-    2px 4px 6px -1px rgba(0, 0, 0, 0.1),
-    2px 2px 4px -2px rgba(0, 0, 0, 0.1);
   transition: all 0.4s ease-in-out;
 
   &:hover {
@@ -64,17 +59,9 @@ export const ImageContainer = styled.div<ImageProps>`
   }
 `;
 
-export const Data = styled.table`
-  font-size: 1.4rem;
+export const DataTable = styled.table`
   color: ${({ theme }) => theme.colors.primaryText};
-
-  tr {
-    background: ${({ theme }) => theme.colors.secondaryBackground};
-
-    &:hover {
-      opacity: 0.5;
-    }
-  }
+  font-size: 1.4rem;
 
   th,
   td {
@@ -94,4 +81,10 @@ export const Data = styled.table`
       cursor: pointer;
     }
   }
+`;
+
+export const Row = styled.tr<RowTableModalProps>`
+  background: ${({ theme }) => theme.colors.secondaryBackground};
+  opacity: ${(props) =>
+    props.$isListInHover ? (props.$isItemInHover ? 1 : 0.5) : 1};
 `;

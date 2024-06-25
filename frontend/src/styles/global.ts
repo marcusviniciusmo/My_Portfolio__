@@ -9,6 +9,8 @@ export const borderColors = [
 export const GlobalStyle = createGlobalStyle`
   :root {
     --backgroundWhite: #FFFFFF;
+    --backgroundOpacityModal: rgba(0, 0, 0, 0.7);
+
     --textWhite: #FFFFFF;
 
     /** DELETE */
@@ -28,6 +30,7 @@ export const GlobalStyle = createGlobalStyle`
     --borderColor3: #FFF0F0;
 
     --boxShadow: ${({ theme }) => `0 2px 4px -2px ${theme.colors.borderAlfa}`};
+    --boxShadowModal: 0 0 5px #CECECE;
 
     font-size: 62.5%;
   }
