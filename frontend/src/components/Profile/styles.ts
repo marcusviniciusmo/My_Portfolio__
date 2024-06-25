@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 
-export const ProfileContainer = styled.aside`
-  width: 40rem;
+export const ProfileContainer = styled.aside.attrs({
+  className: 'pageMarginTop',
+})`
   text-align: center;
+  width: 40rem;
   padding-inline: 2.4rem;
   display: flex;
   flex-direction: column;
@@ -32,7 +34,7 @@ export const Name = styled.h1`
 export const Role = styled.h3`
   background: ${({ theme }) => theme.colors.secondaryBackground};
   color: ${({ theme }) => theme.colors.tertiaryText};
-  font-weight: inherit;
+  font-weight: 400;
   margin-bottom: 1.6rem;
   padding: 0.6rem 2rem;
   border-radius: 0.5rem;
