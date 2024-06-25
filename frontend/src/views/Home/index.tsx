@@ -1,5 +1,5 @@
-import AvatarImage from '../../assets/avatar.jpg';
-import SetupImage from '../../assets/setupImage.svg';
+import AvatarImage from '../../assets/home/avatar.jpg';
+import SetupImage from '../../assets/home/setupImage.svg';
 
 import { HomeContainer, Title, Subtitle, Avatar, Setup } from './styles';
 

@@ -1,4 +1,4 @@
-import ProfilePhoto from '../../assets/profilePhoto.jpeg';
+import ProfilePhoto from '../../assets/profile/profilePhoto.jpeg';
 
 import { SocialNetworks } from '../SocialNetworks';
 import { ProfileInfo } from '../ProfileInfo';

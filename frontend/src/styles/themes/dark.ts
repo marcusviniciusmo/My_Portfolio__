@@ -1,4 +1,4 @@
-import BackgroundImageDark from '../../assets/backgroundImageDark.jpg';
+import BackgroundImageDark from '../../assets/background/backgroundImageDark.jpg';
 import { defaultTheme } from '../../@types/styles';
 
 export const DarkTheme: defaultTheme = {

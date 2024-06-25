@@ -1,5 +1,5 @@
-import RocketseatBlog from '../assets/rocketseatBlog.png';
-import CursoEmVideoBlog from '../assets/cursoEmVideoBlog.jpeg';
+import RocketseatBlog from '../assets/blogs/rocketseatBlog.png';
+import CursoEmVideoBlog from '../assets/blogs/cursoEmVideoBlog.jpeg';
 
 import { BlogType } from '../@types/Blogs';
 

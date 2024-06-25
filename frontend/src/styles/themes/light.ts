@@ -1,4 +1,4 @@
-import BackgroundImageLight from '../../assets/backgroundImageLight.jpg';
+import BackgroundImageLight from '../../assets/background/backgroundImageLight.jpg';
 import { defaultTheme } from '../../@types/styles';
 
 export const LightTheme: defaultTheme = {
