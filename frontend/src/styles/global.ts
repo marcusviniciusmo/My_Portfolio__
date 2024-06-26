@@ -13,14 +13,8 @@ export const GlobalStyle = createGlobalStyle`
 
     --textWhite: #FFFFFF;
 
-    /** DELETE */
-    --gradientHoverBackgroundFrom: #FA5252;
-    --gradientHoverBackgroundTo: #DD2476;
-
-    --colorIconDark: darkblue;
-    --colorIconLight: orange;
-
-    --max-z-index: 999;
+    --colorIconDark: #00008B;
+    --colorIconLight: #FFA500;
 
     --gradientBackgroundFrom: #FA5252;
     --gradientBackgroundTo: #DD2476;
@@ -31,6 +25,8 @@ export const GlobalStyle = createGlobalStyle`
 
     --boxShadow: ${({ theme }) => `0 2px 4px -2px ${theme.colors.borderAlfa}`};
     --boxShadowModal: 0 0 5px #CECECE;
+
+    --max-z-index: 999;
 
     font-size: 62.5%;
   }
@@ -64,29 +60,11 @@ export const GlobalStyle = createGlobalStyle`
     outline: 0;
   }
 
-  &.gradientHover {
-    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
-
-    &:hover {
-      color: var(--textWhite);
-      background: linear-gradient(
-        var(--gradientDirection),
-        var(--gradientHoverBackgroundFrom),
-        var(--gradientHoverBackgroundTo)
-      );
-    }
-  }
-
-  &.gradientHoverToRight {
-    --gradientDirection: to right;
-  }
-
-  &.pageMarginTop {
+  &.viewContent {
     background: ${({ theme }) => theme.colors.primaryBackground};
     height: 100%;
     border-radius: 2rem;
-    position: relative;
-    top: 17.6rem;
+    margin-top: 17.6rem;
   }
 
   &.pageContainer {

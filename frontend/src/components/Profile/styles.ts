@@ -1,13 +1,14 @@
 import styled from 'styled-components';
 
 export const ProfileContainer = styled.aside.attrs({
-  className: 'pageMarginTop',
+  className: 'viewContent',
 })`
   text-align: center;
   width: 40rem;
   padding-inline: 2.4rem;
   display: flex;
   flex-direction: column;
+  position: relative;
 `;
 
 export const Image = styled.img`

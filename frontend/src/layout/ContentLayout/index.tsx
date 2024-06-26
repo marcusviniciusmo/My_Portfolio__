@@ -7,7 +7,7 @@ interface ContentLayoutProps {
 
 export function ContentLayout({ children }: ContentLayoutProps) {
   return (
-    <ContentLayoutContainer className="pageMarginTop">
+    <ContentLayoutContainer className="viewContent">
       {children}
     </ContentLayoutContainer>
   );

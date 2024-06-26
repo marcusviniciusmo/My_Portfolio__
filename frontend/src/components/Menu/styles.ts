@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { setBackgroundGradient } from '../../utils/Functions';
 
 export const MenuContainer = styled.nav.attrs({
-  className: 'pageMarginTop',
+  className: 'viewContent',
 })`
   width: 14.5rem;
   margin-bottom: 4rem;
