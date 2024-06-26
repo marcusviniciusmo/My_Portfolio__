@@ -1,14 +1,7 @@
-import { ReactNode } from 'react';
+import { ContentLayoutProps } from '../../@types/ContentLayout';
+
 import { ContentLayoutContainer } from './styles';
 
-interface ContentLayoutProps {
-  children: ReactNode;
-}
-
 export function ContentLayout({ children }: ContentLayoutProps) {
-  return (
-    <ContentLayoutContainer className="viewContent">
-      {children}
-    </ContentLayoutContainer>
-  );
+  return <ContentLayoutContainer>{children}</ContentLayoutContainer>;
 }
