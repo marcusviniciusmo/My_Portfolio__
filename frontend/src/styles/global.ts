@@ -13,6 +13,7 @@ export const GlobalStyle = createGlobalStyle`
 
     --textWhite: #FFFFFF;
 
+    --colorIcon: #F95054;
     --colorIconDark: #00008B;
     --colorIconLight: #FFA500;
 
@@ -22,6 +23,7 @@ export const GlobalStyle = createGlobalStyle`
     --borderColor1: #FCF4FF;
     --borderColor2: #EEFBFF;
     --borderColor3: #FFF0F0;
+    --borderProgressFull: #EDF2F2;
 
     --boxShadow: ${({ theme }) => `0 2px 4px -2px ${theme.colors.borderAlfa}`};
     --boxShadowModal: 0 0 5px #CECECE;
