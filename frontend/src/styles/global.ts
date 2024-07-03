@@ -4,6 +4,8 @@ export const borderColors = [
   'var(--borderColor1)',
   'var(--borderColor2)',
   'var(--borderColor3)',
+  'var(--borderColor4)',
+  'var(--borderColor5)',
 ];
 
 export const GlobalStyle = createGlobalStyle`
@@ -16,13 +18,21 @@ export const GlobalStyle = createGlobalStyle`
     --colorIcon: #F95054;
     --colorIconDark: #00008B;
     --colorIconLight: #FFA500;
+    --colorWithBorder1: #D565FF;
+    --colorWithBorder2: #FE75D8;
+    --colorWithBorder3: #259FFF;
+    --colorWithBorder4: #E6B85B;
+    --colorWithBorder5: #FF6080;
+    --colorWithBorder6: #8774FF;
 
     --gradientBackgroundFrom: #FA5252;
     --gradientBackgroundTo: #DD2476;
 
     --borderColor1: #FCF4FF;
-    --borderColor2: #EEFBFF;
-    --borderColor3: #FFF0F0;
+    --borderColor2: #FFF0F8;
+    --borderColor3: #EEFBFF;
+    --borderColor4: #FEFAF0;
+    --borderColor5: #FFF0F0;
     --borderProgressFull: #EDF2F2;
 
     --boxShadow: ${({ theme }) => `0 2px 4px -2px ${theme.colors.borderAlfa}`};
