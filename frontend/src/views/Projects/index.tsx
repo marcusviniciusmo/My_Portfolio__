@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { GitHub, Tv } from '@mui/icons-material';
 
 import { TitleContentPage } from '../../components/TitleContentPage';
+import { ProjectModal } from '../../modal/Project';
 
 import { ProjectType, ProjectTypeFromApi } from '../../@types/Projects';
 import { getIndexMap, setBorderColor } from '../../utils/Functions';
@@ -13,6 +14,9 @@ export function Projects() {
   const [projects, setProjects] = useState<ProjectType[]>([]);
   const [isListInHover, setIsListInHover] = useState<boolean>(false);
   const [itemInHover, setItemInHover] = useState<string | null>(null);
+  const [selectedProject, setSelectedProject] = useState<ProjectType | null>(
+    null,
+  );
   const [indexMap, setIndexMap] = useState<Map<string, number>>(new Map());
 
   const username = 'marcusviniciusmo';
@@ -50,6 +54,10 @@ export function Projects() {
     setIndexMap(map);
   }, [projects]);
 
+  function selectProject(project: ProjectType) {
+    setSelectedProject(project);
+  }
+
   function getBorderColor(itemId: string) {
     return setBorderColor(borderColors, indexMap, itemId);
   }
@@ -79,6 +87,7 @@ export function Projects() {
               $borderColor={getBorderColor(project.id)}
               $isListInHover={isListInHover}
               $isItemInHover={itemInHover === project.id}
+              onClick={() => selectProject(project)}
               onMouseEnter={() => handleMouseEnterItem(project.id)}
               onMouseLeave={() => handleMouseEnterItem(null)}
             >
@@ -108,6 +117,8 @@ export function Projects() {
           );
         })}
       </div>
+
+      {selectedProject && <ProjectModal />}
     </Styles.ProjectsContainer>
   );
 }
