@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import { TitleContentPage } from '../../components/TitleContentPage';
+import { Modal } from '../../components/Modal';
 import { CertificateModal } from '../../modal/Certificate';
 
 import { CertificatesList } from '../../data/certificates';
@@ -73,10 +74,9 @@ export function Certificates() {
       </div>
 
       {selectedCertificate && (
-        <CertificateModal
-          certificate={selectedCertificate}
-          toggleModal={() => selectCertificate(null)}
-        />
+        <Modal title="Certificate" toggleModal={() => selectCertificate(null)}>
+          <CertificateModal certificate={selectedCertificate} />
+        </Modal>
       )}
     </CertificatesContainer>
   );

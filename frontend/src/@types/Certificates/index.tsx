@@ -30,7 +30,6 @@ export interface CertificateModalProps {
     score?: string;
     sharingLink?: string;
   };
-  toggleModal: () => void;
 }
 
 export interface ImageModalProps {

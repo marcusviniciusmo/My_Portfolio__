@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { GitHub, Tv } from '@mui/icons-material';
 
 import { TitleContentPage } from '../../components/TitleContentPage';
+import { Modal } from '../../components/Modal';
 import { ProjectModal } from '../../modal/Project';
 
 import { ProjectType, ProjectTypeFromApi } from '../../@types/Projects';
@@ -54,7 +55,7 @@ export function Projects() {
     setIndexMap(map);
   }, [projects]);
 
-  function selectProject(project: ProjectType) {
+  function selectProject(project: ProjectType | null) {
     setSelectedProject(project);
   }
 
@@ -118,7 +119,11 @@ export function Projects() {
         })}
       </div>
 
-      {selectedProject && <ProjectModal />}
+      {selectedProject && (
+        <Modal title="Project" toggleModal={() => selectProject(null)}>
+          <ProjectModal />
+        </Modal>
+      )}
     </Styles.ProjectsContainer>
   );
 }
