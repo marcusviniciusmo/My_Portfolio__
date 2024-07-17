@@ -127,4 +127,52 @@ export const GlobalStyle = createGlobalStyle`
     pointer-events: none;
     transition: all 0.2s ease;
   }
+
+  &.modalBody {
+    height: 40rem;
+    margin: 0 auto;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+  }
+
+  &.modalImageContainer {
+    box-shadow: var(--boxShadow);
+    width: 30rem;
+    height: 30rem;
+    border-radius: 0.8rem;
+    transition: all 0.4s ease-in-out;
+
+    &:hover {
+      background-position: 0rem 0rem;
+      background-size: 30rem 30rem;
+      transform: scale(2);
+    }
+  }
+
+  &.modalTable {
+    color: ${({ theme }) => theme.colors.primaryText};
+    font-size: 1.4rem;
+
+    th,
+    td {
+      padding: 1rem;
+      border-radius: 0.5rem;
+    }
+
+    td {
+      max-width: 30rem;
+    }
+
+    a {
+      font-weight: bold;
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
 `;

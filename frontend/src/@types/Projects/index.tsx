@@ -23,3 +23,16 @@ export interface ProjectProps {
   $isListInHover: boolean;
   $isItemInHover: boolean;
 }
+
+export interface ProjectModalProps {
+  project: ProjectType;
+}
+
+export interface ImageContainerProps {
+  $background: string;
+}
+
+export interface RowTableModalProps {
+  $isListInHover: boolean;
+  $isItemInHover: boolean;
+}

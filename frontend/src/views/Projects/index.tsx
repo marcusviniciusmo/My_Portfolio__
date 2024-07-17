@@ -74,7 +74,6 @@ export function Projects() {
   return (
     <Styles.ProjectsContainer>
       <TitleContentPage title="Projects" />
-      <h1>PROJECTS COMPONENT</h1>
 
       <div
         className="projectsContainer"
@@ -97,13 +96,6 @@ export function Projects() {
               </Styles.ImageContainer>
 
               <Styles.Name>{project.name}</Styles.Name>
-              <Styles.Description>
-                <p>{project.description}</p>
-              </Styles.Description>
-
-              {project.technologies?.map((tech, index) => {
-                return <span key={index}>{`${tech} `}</span>;
-              })}
 
               <div className="links">
                 <Styles.Repository href={project.urlRepository} target="_blank">
@@ -121,7 +113,7 @@ export function Projects() {
 
       {selectedProject && (
         <Modal title="Project" toggleModal={() => selectProject(null)}>
-          <ProjectModal />
+          <ProjectModal project={selectedProject} />
         </Modal>
       )}
     </Styles.ProjectsContainer>

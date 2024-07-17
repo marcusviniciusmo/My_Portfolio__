@@ -62,14 +62,6 @@ export const ImageContainer = styled.div`
   }
 `;
 
-export const Description = styled.div`
-  color: ${({ theme }) => theme.colors.secondaryText};
-  height: 10rem;
-  margin-block: 2rem;
-  padding: 0.5rem;
-  overflow: hidden;
-`;
-
 export const Repository = styled.a`
   cursor: pointer;
 `;

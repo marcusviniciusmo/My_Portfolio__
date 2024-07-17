@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { CertificateModalProps as ModalProps } from '../../@types/Certificates';
 
-import { Body, ImageContainer, DataTable, Row } from './styles';
+import { Body, ImageContainer, Table, Row } from './styles';
 
 export function CertificateModal({ certificate }: ModalProps) {
   const [isListInHover, setIsHoverInList] = useState<boolean>(false);
@@ -20,7 +20,7 @@ export function CertificateModal({ certificate }: ModalProps) {
     <Body>
       <ImageContainer $background={certificate.image} />
 
-      <DataTable
+      <Table
         onMouseEnter={() => handleMouseEnterList(true)}
         onMouseLeave={() => handleMouseEnterList(false)}
       >
@@ -113,7 +113,7 @@ export function CertificateModal({ certificate }: ModalProps) {
             </Row>
           )}
         </tbody>
-      </DataTable>
+      </Table>
     </Body>
   );
 }

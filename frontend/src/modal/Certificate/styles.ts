@@ -1,56 +1,21 @@
 import styled from 'styled-components';
 import { ImageModalProps, RowTableModalProps } from '../../@types/Certificates';
 
-export const Body = styled.div`
-  height: 40rem;
-  margin: 0 auto;
-  padding: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8rem;
-`;
+export const Body = styled.div.attrs({
+  className: 'modalBody',
+})``;
 
-export const ImageContainer = styled.div<ImageModalProps>`
+export const ImageContainer = styled.div.attrs({
+  className: 'modalImageContainer',
+})<ImageModalProps>`
   background: url(${(props) => props.$background}) no-repeat;
-  box-shadow: var(--boxShadow);
   background-position: 50% 50%;
-  background-size: 70rem 70rem;
-  width: 35rem;
-  height: 35rem;
-  border-radius: 0.8rem;
-  transition: all 0.4s ease-in-out;
-
-  &:hover {
-    background-position: 0rem 0rem;
-    background-size: 35rem 35rem;
-    transform: scale(2);
-  }
+  background-size: 60rem 60rem;
 `;
 
-export const DataTable = styled.table`
-  color: ${({ theme }) => theme.colors.primaryText};
-  font-size: 1.4rem;
-
-  th,
-  td {
-    padding: 1rem;
-    border-radius: 0.2rem;
-  }
-
-  td {
-    max-width: 30rem;
-  }
-
-  a {
-    font-weight: bold;
-
-    &:hover {
-      text-decoration: underline;
-      cursor: pointer;
-    }
-  }
-`;
+export const Table = styled.table.attrs({
+  className: 'modalTable',
+})``;
 
 export const Row = styled.tr<RowTableModalProps>`
   background: ${({ theme }) => theme.colors.secondaryBackground};
