@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { GitHub, Tv } from '@mui/icons-material';
 
 import { TitleContentPage } from '../../components/TitleContentPage';
+import { Loading } from '../../components/Loading';
 import { Modal } from '../../components/Modal';
 import { ProjectModal } from '../../modal/Project';
 
@@ -75,46 +76,55 @@ export function Projects() {
     <Styles.ProjectsContainer>
       <TitleContentPage title="Projects" />
 
-      <div
-        className="projectsContainer"
-        onMouseEnter={() => handleMouseEnterList(true)}
-        onMouseLeave={() => handleMouseEnterList(false)}
-      >
-        {projects.map((project) => {
-          return (
-            <Styles.Project
-              key={project.id}
-              $borderColor={getBorderColor(project.id)}
-              $isListInHover={isListInHover}
-              $isItemInHover={itemInHover === project.id}
-              onClick={() => selectProject(project)}
-              onMouseEnter={() => handleMouseEnterItem(project.id)}
-              onMouseLeave={() => handleMouseEnterItem(null)}
-            >
-              <Styles.ImageContainer>
-                <img src={project.image} alt="" />
-              </Styles.ImageContainer>
+      {projects.length > 0 ? (
+        <>
+          <div
+            className="projectsContainer"
+            onMouseEnter={() => handleMouseEnterList(true)}
+            onMouseLeave={() => handleMouseEnterList(false)}
+          >
+            {projects.map((project) => {
+              return (
+                <Styles.Project
+                  key={project.id}
+                  $borderColor={getBorderColor(project.id)}
+                  $isListInHover={isListInHover}
+                  $isItemInHover={itemInHover === project.id}
+                  onClick={() => selectProject(project)}
+                  onMouseEnter={() => handleMouseEnterItem(project.id)}
+                  onMouseLeave={() => handleMouseEnterItem(null)}
+                >
+                  <Styles.ImageContainer>
+                    <img src={project.image} alt="" />
+                  </Styles.ImageContainer>
 
-              <Styles.Name>{project.name}</Styles.Name>
+                  <Styles.Name>{project.name}</Styles.Name>
 
-              <div className="links">
-                <Styles.Repository href={project.urlRepository} target="_blank">
-                  <GitHub fontSize="large" titleAccess="View Repository" />
-                </Styles.Repository>
+                  <div className="links">
+                    <Styles.Repository
+                      href={project.urlRepository}
+                      target="_blank"
+                    >
+                      <GitHub fontSize="large" titleAccess="View Repository" />
+                    </Styles.Repository>
 
-                <Styles.Url href={project.url} target="_blank">
-                  <Tv fontSize="large" titleAccess="View Project" />
-                </Styles.Url>
-              </div>
-            </Styles.Project>
-          );
-        })}
-      </div>
+                    <Styles.Url href={project.url} target="_blank">
+                      <Tv fontSize="large" titleAccess="View Project" />
+                    </Styles.Url>
+                  </div>
+                </Styles.Project>
+              );
+            })}
+          </div>
 
-      {selectedProject && (
-        <Modal title="Project" toggleModal={() => selectProject(null)}>
-          <ProjectModal project={selectedProject} />
-        </Modal>
+          {selectedProject && (
+            <Modal title="Project" toggleModal={() => selectProject(null)}>
+              <ProjectModal project={selectedProject} />
+            </Modal>
+          )}
+        </>
+      ) : (
+        <Loading />
       )}
     </Styles.ProjectsContainer>
   );
