@@ -34,7 +34,7 @@ export function Projects() {
           id: project.id,
           name: project.name,
           description: project.description,
-          image: '',
+          image: `https://github.com/${username}/${project.name}/raw/master/_screenshots/_image_code.png`,
           url: '',
           urlRepository: project.html_url,
           createdAt: project.created_at,

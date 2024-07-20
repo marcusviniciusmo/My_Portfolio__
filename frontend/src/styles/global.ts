@@ -141,15 +141,8 @@ export const GlobalStyle = createGlobalStyle`
   &.modalImageContainer {
     box-shadow: var(--boxShadow);
     width: 30rem;
-    height: 30rem;
     border-radius: 0.8rem;
     transition: all 0.4s ease-in-out;
-
-    &:hover {
-      background-position: 0rem 0rem;
-      background-size: 30rem 30rem;
-      transform: scale(2);
-    }
   }
 
   &.modalTable {

@@ -14,14 +14,15 @@ export const Body = styled.div.attrs({
   }
 
   div.bodyInfo {
+    width: 45rem;
     display: flex;
     flex-direction: column;
-    gap: 2.4rem;
+    gap: 2rem;
 
     div.projectTechs {
       display: flex;
       flex-wrap: wrap;
-      gap: 1.2rem;
+      gap: 1rem;
     }
   }
 `;
@@ -29,6 +30,7 @@ export const Body = styled.div.attrs({
 export const Tag = styled.div`
   background: ${({ theme }) => theme.colors.tertiaryText};
   color: ${({ theme }) => theme.colors.primaryBackground};
+  font-size: 1.2rem;
   border-radius: 0.8rem;
   padding: 0.5rem 1rem;
 `;
@@ -38,7 +40,13 @@ export const ImageContainer = styled.div.attrs({
 })<ImageContainerProps>`
   background: url(${(props) => props.$background}) no-repeat;
   background-position: 50% 50%;
-  background-size: 60rem 60rem;
+  background-size: cover;
+  height: 20rem;
+
+  &:hover {
+    background-position: 0rem 0rem;
+    transform: scale(3);
+  }
 `;
 
 export const Table = styled.table.attrs({

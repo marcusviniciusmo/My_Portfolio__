@@ -11,6 +11,13 @@ export const ImageContainer = styled.div.attrs({
   background: url(${(props) => props.$background}) no-repeat;
   background-position: 50% 50%;
   background-size: 60rem 60rem;
+  height: 30rem;
+
+  &:hover {
+    background-position: 0rem 0rem;
+    background-size: 30rem 30rem;
+    transform: scale(2);
+  }
 `;
 
 export const Table = styled.table.attrs({
