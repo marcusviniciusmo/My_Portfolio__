@@ -1,6 +1,10 @@
 /*
   DEPENDENCIES
 
+  ### - DATE FNS {
+    npm i date-fns
+  }
+
   ### - EMAIL JS {
     npm i emailjs-com
   }
