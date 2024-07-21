@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { GitHub, Tv } from '@mui/icons-material';
+import { format } from 'date-fns';
+import { ptBR } from 'date-fns/locale/pt-BR';
 
 import { ProjectModalProps } from '../../@types/Projects';
 
@@ -78,7 +80,11 @@ export function ProjectModal({ project }: ProjectModalProps) {
                 onMouseLeave={() => handleMouseEnterItem(null)}
               >
                 <th>Created At</th>
-                <td>{project.createdAt}</td>
+                <td>
+                  {format(new Date(project.createdAt), 'dd/MM/yyyy', {
+                    locale: ptBR,
+                  })}
+                </td>
               </Row>
             </tbody>
           </Table>
