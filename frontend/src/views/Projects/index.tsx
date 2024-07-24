@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { GitHub, Tv } from '@mui/icons-material';
 
 import { TitleContentPage } from '../../components/TitleContentPage';
+import { Filter } from '../../components/Filter';
 import { Loading } from '../../components/Loading';
 import { Modal } from '../../components/Modal';
 import { ProjectModal } from '../../modal/Project';
@@ -75,6 +76,8 @@ export function Projects() {
   return (
     <Styles.ProjectsContainer>
       <TitleContentPage title="Projects" />
+
+      <Filter />
 
       {projects.length > 0 ? (
         <>

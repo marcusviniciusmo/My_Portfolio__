@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import { TitleContentPage } from '../../components/TitleContentPage';
+import { Filter } from '../../components/Filter';
 
 import { BlogsList } from '../../data/blogs';
 import { BlogType } from '../../@types/Blogs';
@@ -40,6 +41,8 @@ export function Blogs() {
   return (
     <BlogsContainer>
       <TitleContentPage title="Blogs" />
+
+      <Filter />
 
       <div
         className="blogsContainer"

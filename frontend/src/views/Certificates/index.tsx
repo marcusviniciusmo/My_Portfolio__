@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import { TitleContentPage } from '../../components/TitleContentPage';
+import { Filter } from '../../components/Filter';
 import { Modal } from '../../components/Modal';
 import { CertificateModal } from '../../modal/Certificate';
 
@@ -48,6 +49,8 @@ export function Certificates() {
   return (
     <CertificatesContainer>
       <TitleContentPage title="Certificates" />
+
+      <Filter />
 
       <div
         className="certificateContainer"
