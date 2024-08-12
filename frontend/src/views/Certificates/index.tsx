@@ -17,6 +17,9 @@ export function Certificates() {
   const [isItemHover, setIsItemHover] = useState<boolean>(false);
   const [itemInHover, setItemInHover] = useState<string | null>(null);
   const [indexMap, setIndexMap] = useState<Map<string, number>>(new Map());
+  const [certificatesFiltered, setCertificatesFiltered] = useState<
+    CertificateType[]
+  >([]);
   const [selectedCertificate, setSelectedCertificate] =
     useState<CertificateType | null>(null);
 
@@ -50,14 +53,14 @@ export function Certificates() {
     <CertificatesContainer>
       <TitleContentPage title="Certificates" />
 
-      <Filter />
+      <Filter list={certificates} setListFiltered={setCertificatesFiltered} />
 
       <div
         className="certificateContainer"
         onMouseEnter={() => handleMouseEnterList(true)}
         onMouseLeave={() => handleMouseEnterList(false)}
       >
-        {certificates.map((certificate) => {
+        {certificatesFiltered.map((certificate) => {
           return (
             <Certificate
               key={certificate.id}

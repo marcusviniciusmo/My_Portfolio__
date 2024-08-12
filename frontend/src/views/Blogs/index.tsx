@@ -15,6 +15,7 @@ export function Blogs() {
   const [isListInHover, setIsListInHover] = useState<boolean>(false);
   const [itemInHover, setItemInHover] = useState<string | null>(null);
   const [indexMap, setIndexMap] = useState<Map<string, number>>(new Map());
+  const [blogsFiltered, setBlogsFiltered] = useState<BlogType[]>(blogsList);
 
   useEffect(() => {
     setBlogsList(BlogsList);
@@ -42,14 +43,14 @@ export function Blogs() {
     <BlogsContainer>
       <TitleContentPage title="Blogs" />
 
-      <Filter />
+      <Filter list={blogsList} setListFiltered={setBlogsFiltered} />
 
       <div
         className="blogsContainer"
         onMouseEnter={() => handleMouseEnterList(true)}
         onMouseLeave={() => handleMouseEnterList(false)}
       >
-        {blogsList.map((blog) => {
+        {blogsFiltered.map((blog) => {
           return (
             <Blog
               key={blog.id}

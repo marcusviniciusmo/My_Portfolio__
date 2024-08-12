@@ -17,6 +17,7 @@ export function Projects() {
   const [projects, setProjects] = useState<ProjectType[]>([]);
   const [isListInHover, setIsListInHover] = useState<boolean>(false);
   const [itemInHover, setItemInHover] = useState<string | null>(null);
+  const [projectsFiltered, setProjectsFiltered] = useState<ProjectType[]>([]);
   const [selectedProject, setSelectedProject] = useState<ProjectType | null>(
     null,
   );
@@ -77,7 +78,7 @@ export function Projects() {
     <Styles.ProjectsContainer>
       <TitleContentPage title="Projects" />
 
-      <Filter />
+      <Filter list={projects} setListFiltered={setProjectsFiltered} />
 
       {projects.length > 0 ? (
         <>
@@ -86,7 +87,7 @@ export function Projects() {
             onMouseEnter={() => handleMouseEnterList(true)}
             onMouseLeave={() => handleMouseEnterList(false)}
           >
-            {projects.map((project) => {
+            {projectsFiltered.map((project) => {
               return (
                 <Styles.Project
                   key={project.id}
