@@ -9,5 +9,6 @@
 
   ### - TYPESCRIPT {
     npm i typescript -D
+    npx tsc --init
   }
 */
