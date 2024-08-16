@@ -6,4 +6,8 @@
   ### - EXPRESS {
     npm i express
   }
+
+  ### - TYPESCRIPT {
+    npm i typescript
+  }
 */
