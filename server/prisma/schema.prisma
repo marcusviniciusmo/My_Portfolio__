@@ -16,6 +16,16 @@ model Profile {
   name String
   role String
   curriculum String
+  Blogs Blogs[]
+  Certificates Certificates[]
+  Experiences Experiences[]
+  Expertises Expertises[]
+  Graduations Graduations[]
+  Knowledges Knowledges[]
+  MenuItems MenuItems[]
+  ProfileInfo ProfileInfo[]
+  Skills Skills[]
+  SocialNetworks SocialNetworks[]
 }
 
 model Blogs {
@@ -24,6 +34,7 @@ model Blogs {
   name String
   image String
   url String
+  profile Profile @relation(fields: [user_ID], references: [user_ID], onDelete: Cascade)
 }
 
 model Certificates {
@@ -39,16 +50,21 @@ model Certificates {
   score String?
   sharingLink String?
   area String
+  profile Profile @relation(fields: [user_ID], references: [user_ID], onDelete: Cascade)
+  typeID CertificateTypes @relation(fields: [type], references: [type_ID], onDelete: Cascade)
+  areaID CertificateAreas @relation(fields: [area], references: [area_ID], onDelete: Cascade)
 }
 
 model CertificateAreas {
   area_ID String @id
   areaDescription String
+  Certificates Certificates[]
 }
 
 model CertificateTypes {
   type_ID String @id
   typeDescription String
+  Certificates Certificates[]
 }
 
 model Experiences {
@@ -57,6 +73,7 @@ model Experiences {
   period String
   title String
   institution String
+  profile Profile @relation(fields: [user_ID], references: [user_ID], onDelete: Cascade)
 }
 
 model Expertises {
@@ -66,6 +83,8 @@ model Expertises {
   text String
   iconClassName String
   icon String
+  profile Profile @relation(fields: [user_ID], references: [user_ID], onDelete: Cascade)
+  iconID Icons @relation(fields: [icon], references: [icon_ID], onDelete: Cascade)
 }
 
 model Graduations {
@@ -74,17 +93,23 @@ model Graduations {
   period String
   title String
   institution String
+  profile Profile @relation(fields: [user_ID], references: [user_ID], onDelete: Cascade)
 }
 
 model Icons {
   icon_ID String @id
   iconDescription String
+  Expertises Expertises[]
+  MenuItems MenuItems[]
+  ProfileInfo ProfileInfo[]
+  SocialNetworks SocialNetworks[]
 }
 
 model Knowledges {
   knowledge_ID String @id
   user_ID String
   description String
+  profile Profile @relation(fields: [user_ID], references: [user_ID], onDelete: Cascade)
 }
 
 model MenuItems {
@@ -93,6 +118,8 @@ model MenuItems {
   to String
   label String
   icon String
+  profile Profile @relation(fields: [user_ID], references: [user_ID], onDelete: Cascade)
+  iconID Icons @relation(fields: [icon], references: [icon_ID], onDelete: Cascade)
 }
 
 model ProfileInfo {
@@ -103,6 +130,8 @@ model ProfileInfo {
   link String?
   data String
   icon String
+  profile Profile @relation(fields: [user_ID], references: [user_ID], onDelete: Cascade)
+  iconID Icons @relation(fields: [icon], references: [icon_ID], onDelete: Cascade)
 }
 
 model Skills {
@@ -110,6 +139,7 @@ model Skills {
   user_ID String
   description String
   percentage Int
+  profile Profile @relation(fields: [user_ID], references: [user_ID], onDelete: Cascade)
 }
 
 model SocialNetworks {
@@ -119,4 +149,6 @@ model SocialNetworks {
   title String
   link String
   icon String
+  profile Profile @relation(fields: [user_ID], references: [user_ID], onDelete: Cascade)
+  iconID Icons @relation(fields: [icon], references: [icon_ID], onDelete: Cascade)
 }
