@@ -10,145 +10,144 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
 model Profile {
-  user_ID String @id
-  name String
-  role String
-  curriculum String
-  Blogs Blogs[]
-  Certificates Certificates[]
-  Experiences Experiences[]
-  Expertises Expertises[]
-  Graduations Graduations[]
-  Knowledges Knowledges[]
-  MenuItems MenuItems[]
-  ProfileInfo ProfileInfo[]
-  Skills Skills[]
+  user_ID        String           @id @default(uuid())
+  name           String
+  role           String
+  curriculum     String
+  Blogs          Blogs[]
+  Certificates   Certificates[]
+  Experiences    Experiences[]
+  Expertises     Expertises[]
+  Graduations    Graduations[]
+  Knowledges     Knowledges[]
+  MenuItems      MenuItems[]
+  ProfileInfo    ProfileInfo[]
+  Skills         Skills[]
   SocialNetworks SocialNetworks[]
 }
 
 model Blogs {
-  blog_ID String @id
+  blog_ID String  @id @default(uuid())
   user_ID String
-  name String
-  image String
-  url String
+  name    String
+  image   String
+  url     String
   profile Profile @relation(fields: [user_ID], references: [user_ID], onDelete: Cascade)
 }
 
 model Certificates {
-  certificate_ID String @id
-  user_ID String
-  name String
-  image String
-  workload String?
-  instructor String?
-  institution String?
-  conclusion String
-  type String
-  score String?
-  sharingLink String?
-  area String
-  profile Profile @relation(fields: [user_ID], references: [user_ID], onDelete: Cascade)
-  typeID CertificateTypes @relation(fields: [type], references: [type_ID], onDelete: Cascade)
-  areaID CertificateAreas @relation(fields: [area], references: [area_ID], onDelete: Cascade)
+  certificate_ID String           @id @default(uuid())
+  user_ID        String
+  name           String
+  image          String
+  workload       String?
+  instructor     String?
+  institution    String?
+  conclusion     String
+  type           String
+  score          String?
+  sharingLink    String?
+  area           String
+  profile        Profile          @relation(fields: [user_ID], references: [user_ID], onDelete: Cascade)
+  typeID         CertificateTypes @relation(fields: [type], references: [type_ID], onDelete: Cascade)
+  areaID         CertificateAreas @relation(fields: [area], references: [area_ID], onDelete: Cascade)
 }
 
 model CertificateAreas {
-  area_ID String @id
+  area_ID         String         @id @default(uuid())
   areaDescription String
-  Certificates Certificates[]
+  Certificates    Certificates[]
 }
 
 model CertificateTypes {
-  type_ID String @id
+  type_ID         String         @id @default(uuid())
   typeDescription String
-  Certificates Certificates[]
+  Certificates    Certificates[]
 }
 
 model Experiences {
-  experience_ID String @id
-  user_ID String
-  period String
-  title String
-  institution String
-  profile Profile @relation(fields: [user_ID], references: [user_ID], onDelete: Cascade)
+  experience_ID String  @id @default(uuid())
+  user_ID       String
+  period        String
+  title         String
+  institution   String
+  profile       Profile @relation(fields: [user_ID], references: [user_ID], onDelete: Cascade)
 }
 
 model Expertises {
-  expertise_ID String @id
-  user_ID String
-  title String
-  text String
+  expertise_ID  String  @id @default(uuid())
+  user_ID       String
+  title         String
+  text          String
   iconClassName String
-  icon String
-  profile Profile @relation(fields: [user_ID], references: [user_ID], onDelete: Cascade)
-  iconID Icons @relation(fields: [icon], references: [icon_ID], onDelete: Cascade)
+  icon          String
+  profile       Profile @relation(fields: [user_ID], references: [user_ID], onDelete: Cascade)
+  iconID        Icons   @relation(fields: [icon], references: [icon_ID], onDelete: Cascade)
 }
 
 model Graduations {
-  graduation_ID String @id
-  user_ID String
-  period String
-  title String
-  institution String
-  profile Profile @relation(fields: [user_ID], references: [user_ID], onDelete: Cascade)
+  graduation_ID String  @id @default(uuid())
+  user_ID       String
+  period        String
+  title         String
+  institution   String
+  profile       Profile @relation(fields: [user_ID], references: [user_ID], onDelete: Cascade)
 }
 
 model Icons {
-  icon_ID String @id
+  icon_ID         String           @id @default(uuid())
   iconDescription String
-  Expertises Expertises[]
-  MenuItems MenuItems[]
-  ProfileInfo ProfileInfo[]
-  SocialNetworks SocialNetworks[]
+  Expertises      Expertises[]
+  MenuItems       MenuItems[]
+  ProfileInfo     ProfileInfo[]
+  SocialNetworks  SocialNetworks[]
 }
 
 model Knowledges {
-  knowledge_ID String @id
-  user_ID String
-  description String
-  profile Profile @relation(fields: [user_ID], references: [user_ID], onDelete: Cascade)
+  knowledge_ID String  @id @default(uuid())
+  user_ID      String
+  description  String
+  profile      Profile @relation(fields: [user_ID], references: [user_ID], onDelete: Cascade)
 }
 
 model MenuItems {
-  menuItem_ID String @id
-  user_ID String
-  to String
-  label String
-  icon String
-  profile Profile @relation(fields: [user_ID], references: [user_ID], onDelete: Cascade)
-  iconID Icons @relation(fields: [icon], references: [icon_ID], onDelete: Cascade)
+  menuItem_ID String  @id @default(uuid())
+  user_ID     String
+  to          String
+  label       String
+  icon        String
+  profile     Profile @relation(fields: [user_ID], references: [user_ID], onDelete: Cascade)
+  iconID      Icons   @relation(fields: [icon], references: [icon_ID], onDelete: Cascade)
 }
 
 model ProfileInfo {
-  profileInfo_ID String @id
-  user_ID String
-  className String
-  label String
-  link String?
-  data String
-  icon String
-  profile Profile @relation(fields: [user_ID], references: [user_ID], onDelete: Cascade)
-  iconID Icons @relation(fields: [icon], references: [icon_ID], onDelete: Cascade)
+  profileInfo_ID String  @id @default(uuid())
+  user_ID        String
+  className      String
+  label          String
+  link           String?
+  data           String
+  icon           String
+  profile        Profile @relation(fields: [user_ID], references: [user_ID], onDelete: Cascade)
+  iconID         Icons   @relation(fields: [icon], references: [icon_ID], onDelete: Cascade)
 }
 
 model Skills {
-  skill_ID String @id
-  user_ID String
+  skill_ID    String  @id @default(uuid())
+  user_ID     String
   description String
-  percentage Int
-  profile Profile @relation(fields: [user_ID], references: [user_ID], onDelete: Cascade)
+  percentage  Int
+  profile     Profile @relation(fields: [user_ID], references: [user_ID], onDelete: Cascade)
 }
 
 model SocialNetworks {
-  socialNetwork_ID String @id
-  user_ID String
-  className String
-  title String
-  link String
-  icon String
-  profile Profile @relation(fields: [user_ID], references: [user_ID], onDelete: Cascade)
-  iconID Icons @relation(fields: [icon], references: [icon_ID], onDelete: Cascade)
+  socialNetwork_ID String  @id @default(uuid())
+  user_ID          String
+  className        String
+  title            String
+  link             String
+  icon             String
+  profile          Profile @relation(fields: [user_ID], references: [user_ID], onDelete: Cascade)
+  iconID           Icons   @relation(fields: [icon], references: [icon_ID], onDelete: Cascade)
 }
