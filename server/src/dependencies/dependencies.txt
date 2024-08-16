@@ -10,5 +10,6 @@
   ### - TYPESCRIPT {
     npm i typescript -D
     npx tsc --init
+    npm install @types/express -D
   }
 */
