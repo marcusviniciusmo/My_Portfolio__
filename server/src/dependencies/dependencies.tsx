@@ -8,6 +8,6 @@
   }
 
   ### - TYPESCRIPT {
-    npm i typescript
+    npm i typescript -D
   }
 */
