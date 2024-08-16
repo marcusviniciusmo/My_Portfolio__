@@ -11,6 +11,10 @@
     npm i prisma -D
   }
 
+  ### - SQLite {
+    npx prisma init --datasource-provider SQLite
+  }
+
   ### - TYPESCRIPT {
     npm i typescript -D
     npx tsc --init
