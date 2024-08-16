@@ -27,10 +27,20 @@ workload
 instructor
 institution
 conclusion
-type
+type (FK)
 score
 sharingLink
 area (FK)
+
+### - CertificateAreas
+
+area_ID (PK)
+areaDescription
+
+### - CertificateTypes
+
+type_ID (PK)
+typeDescription
 
 ### Experiences
 
@@ -47,7 +57,7 @@ user_ID (FK)
 title
 text
 iconClassName
-icon
+icon (FK)
 
 ### Graduations
 
@@ -56,6 +66,11 @@ user_ID (FK)
 period
 title
 institution
+
+### Icons
+
+icon_ID (PK)
+iconDescription
 
 ### Knowledges
 
@@ -67,19 +82,19 @@ description
 
 menuItem_ID (PK)
 user_ID (FK)
-icon
-label
 to
+label
+icon (FK)
 
 ### ProfileInfo
 
 profileInfo_ID (PK)
 user_ID (FK)
+className
 label
 link
 data
-icon
-className
+icon (FK)
 
 ### Skills
 
@@ -92,15 +107,10 @@ percentage
 
 socialNetwork_ID (PK)
 user_ID (FK)
+className
 title
 link
-icon
-className
-
-### - CertificateAreas
-
-area_ID (PK)
-areaDescription
+icon (FK)
 
 ## User Cases
 
