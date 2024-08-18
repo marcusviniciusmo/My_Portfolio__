@@ -3,6 +3,11 @@
     npm init -y
   }
 
+  ### - CORS {
+    npm i cors
+    npm install @types/cors -D
+  }
+
   ### - EXPRESS {
     npm i express
   }
