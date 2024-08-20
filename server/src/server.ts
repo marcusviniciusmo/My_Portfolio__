@@ -1,6 +1,11 @@
 import express from 'express';
+import cors from 'cors';
 
 const app = express();
+app.use(express.json());
+app.use(cors({
+  origin: process.env.BASE_URL_FRONTEND
+}));
 
 app.get('/profile/:user_id', (request, response) => {
   return response.json([{message: 'Acessou profile'}]);
