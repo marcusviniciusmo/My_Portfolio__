@@ -12,6 +12,7 @@ export const FilterContainer = styled.div`
 `;
 
 export const InputSearch = styled.input`
+  background: transparent;
   border: 0;
   flex: 1;
   outline: none;
