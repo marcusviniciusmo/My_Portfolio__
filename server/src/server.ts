@@ -1,50 +1,10 @@
-import express from 'express';
-import cors from 'cors';
+import app from './app';
+import dotenv from 'dotenv';
 
-const app = express();
-app.use(express.json());
-app.use(cors({
-  origin: process.env.BASE_URL_FRONTEND
-}));
+dotenv.config();
 
-app.get('/profile/:user_id', (request, response) => {
-  return response.json([{message: 'Acessou profile'}]);
-})
-app.get('/blogs/:user_id', (request, response) => {
-  return response.json([{message: 'Acessou blogs'}]);
-})
-app.get('/certificates/:user_id', (request, response) => {
-  return response.json([{message: 'Acessou certificates'}]);
-})
-app.get('/experiences/:user_id', (request, response) => {
-  return response.json([{message: 'Acessou experiences'}]);
-})
-app.get('/expertises/:user_id', (request, response) => {
-  return response.json([{message: 'Acessou expertises'}]);
-})
+const PORT = process.env.PORT_DEFAULT;
 
-app.get('/graduations/:user_id', (request, response) => {
-  return response.json([{message: 'Acessou graduations'}]);
-})
-
-app.get('/knowledges/:id', (request, response) => {
-  return response.json([{message: 'Acessou knowledges'}]);
-})
-
-app.get('/menuItems/:user_id', (request, response) => {
-  return response.json([{message: 'Acessou menuItems'}]);
-})
-
-app.get('/profileInfo/:user_id', (request, response) => {
-  return response.json([{message: 'Acessou profileInfo'}]);
-})
-
-app.get('/skills/:user_id', (request, response) => {
-  return response.json([{message: 'Acessou skills'}]);
-})
-
-app.get('/socialNetworks/:user_id', (request, response) => {
-  return response.json([{message: 'Acessou socialNetworks'}]);
-})
-
-app.listen(3333);
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}.`);
+});
