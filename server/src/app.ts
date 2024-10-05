@@ -2,6 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 
+import { GetProfileByIdRoute } from './routes/Profile';
+
 dotenv.config();
 
 const app = express();
@@ -14,9 +16,9 @@ app.use(cors({
     : process.env.BASE_URL_FRONTEND_DEVELOPMENT
 }));
 
-app.get('/profile/:user_id', (request, response) => {
-  return response.json([{message: 'Acessou profile'}]);
-})
+/* PROFILE */
+app.use(GetProfileByIdRoute);
+
 app.get('/blogs/:user_id', (request, response) => {
   return response.json([{message: 'Acessou blogs'}]);
 })
