@@ -41,4 +41,13 @@ class Controller extends Exception {
   };
 };
 
-export { Controller };
+class Service extends Exception {
+  constructor(route: string, params?: any) {
+    const getMessage = Message.Service;
+    const layer = 'Service';
+
+    super(getMessage, layer, route, params);
+  };
+};
+
+export { Controller, Service };

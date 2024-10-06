@@ -6,9 +6,17 @@ export function ThrowControllerException(
 ) {
   let statusCode = 500;
 
-  error = new Exception.Controller(route, { userId });
+  if (
+    !(error instanceof Exception.Service)
+  ) {
+    error = new Exception.Controller(route, { userId });
+  };
 
   console.log(error);
 
   return response.status(statusCode).json(error);
+};
+
+export function ThrowServiceException(route: string, userId?: string) {
+  throw new Exception.Service(route, { userId });
 };
