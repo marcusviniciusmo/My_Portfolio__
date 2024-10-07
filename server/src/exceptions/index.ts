@@ -59,4 +59,13 @@ class Repository extends Exception {
   };
 };
 
-export { Controller, Service, Repository };
+class NotFound extends Exception {
+  constructor(route: string, params?: any) {
+    const getMessage = Message.NotFound;
+    const layer = 'Not Found';
+
+    super(getMessage, layer, route, params);
+  };
+};
+
+export { Controller, Service, Repository, NotFound };
