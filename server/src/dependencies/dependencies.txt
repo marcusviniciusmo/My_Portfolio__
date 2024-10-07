@@ -16,6 +16,11 @@
     npm i express
   }
 
+  ### - JWT {
+    npm install jsonwebtoken express
+    npm install @types/jsonwebtoken --save-dev
+  }
+
   ### - PRISMA {
     npm i prisma -D
   }
