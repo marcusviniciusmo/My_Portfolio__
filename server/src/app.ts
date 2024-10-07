@@ -2,7 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 
-import { GetProfileByIdRoute } from './routes/Profile';
+import { CreateProfileRoute, GetProfileByIdRoute } from './routes/Profile';
 
 dotenv.config();
 
@@ -17,6 +17,7 @@ app.use(cors({
 }));
 
 /* PROFILE */
+app.use(CreateProfileRoute);
 app.use(GetProfileByIdRoute);
 
 app.get('/blogs/:user_id', (request, response) => {
