@@ -50,4 +50,13 @@ class Service extends Exception {
   };
 };
 
-export { Controller, Service };
+class Repository extends Exception {
+  constructor(route: string, params?: any) {
+    const getMessage = Message.Repository;
+    const layer = 'Repository';
+
+    super(getMessage, layer, route, params);
+  };
+};
+
+export { Controller, Service, Repository };
