@@ -2,7 +2,7 @@ import { prisma } from "../../config/Repository";
 import { GetProfileToInsert } from "../../scripts/Profile";
 import { ThrowRepositoryException } from "../../utils/Functions";
 
-export const CreateProfileRepository = async () => {
+export const CreateProfileRepository = async (route: string) => {
   const profileToInsert = GetProfileToInsert();
 
   try {
@@ -11,7 +11,9 @@ export const CreateProfileRepository = async () => {
     });
 
     return profileInserted;
-  } catch (error) {};
+  } catch (error) {
+    ThrowRepositoryException(route);
+  };
 };
 
 export const GetProfileByIdRepository = async (route: string, userId: string) => {

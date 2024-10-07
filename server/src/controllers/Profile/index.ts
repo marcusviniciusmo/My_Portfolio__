@@ -5,11 +5,15 @@ import { ThrowControllerException } from "../../utils/Functions";
 export const CreateProfileController = async (
   request: Request, response: Response
 ) => {
+  const route = 'CreateProfile';
+
   try {
-    const profileInserted = await CreateProfileService();
+    const profileInserted = await CreateProfileService(route);
 
     return response.status(201).json(profileInserted);
-  } catch (error) {};
+  } catch (error) {
+    ThrowControllerException(error, response, route);
+  };
 };
 
 export const GetProfileByIdController = async (
