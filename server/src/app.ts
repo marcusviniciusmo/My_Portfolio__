@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 
+import { GenerateTokenRoute } from './routes/Jwt';
 import { CreateProfileRoute, GetProfileByIdRoute } from './routes/Profile';
 
 dotenv.config();
@@ -16,6 +17,8 @@ app.use(cors({
     : process.env.BASE_URL_FRONTEND_DEVELOPMENT
 }));
 
+/* JWT */
+app.use(GenerateTokenRoute);
 /* PROFILE */
 app.use(CreateProfileRoute);
 app.use(GetProfileByIdRoute);
