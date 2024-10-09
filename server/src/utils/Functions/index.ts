@@ -40,3 +40,15 @@ export function ThrowRepositoryException(route: string, userId?: string) {
 export function ThrowNotFoundException(route: string, userId?: string) {
   throw new Exception.NotFound(route, { userId });
 };
+
+export function ThrowAuthenticateException(error: any, response: Response) {
+  console.log(error);
+
+  return response.status(401).json(
+    { Exception: 'Failed to authenticate the request.' }
+  );
+};
+
+export function ThrowInvalidTokenException(response: Response) {
+  return response.status(403).json({ Exception: 'Invalid token.' });
+};
