@@ -1,6 +1,18 @@
 import { Request, Response } from "express";
-import { GetCertificateAreasService } from "../../services/CertificateAreas";
+import { CreateCertificateAreasService, GetCertificateAreasService } from "../../services/CertificateAreas";
 import { ThrowControllerException } from "../../utils/Functions";
+
+export const CreateCertificateAreasController = async (
+  request: Request, response: Response
+) => {
+  const route = 'CreateCertificateAreas';
+
+  try {
+    const insertedCertificateAreas = await CreateCertificateAreasService(route);
+
+    return response.status(201).json(insertedCertificateAreas);
+  } catch (error) {};
+};
 
 export const GetCertificateAreasController = async (
   request: Request, response: Response

@@ -5,7 +5,7 @@ import dotenv from 'dotenv';
 import { RestrictWriteRoutes } from './utils/Functions';
 
 import { CreateBlogsByUserRoute, GetBlogsByUserRoute } from './routes/Blogs';
-import { GetCertificateAreasRoute } from './routes/CertificateAreas';
+import { CreateCertificateAreasRoute, GetCertificateAreasRoute } from './routes/CertificateAreas';
 import { GenerateTokenRoute } from './routes/Jwt';
 import { CreateProfileRoute, GetProfileByIdRoute } from './routes/Profile';
 
@@ -27,6 +27,7 @@ app.use(RestrictWriteRoutes);
 app.use(CreateBlogsByUserRoute);
 app.use(GetBlogsByUserRoute);
 /* CERTIFICATE AREAS */
+app.use(CreateCertificateAreasRoute);
 app.use(GetCertificateAreasRoute);
 /* JWT */
 app.use(GenerateTokenRoute);

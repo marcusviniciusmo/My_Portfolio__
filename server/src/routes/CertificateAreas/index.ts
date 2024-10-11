@@ -1,5 +1,10 @@
 import { route } from "../../config/Router";
-import { GetCertificateAreasController } from "../../controllers/CertificateAreas";
+import { AuthenticateJwt } from "../../middlewares/Jwt";
+import { CreateCertificateAreasController, GetCertificateAreasController } from "../../controllers/CertificateAreas";
+
+export const CreateCertificateAreasRoute = route.post(
+  '/certificateAreas', AuthenticateJwt, CreateCertificateAreasController
+);
 
 export const GetCertificateAreasRoute = route.get(
   '/certificateAreas', GetCertificateAreasController
