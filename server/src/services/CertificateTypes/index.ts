@@ -6,7 +6,9 @@ export const CreateCertificateTypesService = async (route: string) => {
     const insertedCertificateTypes = await CreateCertificateTypesRepository(route);
 
     return insertedCertificateTypes;
-  } catch (error) {};
+  } catch (error) {
+    ThrowServiceException(error, route);
+  };
 };
 
 export const GetCertificateTypesService = async (route: string) => {

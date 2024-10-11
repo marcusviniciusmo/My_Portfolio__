@@ -11,7 +11,9 @@ export const CreateCertificateTypesController = async (
     const insertedCertificateTypes = await CreateCertificateTypesService(route);
 
     return response.status(201).json(insertedCertificateTypes);
-  } catch (error) {};
+  } catch (error) {
+    ThrowControllerException(error, response, route);
+  };
 };
 
 export const GetCertificateTypesController = async (

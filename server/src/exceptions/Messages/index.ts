@@ -7,6 +7,8 @@ export const Controller = {
     `Failed to process request to create certificate area(s).`,
   "GetCertificateAreas": () =>
     `Failed to process request to get certificate areas.`,
+  "CreateCertificateTypes": () =>
+    `Failed to process request to create certificate type(s).`,
   "GetCertificateTypes": () =>
     `Failed to process request to get certificate type(s).`,
   "CreateProfile": () =>
@@ -24,6 +26,8 @@ export const Service = {
     `Unable to create certificate area(s).`,
   "GetCertificateAreas": () =>
     `Unable to retrieve certificate areas.`,
+  "CreateCertificateTypes": () =>
+    `Unable to create certificate type(s).`,
   "GetCertificateTypes": () =>
     `Unable to retrieve certificate type(s).`,
   "CreateProfile": () =>
@@ -41,6 +45,8 @@ export const Repository = {
     `Failed to create certificate area(s).`,
   "GetCertificateAreas": () =>
     `Failed to fetch certificate areas.`,
+  "CreateCertificateTypes": () =>
+    `Failed to create certificate type(s).`,
   "GetCertificateTypes": () =>
     `Failed to fetch certificate type(s).`,
   "CreateProfile": () =>
@@ -65,6 +71,8 @@ export const Conflict = {
     `Blog(s) with user ID '${userId}' exists on database.`,
   "CreateCertificateAreas": () =>
     `Certificate area(s) exists on database.`,
+  "CreateCertificateTypes": () =>
+    `Certificate type(s) exists on database.`,
 };
 
 export const Unknown = (layer: string, route: string) =>
