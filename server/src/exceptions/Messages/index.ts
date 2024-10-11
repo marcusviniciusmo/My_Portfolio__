@@ -7,6 +7,8 @@ export const Controller = {
     `Failed to process request to create certificate area(s).`,
   "GetCertificateAreas": () =>
     `Failed to process request to get certificate areas.`,
+  "CreateCertificatesByUser": ({ userId }: { userId: string }) =>
+    `Failed to process request for user ID '${userId}'.`,
   "GetCertificatesByUser": ({ userId }: { userId: string }) =>
     `Failed to process request for user ID '${userId}'.`,
   "CreateCertificateTypes": () =>
@@ -28,6 +30,8 @@ export const Service = {
     `Unable to create certificate area(s).`,
   "GetCertificateAreas": () =>
     `Unable to retrieve certificate areas.`,
+  "CreateCertificatesByUser": ({ userId }: { userId: string }) =>
+    `Unable to create certificate(s) for user ID '${userId}'.`,
   "GetCertificatesByUser": ({ userId }: { userId: string }) =>
     `Unable to retrieve certificate(s) for user ID '${userId}'.`,
   "CreateCertificateTypes": () =>
@@ -49,6 +53,8 @@ export const Repository = {
     `Failed to create certificate area(s).`,
   "GetCertificateAreas": () =>
     `Failed to fetch certificate areas.`,
+  "CreateCertificatesByUser": ({ userId }: { userId: string }) =>
+    `Failed to create certificate(s) for user ID '${userId}'.`,
   "GetCertificatesByUser": ({ userId }: { userId: string }) =>
     `Failed to fetch certificate(s) for user ID '${userId}'.`,
   "CreateCertificateTypes": () =>
@@ -79,6 +85,8 @@ export const Conflict = {
     `Blog(s) with user ID '${userId}' exists on database.`,
   "CreateCertificateAreas": () =>
     `Certificate area(s) exists on database.`,
+  "CreateCertificatesByUser": ({ userId }: { userId: string }) =>
+    `Certificate(s) with user ID '${userId}' exists on database.`,
   "CreateCertificateTypes": () =>
     `Certificate type(s) exists on database.`,
 };

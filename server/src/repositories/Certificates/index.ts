@@ -2,7 +2,7 @@ import { prisma } from "../../config/Repository";
 import { GetCertificateAreasRepository } from "../CertificateAreas";
 import { GetCertificateTypesRepository } from "../CertificateTypes";
 import { GetCertificatesByUserToInsert } from "../../scripts/Certificates";
-import { ThrowRepositoryException } from "../../utils/Functions";
+import { ThrowConflictException, ThrowRepositoryException } from "../../utils/Functions";
 
 export const CreateCertificatesByUserRepository = async (
   route: string, userId: string
@@ -93,8 +93,14 @@ export const CreateCertificatesByUserRepository = async (
         insertedCertificatesByUser.push(certificateToInsert);
       };
 
+      if (insertedCertificatesByUser.length === 0) {
+        ThrowConflictException(route, userId);
+      };
+
       return insertedCertificatesByUser;
-    } catch (error) {};
+    } catch (error) {
+      ThrowRepositoryException(route, userId, error);
+    };
   })
 };
 

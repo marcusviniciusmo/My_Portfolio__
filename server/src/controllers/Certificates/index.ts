@@ -14,7 +14,9 @@ export const CreateCertificatesByUserController = async (
     );
 
     return response.status(201).json(insertedCertificatesByUser);
-  } catch (error) {};
+  } catch (error) {
+    ThrowControllerException(error, response, route, userId);
+  };
 };
 
 export const GetCertificatesByUserController = async (

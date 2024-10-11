@@ -10,7 +10,9 @@ export const CreateCertificatesByUserService = async (
     );
 
     return insertedCertificatesByUser;
-  } catch (error) {};
+  } catch (error) {
+    ThrowServiceException(error, route, userId);
+  };
 };
 
 export const GetCertificatesByUserService = async (route: string, userId: string) => {
