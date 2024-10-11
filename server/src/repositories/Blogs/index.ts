@@ -1,5 +1,33 @@
 import { prisma } from "../../config/Repository";
+import { GetBlogsByUserToInsert } from "../../scripts/Blogs";
 import { ThrowRepositoryException } from "../../utils/Functions";
+
+export const CreateBlogsByUserRepository = async (route: string, userId: string) => {
+  const blogsByUserToInsert = GetBlogsByUserToInsert(userId);
+
+  try {
+    const existingBlogsByUser = await GetBlogsByUserRepository(route, userId);
+
+    const existingBlogsNamesByUser = new Set(
+      existingBlogsByUser?.map(
+        (existingBlogName) => existingBlogName.name.toLowerCase().trim()
+      )
+    );
+
+    const blogsToInsert = blogsByUserToInsert.filter(
+      (blogToInsert) =>
+        !existingBlogsNamesByUser.has(blogToInsert.name.toLowerCase().trim())
+    );
+    
+    const blogsInserted = Promise.all(
+      blogsToInsert.map((blogToInsert) => prisma.blogs.create({
+        data: blogToInsert
+      }))
+    );
+
+    return blogsInserted;
+  } catch (error) {};
+};
 
 export const GetBlogsByUserRepository = async (route:string, userId: string) => {
   try {
