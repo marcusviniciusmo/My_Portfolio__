@@ -1,6 +1,7 @@
 import { prisma } from "../../config/Repository";
+import { ThrowRepositoryException } from "../../utils/Functions";
 
-export const GetBlogsByUserRepository = async (userId: string) => {
+export const GetBlogsByUserRepository = async (route:string, userId: string) => {
   try {
     const blogsByUser = await prisma.blogs.findMany({
       where: { user_ID: userId }
@@ -13,5 +14,7 @@ export const GetBlogsByUserRepository = async (userId: string) => {
     }));
 
     return blogsByUserFormatted;
-  } catch (error) {};
+  } catch (error) {
+    ThrowRepositoryException(route, userId);
+  };
 };
