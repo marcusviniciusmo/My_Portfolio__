@@ -1,14 +1,16 @@
 import { Download } from '@mui/icons-material';
 
+import { DownloadCVProps } from '../../@types/DownloadCV';
+
 import { DownloadCVContainer } from './styles';
 
-export function DownloadCV() {
+export function DownloadCV({ curriculum }: DownloadCVProps) {
   function handleDownload() {
     const tagLink = 'a';
     const link = document.createElement(tagLink);
 
-    link.href = '/curriculum/CV_Marcus_Oliveira.pdf';
-    link.download = 'CV_Marcus_Oliveira.pdf';
+    link.href = `/curriculum/${curriculum}`;
+    link.download = curriculum;
 
     document.body.appendChild(link);
     link.click();

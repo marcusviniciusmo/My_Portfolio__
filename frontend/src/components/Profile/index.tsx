@@ -54,7 +54,7 @@ export function Profile() {
 
         <ProfileInfo />
 
-        <DownloadCV />
+        <DownloadCV curriculum={profile.curriculum} />
       </Styles.Content>
     </Styles.ProfileContainer>
   );
