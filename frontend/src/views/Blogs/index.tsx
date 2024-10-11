@@ -7,10 +7,11 @@ import { BlogType, BlogsImagesMap } from '../../@types/Blogs';
 import { getIndexMap, setBorderColor } from '../../utils/Functions';
 
 import { borderColors } from '../../styles/global';
-import { BlogsContainer, Blog, ImageContainer, Name, Link } from './styles';
+import * as Styles from './styles';
 
 export function Blogs() {
   const [blogsList, setBlogsList] = useState<BlogType[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isListInHover, setIsListInHover] = useState<boolean>(false);
   const [itemInHover, setItemInHover] = useState<string | null>(null);
   const [indexMap, setIndexMap] = useState<Map<string, number>>(new Map());
@@ -20,6 +21,8 @@ export function Blogs() {
     const baseUrlApi = import.meta.env.VITE_BASE_URL_API;
     const userIdProfile = import.meta.env.VITE_USER_ID_PROFILE;
 
+    setIsLoading(true);
+
     fetch(`${baseUrlApi}/blogs/${userIdProfile}`)
       .then((response) => response.json())
       .then((data) => {
@@ -27,6 +30,9 @@ export function Blogs() {
       })
       .catch((error) => {
         console.log(`Error: ${error}.`);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   }, []);
 
@@ -49,7 +55,7 @@ export function Blogs() {
   }
 
   return (
-    <BlogsContainer>
+    <Styles.BlogsContainer>
       <TitleContentPage title="Blogs" />
 
       <Filter list={blogsList} setListFiltered={setBlogsFiltered} />
@@ -59,30 +65,36 @@ export function Blogs() {
         onMouseEnter={() => handleMouseEnterList(true)}
         onMouseLeave={() => handleMouseEnterList(false)}
       >
-        {blogsFiltered
-          .sort((a, b) => a.name.localeCompare(b.name))
-          .map((blog) => {
-            return (
-              <Blog
-                key={blog.id}
-                title={blog.name}
-                $borderColor={getBorderColor(blog.id)}
-                $isListInHover={isListInHover}
-                $isItemInHover={blog.id === itemInHover}
-                onMouseEnter={() => handleMouseEnterItem(blog.id)}
-                onMouseLeave={() => handleMouseEnterItem(null)}
-              >
-                <ImageContainer>
-                  <img src={BlogsImagesMap[blog.image]} alt="" />
-                </ImageContainer>
+        {isLoading ? (
+          <Styles.BlogSkeleton />
+        ) : (
+          <>
+            {blogsFiltered
+              .sort((a, b) => a.name.localeCompare(b.name))
+              .map((blog) => {
+                return (
+                  <Styles.Blog
+                    key={blog.id}
+                    title={blog.name}
+                    $borderColor={getBorderColor(blog.id)}
+                    $isListInHover={isListInHover}
+                    $isItemInHover={blog.id === itemInHover}
+                    onMouseEnter={() => handleMouseEnterItem(blog.id)}
+                    onMouseLeave={() => handleMouseEnterItem(null)}
+                  >
+                    <Styles.ImageContainer>
+                      <img src={BlogsImagesMap[blog.image]} alt="" />
+                    </Styles.ImageContainer>
 
-                <Link href={blog.url} target="_blank">
-                  <Name>{blog.name}</Name>
-                </Link>
-              </Blog>
-            );
-          })}
+                    <Styles.Link href={blog.url} target="_blank">
+                      <Styles.Name>{blog.name}</Styles.Name>
+                    </Styles.Link>
+                  </Styles.Blog>
+                );
+              })}
+          </>
+        )}
       </div>
-    </BlogsContainer>
+    </Styles.BlogsContainer>
   );
 }

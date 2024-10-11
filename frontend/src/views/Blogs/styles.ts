@@ -16,7 +16,12 @@ export const Name = styled.h3`
   margin-top: 2rem;
 `;
 
-export const Blog = styled.div<BlogProps>`
+const BlogModel = styled.div`
+  width: 32rem;
+  margin: 2rem;
+  padding: 2rem;
+`;
+export const Blog = styled(BlogModel)<BlogProps>`
   background: ${(props) =>
     props.theme.title === 'Dark' ? 'transparent' : props.$borderColor};
   border: ${({ theme }) =>
@@ -25,9 +30,6 @@ export const Blog = styled.div<BlogProps>`
     props.$isListInHover ? (props.$isItemInHover ? 1 : 0.5) : 1};
   box-shadow: var(--boxShadow);
   font-family: 'Roboto Slab';
-  width: 32rem;
-  margin: 2rem;
-  padding: 2rem;
   border-radius: 0.8rem;
 
   &:hover {
@@ -35,6 +37,12 @@ export const Blog = styled.div<BlogProps>`
       text-decoration: underline;
     }
   }
+`;
+
+export const BlogSkeleton = styled(BlogModel).attrs({
+  className: 'skeleton',
+})`
+  height: 15rem;
 `;
 
 export const ImageContainer = styled.div`
