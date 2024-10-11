@@ -6,7 +6,7 @@ import { RestrictWriteRoutes } from './utils/Functions';
 
 import { CreateBlogsByUserRoute, GetBlogsByUserRoute } from './routes/Blogs';
 import { CreateCertificateAreasRoute, GetCertificateAreasRoute } from './routes/CertificateAreas';
-import { GetCertificatesByUserRoute } from './routes/Certificates';
+import { CreateCertificatesByUserRoute, GetCertificatesByUserRoute } from './routes/Certificates';
 import { CreateCertificateTypesRoute, GetCertificateTypesRoute } from './routes/CertificateTypes';
 import { GenerateTokenRoute } from './routes/Jwt';
 import { CreateProfileRoute, GetProfileByIdRoute } from './routes/Profile';
@@ -32,6 +32,7 @@ app.use(GetBlogsByUserRoute);
 app.use(CreateCertificateAreasRoute);
 app.use(GetCertificateAreasRoute);
 /* CERTIFICATES */
+app.use(CreateCertificatesByUserRoute);
 app.use(GetCertificatesByUserRoute);
 /* CERTIFICATE TYPES */
 app.use(CreateCertificateTypesRoute);

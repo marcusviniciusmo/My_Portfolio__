@@ -1,6 +1,21 @@
 import { Request, Response } from "express";
-import { GetCertificatesByUserService } from "../../services/Certificates";
+import { CreateCertificatesByUserService, GetCertificatesByUserService } from "../../services/Certificates";
 import { ThrowControllerException } from "../../utils/Functions";
+
+export const CreateCertificatesByUserController = async (
+  request: Request, response: Response
+) => {
+  const { userId } = request.params;
+  const route = 'CreateCertificatesByUser';
+
+  try {
+    const insertedCertificatesByUser = await CreateCertificatesByUserService(
+      route, userId
+    );
+
+    return response.status(201).json(insertedCertificatesByUser);
+  } catch (error) {};
+};
 
 export const GetCertificatesByUserController = async (
   request: Request, response: Response
