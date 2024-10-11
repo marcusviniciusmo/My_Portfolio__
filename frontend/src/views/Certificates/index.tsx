@@ -5,8 +5,10 @@ import { Filter } from '../../components/Filter';
 import { Modal } from '../../components/Modal';
 import { CertificateModal } from '../../modal/Certificate';
 
-import { CertificatesList } from '../../data/certificates';
-import { CertificateType } from '../../@types/Certificates';
+import {
+  CertificateType,
+  CertificatesImagesMap,
+} from '../../@types/Certificates';
 import { getIndexMap, setBorderColor } from '../../utils/Functions';
 
 import { borderColors } from '../../styles/global';
@@ -24,13 +26,39 @@ export function Certificates() {
     useState<CertificateType | null>(null);
 
   useEffect(() => {
-    setCertificates(CertificatesList);
+    const baseUrlApi = import.meta.env.VITE_BASE_URL_API;
+    const userIdProfile = import.meta.env.VITE_USER_ID_PROFILE;
+
+    fetch(`${baseUrlApi}/certificates/${userIdProfile}`)
+      .then((response) => response.json())
+      .then((data) => {
+        const sortedCertificates = data.sort(
+          (a: CertificateType, b: CertificateType) => {
+            const dateA = new Date(a.conclusion).getTime();
+            const dateB = new Date(b.conclusion).getTime();
+            return dateB - dateA;
+          },
+        );
+
+        setCertificates(sortedCertificates);
+      })
+      .catch((error) => {
+        console.log(`Error: ${error}.`);
+      });
   }, []);
 
   useEffect(() => {
     const map = getIndexMap(certificates);
 
     setIndexMap(map);
+
+    setCertificatesFiltered(
+      certificates.sort((a, b) => {
+        const dateA = new Date(a.conclusion).getTime();
+        const dateB = new Date(b.conclusion).getTime();
+        return dateB - dateA;
+      }),
+    );
   }, [certificates]);
 
   function selectCertificate(certificate: CertificateType | null) {
@@ -72,7 +100,7 @@ export function Certificates() {
               onMouseEnter={() => handleMouseEnterItem(certificate.id)}
               onMouseLeave={() => handleMouseEnterItem(null)}
             >
-              <Image src={certificate.image} alt="" />
+              <Image src={CertificatesImagesMap[certificate.image]} alt="" />
               <Name>{certificate.name}</Name>
             </Certificate>
           );
