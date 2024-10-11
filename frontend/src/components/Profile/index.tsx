@@ -8,14 +8,17 @@ import { DownloadCV } from '../DownloadCV';
 
 import { ProfileType, ProfileInitialState } from '../../@types/Profile';
 
-import { ProfileContainer, Image, Content, Name, Role } from './styles';
+import * as Styles from './styles';
 
 export function Profile() {
   const [profile, setProfile] = useState<ProfileType>(ProfileInitialState);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const baseUrlApi = import.meta.env.VITE_BASE_URL_API;
     const userIdProfile = import.meta.env.VITE_USER_ID_PROFILE;
+
+    setIsLoading(true);
 
     fetch(`${baseUrlApi}/profile/${userIdProfile}`)
       .then((response) => response.json())
@@ -24,23 +27,35 @@ export function Profile() {
       })
       .catch((error) => {
         console.log(`Error: ${error}.`);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   }, []);
 
   return (
-    <ProfileContainer>
-      <Image src={ProfilePhoto} alt={`${profile.name} profile photo`} />
+    <Styles.ProfileContainer>
+      <Styles.Image src={ProfilePhoto} alt={`${profile.name} profile photo`} />
 
-      <Content>
-        <Name>{profile.name}</Name>
-        <Role>{profile.role}</Role>
+      <Styles.Content>
+        {isLoading ? (
+          <>
+            <Styles.NameSkeleton />
+            <Styles.RoleSkeleton />
+          </>
+        ) : (
+          <>
+            <Styles.Name>{profile.name}</Styles.Name>
+            <Styles.Role>{profile.role}</Styles.Role>
+          </>
+        )}
 
         <SocialNetworks />
 
         <ProfileInfo />
 
         <DownloadCV />
-      </Content>
-    </ProfileContainer>
+      </Styles.Content>
+    </Styles.ProfileContainer>
   );
 }

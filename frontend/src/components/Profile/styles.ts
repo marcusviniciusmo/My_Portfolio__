@@ -26,18 +26,37 @@ export const Content = styled.div`
   padding-block: 10rem 3.2rem;
 `;
 
-export const Name = styled.h1`
-  color: ${({ theme }) => theme.colors.primaryText};
-  font-size: 2.6rem;
-  margin-block: 2.4rem 0.4rem;
+const NameModel = styled.h1`
+  margin: 2.4rem auto 0.4rem;
 `;
 
-export const Role = styled.h3`
+export const Name = styled(NameModel)`
+  color: ${({ theme }) => theme.colors.primaryText};
+  font-size: 2.6rem;
+`;
+
+export const NameSkeleton = styled(NameModel).attrs({
+  className: 'skeleton',
+})`
+  width: 25rem;
+  height: 3rem;
+`;
+
+const RoleModel = styled.h3`
+  margin-bottom: 1.6rem;
+  padding: 0.6rem 2rem;
+  display: inline-block;
+`;
+export const Role = styled(RoleModel)`
   background: ${({ theme }) => theme.colors.secondaryBackground};
   color: ${({ theme }) => theme.colors.tertiaryText};
   font-weight: 400;
-  margin-bottom: 1.6rem;
-  padding: 0.6rem 2rem;
   border-radius: 0.5rem;
-  display: inline-block;
+`;
+
+export const RoleSkeleton = styled(RoleModel).attrs({
+  className: 'skeleton',
+})`
+  width: 20rem;
+  height: 3rem;
 `;

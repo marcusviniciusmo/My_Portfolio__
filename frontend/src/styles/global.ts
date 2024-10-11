@@ -168,4 +168,25 @@ export const GlobalStyle = createGlobalStyle`
       }
     }
   }
+
+  &.skeleton {
+    background: ${({ theme }) => theme.colors.secondaryText};
+    color: ${({ theme }) => theme.colors.secondaryText};
+    border-radius: 0.5rem;
+    user-select: none;
+    pointer-events: none;
+    animation: skeleton 1.5s infinite ease-in-out;
+  }
+
+  @keyframes skeleton {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
 `;
