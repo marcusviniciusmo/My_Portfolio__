@@ -11,7 +11,9 @@ export const CreateCertificateAreasController = async (
     const insertedCertificateAreas = await CreateCertificateAreasService(route);
 
     return response.status(201).json(insertedCertificateAreas);
-  } catch (error) {};
+  } catch (error) {
+    ThrowControllerException(error, response, route);
+  };
 };
 
 export const GetCertificateAreasController = async (

@@ -3,6 +3,8 @@ export const Controller = {
     `Failed to create blog(s) for user ID '${userId}'.`,
   "GetBlogsByUser": ({ userId }: { userId: string }) =>
     `Failed to process request for user ID '${userId}'.`,
+  "CreateCertificateAreas": () =>
+    `Failed to process request to create certificate area(s).`,
   "GetCertificateAreas": () =>
     `Failed to process request to get certificate areas.`,
   "CreateProfile": () =>
@@ -16,6 +18,8 @@ export const Service = {
     `Unable to create blog(s) for user ID '${userId}'.`,
   "GetBlogsByUser": ({ userId }: { userId: string }) =>
     `Unable to retrieve blog(s) for user ID '${userId}'.`,
+  "CreateCertificateAreas": () =>
+    `Unable to create certificate area(s).`,
   "GetCertificateAreas": () =>
     `Unable to retrieve certificate areas.`,
   "CreateProfile": () =>
@@ -29,6 +33,8 @@ export const Repository = {
     `Failed to create blog(s) for user ID '${userId}'.`,
   "GetBlogsByUser": ({ userId }: { userId: string }) =>
     `Failed to fetch blog(s) for user ID '${userId}'.`,
+  "CreateCertificateAreas": () =>
+    `Failed to create certificate area(s).`,
   "GetCertificateAreas": () =>
     `Failed to fetch certificate areas.`,
   "CreateProfile": () =>
@@ -49,6 +55,8 @@ export const NotFound = {
 export const Conflict = {
   "CreateBlogsByUser": ({ userId }: { userId: string }) =>
     `Blog(s) with user ID '${userId}' exists on database.`,
+  "CreateCertificateAreas": () =>
+    `Certificate area(s) exists on database.`,
 };
 
 export const Unknown = (layer: string, route: string) =>

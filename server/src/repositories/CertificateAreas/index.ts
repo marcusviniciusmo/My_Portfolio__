@@ -1,6 +1,6 @@
 import { prisma } from "../../config/Repository";
 import { GetCertificateAreasToInsert } from "../../scripts/CertificateAreas";
-import { ThrowRepositoryException } from "../../utils/Functions";
+import { ThrowRepositoryException, ThrowConflictException } from "../../utils/Functions";
 
 export const CreateCertificateAreasRepository = async (route: string) => {
   const certificateAreasToInsert = GetCertificateAreasToInsert();
@@ -20,6 +20,10 @@ export const CreateCertificateAreasRepository = async (route: string) => {
       )
     );
 
+    if (areasToInsert.length === 0) {
+      ThrowConflictException(route);
+    };
+
     const insertedCertificateAreas = Promise.all(
       areasToInsert.map((areaToInsert) => prisma.certificateAreas.create({
         data: areaToInsert
@@ -27,7 +31,9 @@ export const CreateCertificateAreasRepository = async (route: string) => {
     );
 
     return insertedCertificateAreas;
-  } catch (error) {};
+  } catch (error) {
+    ThrowRepositoryException(route, undefined, error);
+  };
 };
 
 export const GetCertificateAreasRepository = async (route: string) => {
