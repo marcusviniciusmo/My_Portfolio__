@@ -1,5 +1,34 @@
 import { prisma } from "../../config/Repository";
+import { GetCertificateTypesToInsert } from "../../scripts/CertificateTypes";
 import { ThrowRepositoryException } from "../../utils/Functions";
+
+export const CreateCertificateTypesRepository = async (route: string) => {
+  const certificateTypesToInsert = GetCertificateTypesToInsert();
+
+  try {
+    const existingCertificateTypes = await GetCertificateTypesRepository(route);
+
+    const existingCertifcateTypesDescription = new Set(
+      existingCertificateTypes?.map(
+        (type) => type.typeDescription.toLowerCase().trim()
+      )
+    );
+
+    const typesToInsert = certificateTypesToInsert.filter(
+      (typeToInsert) =>!existingCertifcateTypesDescription.has(
+        typeToInsert.typeDescription.toLowerCase().trim()
+      )
+    );
+
+    const insertedCertificateTypes = Promise.all(
+      typesToInsert.map((typeToInsert) => prisma.certificateTypes.create({
+        data: typeToInsert
+      }))
+    );
+
+    return insertedCertificateTypes;
+  } catch (error) {};
+};
 
 export const GetCertificateTypesRepository = async (route: string) => {
   try {

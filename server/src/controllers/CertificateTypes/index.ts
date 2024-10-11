@@ -1,6 +1,18 @@
 import { Request, Response } from "express";
-import { GetCertificateTypesService } from "../../services/CertificateTypes";
+import { CreateCertificateTypesService, GetCertificateTypesService } from "../../services/CertificateTypes";
 import { ThrowControllerException } from "../../utils/Functions";
+
+export const CreateCertificateTypesController = async (
+  request: Request, response: Response
+) => {
+  const route = 'CreateCertificateTypes';
+
+  try {
+    const insertedCertificateTypes = await CreateCertificateTypesService(route);
+
+    return response.status(201).json(insertedCertificateTypes);
+  } catch (error) {};
+};
 
 export const GetCertificateTypesController = async (
   request: Request, response: Response
