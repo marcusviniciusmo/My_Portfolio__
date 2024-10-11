@@ -6,6 +6,7 @@ import { RestrictWriteRoutes } from './utils/Functions';
 
 import { CreateBlogsByUserRoute, GetBlogsByUserRoute } from './routes/Blogs';
 import { CreateCertificateAreasRoute, GetCertificateAreasRoute } from './routes/CertificateAreas';
+import { GetCertificatesByUserRoute } from './routes/Certificates';
 import { CreateCertificateTypesRoute, GetCertificateTypesRoute } from './routes/CertificateTypes';
 import { GenerateTokenRoute } from './routes/Jwt';
 import { CreateProfileRoute, GetProfileByIdRoute } from './routes/Profile';
@@ -30,6 +31,8 @@ app.use(GetBlogsByUserRoute);
 /* CERTIFICATE AREAS */
 app.use(CreateCertificateAreasRoute);
 app.use(GetCertificateAreasRoute);
+/* CERTIFICATES */
+app.use(GetCertificatesByUserRoute);
 /* CERTIFICATE TYPES */
 app.use(CreateCertificateTypesRoute);
 app.use(GetCertificateTypesRoute);
@@ -39,9 +42,6 @@ app.use(GenerateTokenRoute);
 app.use(CreateProfileRoute);
 app.use(GetProfileByIdRoute);
 
-app.get('/certificates/:user_id', (request, response) => {
-  return response.json([{message: 'Acessou certificates'}]);
-})
 app.get('/experiences/:user_id', (request, response) => {
   return response.json([{message: 'Acessou experiences'}]);
 })
