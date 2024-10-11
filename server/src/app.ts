@@ -6,6 +6,7 @@ import { RestrictWriteRoutes } from './utils/Functions';
 
 import { CreateBlogsByUserRoute, GetBlogsByUserRoute } from './routes/Blogs';
 import { CreateCertificateAreasRoute, GetCertificateAreasRoute } from './routes/CertificateAreas';
+import { GetCertificateTypesRoute } from './routes/CertificateTypes';
 import { GenerateTokenRoute } from './routes/Jwt';
 import { CreateProfileRoute, GetProfileByIdRoute } from './routes/Profile';
 
@@ -29,6 +30,8 @@ app.use(GetBlogsByUserRoute);
 /* CERTIFICATE AREAS */
 app.use(CreateCertificateAreasRoute);
 app.use(GetCertificateAreasRoute);
+/* CERTIFICATE TYPES */
+app.use(GetCertificateTypesRoute);
 /* JWT */
 app.use(GenerateTokenRoute);
 /* PROFILE */
