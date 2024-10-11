@@ -6,7 +6,9 @@ export const CreateBlogsByUserService = async (route:string, userId: string) => 
     const insertedBlogs = await CreateBlogsByUserRepository(route, userId);
 
     return insertedBlogs;
-  } catch (error) {};
+  } catch (error) {
+    ThrowServiceException(error, route, userId);
+  };
 };
 
 

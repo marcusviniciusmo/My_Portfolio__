@@ -1,4 +1,6 @@
 export const Controller = {
+  "CreateBlogsByUser": ({ userId }: { userId: string }) =>
+    `Failed to create blog(s) for user ID '${userId}'.`,
   "GetBlogsByUser": ({ userId }: { userId: string }) =>
     `Failed to process request for user ID '${userId}'.`,
   "CreateProfile": () =>
@@ -8,6 +10,8 @@ export const Controller = {
 };
 
 export const Service = {
+  "CreateBlogsByUser": ({ userId }: { userId: string }) =>
+    `Unable to create blog(s) for user ID '${userId}'.`,
   "GetBlogsByUser": ({ userId }: { userId: string }) =>
     `Unable to retrieve blog(s) for user ID '${userId}'.`,
   "CreateProfile": () =>
@@ -17,6 +21,8 @@ export const Service = {
 };
 
 export const Repository = {
+  "CreateBlogsByUser": ({ userId }: { userId: string }) =>
+    `Failed to create blog(s) for user ID '${userId}'.`,
   "GetBlogsByUser": ({ userId }: { userId: string }) =>
     `Failed to fetch blog(s) for user ID '${userId}'.`,
   "CreateProfile": () =>
@@ -30,6 +36,11 @@ export const NotFound = {
     `Blog(s) with user ID '${userId}' not found.`,
   "GetProfileById": ({ userId }: { userId: string }) =>
     `Profile with user ID '${userId}' not found.`,
+};
+
+export const Conflict = {
+  "CreateBlogsByUser": ({ userId }: { userId: string }) =>
+    `Blog(s) with user ID '${userId}' exists on database.`,
 };
 
 export const Unknown = (layer: string, route: string) =>

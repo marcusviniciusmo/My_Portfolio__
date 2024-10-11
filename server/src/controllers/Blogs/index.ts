@@ -12,7 +12,9 @@ export const CreateBlogsByUserController = async (
     const insertedBlogs = await CreateBlogsByUserService(route, userId);
 
     return response.status(201).json(insertedBlogs);
-  } catch (error) {};
+  } catch (error) {
+    ThrowControllerException(error, response, route, userId);
+  };
 };
 
 export const GetBlogsByUserController = async (

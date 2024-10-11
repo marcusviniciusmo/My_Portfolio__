@@ -68,4 +68,13 @@ class NotFound extends Exception {
   };
 };
 
-export { Controller, Service, Repository, NotFound };
+class Conflict extends Exception {
+  constructor(route: string, params?: any) {
+    const getMessage = Message.Conflict;
+    const layer = 'Conflict';
+
+    super(getMessage, layer, route, params);
+  };
+};
+
+export { Controller, Service, Repository, NotFound, Conflict };

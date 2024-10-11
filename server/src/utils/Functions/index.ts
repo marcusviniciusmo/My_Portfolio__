@@ -23,6 +23,8 @@ export function ThrowControllerException(
 
   if (error instanceof Exception.NotFound) {
     statusCode = 404;
+  } else if (error instanceof Exception.Conflict) {
+    statusCode = 409;
   } else if (
     !(error instanceof Exception.Service) &&
     !(error instanceof Exception.Repository)
@@ -40,7 +42,8 @@ export function ThrowServiceException(
 ) {
   if (
     error instanceof Exception.Repository ||
-    error instanceof Exception.NotFound
+    error instanceof Exception.NotFound ||
+    error instanceof Exception.Conflict
   ) {
     throw error;
   } else {
@@ -48,12 +51,20 @@ export function ThrowServiceException(
   };
 };
 
-export function ThrowRepositoryException(route: string, userId?: string) {
-  throw new Exception.Repository(route, { userId });
+export function ThrowRepositoryException(route: string, userId?: string, error?: any ) {
+  if (error instanceof Exception.Conflict) {
+    throw error;
+  } else {
+    throw new Exception.Repository(route, { userId });
+  };
 };
 
 export function ThrowNotFoundException(route: string, userId?: string) {
   throw new Exception.NotFound(route, { userId });
+};
+
+export function ThrowConflictException(route: string, userId?: string) {
+  throw new Exception.Conflict(route, { userId });
 };
 
 export function ThrowAuthenticateException(error: any, response: Response) {
