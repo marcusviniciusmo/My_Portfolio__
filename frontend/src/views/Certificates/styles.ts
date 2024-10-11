@@ -16,7 +16,13 @@ export const Name = styled.span`
   height: 8.5rem;
 `;
 
-export const Certificate = styled.div<CertificateProps>`
+const CertificateModel = styled.div`
+  width: 20rem;
+  margin: 1.5rem;
+  padding: 1rem;
+`;
+
+export const Certificate = styled(CertificateModel)<CertificateProps>`
   background: ${(props) =>
     props.theme.title === 'Dark' ? ' transparent' : props.$borderColor};
   border: ${({ theme }) =>
@@ -26,9 +32,6 @@ export const Certificate = styled.div<CertificateProps>`
   box-shadow: var(--boxShadow);
   font-family: 'Roboto Slab';
   font-weight: bold;
-  width: 20rem;
-  margin: 1.5rem;
-  padding: 1rem;
   border-radius: 1rem;
   display: flex;
   flex-direction: column;
@@ -43,6 +46,12 @@ export const Certificate = styled.div<CertificateProps>`
       text-decoration: underline;
     }
   }
+`;
+
+export const CertificateSkeleton = styled(CertificateModel).attrs({
+  className: 'skeleton',
+})`
+  height: 20rem;
 `;
 
 export const Image = styled.img`

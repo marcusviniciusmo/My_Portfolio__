@@ -1,6 +1,9 @@
 import { useState } from 'react';
 
-import { CertificateModalProps as ModalProps } from '../../@types/Certificates';
+import {
+  CertificateModalProps as ModalProps,
+  CertificatesImagesMap,
+} from '../../@types/Certificates';
 
 import { Body, ImageContainer, Table, Row } from './styles';
 
@@ -18,7 +21,7 @@ export function CertificateModal({ certificate }: ModalProps) {
 
   return (
     <Body>
-      <ImageContainer $background={certificate.image} />
+      <ImageContainer $background={CertificatesImagesMap[certificate.image]} />
 
       <Table
         onMouseEnter={() => handleMouseEnterList(true)}

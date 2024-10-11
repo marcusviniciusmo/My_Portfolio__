@@ -82,7 +82,7 @@ export interface CertificateProps {
 
 export interface CertificateModalProps {
   certificate: {
-    image: string;
+    image: keyof typeof CertificatesImagesMap;
     name: string;
     workload?: string;
     instructor?: string;
