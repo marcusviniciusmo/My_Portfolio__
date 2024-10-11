@@ -2,9 +2,9 @@ import { Download } from '@mui/icons-material';
 
 import { DownloadCVProps } from '../../@types/DownloadCV';
 
-import { DownloadCVContainer } from './styles';
+import { DownloadCVContainer, DownloadCVContainerSkeleton } from './styles';
 
-export function DownloadCV({ curriculum }: DownloadCVProps) {
+export function DownloadCV({ curriculum, isLoading }: DownloadCVProps) {
   function handleDownload() {
     const tagLink = 'a';
     const link = document.createElement(tagLink);
@@ -18,9 +18,15 @@ export function DownloadCV({ curriculum }: DownloadCVProps) {
   }
 
   return (
-    <DownloadCVContainer title="Download CV" onClick={handleDownload}>
-      <Download fontSize="large" />
-      Download CV
-    </DownloadCVContainer>
+    <>
+      {isLoading ? (
+        <DownloadCVContainerSkeleton />
+      ) : (
+        <DownloadCVContainer title="Download CV" onClick={handleDownload}>
+          <Download fontSize="large" />
+          Download CV
+        </DownloadCVContainer>
+      )}
+    </>
   );
 }

@@ -1,15 +1,17 @@
 import styled from 'styled-components';
 import { setBackgroundGradient } from '../../utils/Functions';
 
-export const DownloadCVContainer = styled.a`
+const DownloadCVContainerModel = styled.a`
+  margin: 2.4rem auto 0;
+  padding: 1.2rem 3.2rem;
+  display: inline-flex;
+`;
+export const DownloadCVContainer = styled(DownloadCVContainerModel)`
   ${setBackgroundGradient()}
   color: var(--textWhite);
   font-size: 1.8rem;
   font-weight: bold;
-  margin: 2.4rem auto 0;
-  padding: 1.2rem 3.2rem;
   border-radius: 3.5rem;
-  display: inline-flex;
   align-items: center;
   gap: 0.8rem;
   cursor: pointer;
@@ -17,4 +19,13 @@ export const DownloadCVContainer = styled.a`
   &:hover {
     ${setBackgroundGradient('to left')};
   }
+`;
+
+export const DownloadCVContainerSkeleton = styled(
+  DownloadCVContainerModel,
+).attrs({
+  className: 'skeleton',
+})`
+  width: 15rem;
+  height: 2rem;
 `;

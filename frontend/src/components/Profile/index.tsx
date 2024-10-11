@@ -54,7 +54,7 @@ export function Profile() {
 
         <ProfileInfo />
 
-        <DownloadCV curriculum={profile.curriculum} />
+        <DownloadCV curriculum={profile.curriculum} isLoading={isLoading} />
       </Styles.Content>
     </Styles.ProfileContainer>
   );
