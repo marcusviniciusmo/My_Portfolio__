@@ -1,6 +1,9 @@
 import { prisma } from "../../config/Repository";
+import { ThrowRepositoryException } from "../../utils/Functions";
 
-export const GetCertificatesByUserRepository = async (userId: string) => {
+export const GetCertificatesByUserRepository = async (
+  route: string, userId: string
+) => {
   try {
     const certificatesByUser = await prisma.certificates.findMany({
       where: { user_ID: userId },
@@ -21,5 +24,7 @@ export const GetCertificatesByUserRepository = async (userId: string) => {
     }));
 
     return certificatesByUserFormatted;
-  } catch (error) {};
+  } catch (error) {
+    ThrowRepositoryException(route, userId, error);
+  };
 };
