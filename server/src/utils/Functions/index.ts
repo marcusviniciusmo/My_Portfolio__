@@ -1,5 +1,20 @@
-import { Response } from "express";
+import { Request, Response, NextFunction } from "express";
 import * as Exception from '../../exceptions';
+import dotenv from 'dotenv';
+
+dotenv.config();
+
+export function RestrictWriteRoutes(
+  request: Request, response: Response, next: NextFunction
+) {
+  if (process.env.NODE_ENV === 'PRODUCTION' && (request.method === 'POST')) {
+    return response.status(403).json(
+      { Exception: 'Write routes are disabled in production environment.' }
+    );
+  };
+
+  next();
+};
 
 export function ThrowControllerException(
   error: any, response: Response, route: string, userId?: string

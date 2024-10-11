@@ -2,6 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 
+import { RestrictWriteRoutes } from './utils/Functions';
+
 import { GenerateTokenRoute } from './routes/Jwt';
 import { CreateProfileRoute, GetProfileByIdRoute } from './routes/Profile';
 
@@ -16,6 +18,8 @@ app.use(cors({
     ? process.env.BASE_URL_FRONTEND_PRODUCTION
     : process.env.BASE_URL_FRONTEND_DEVELOPMENT
 }));
+
+app.use(RestrictWriteRoutes);
 
 /* JWT */
 app.use(GenerateTokenRoute);
