@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 
 import { RestrictWriteRoutes } from './utils/Functions';
 
+import { GetBlogsByUserRoute } from './routes/Blogs';
 import { GenerateTokenRoute } from './routes/Jwt';
 import { CreateProfileRoute, GetProfileByIdRoute } from './routes/Profile';
 
@@ -21,15 +22,14 @@ app.use(cors({
 
 app.use(RestrictWriteRoutes);
 
+/* BLOGS */
+app.use(GetBlogsByUserRoute);
 /* JWT */
 app.use(GenerateTokenRoute);
 /* PROFILE */
 app.use(CreateProfileRoute);
 app.use(GetProfileByIdRoute);
 
-app.get('/blogs/:user_id', (request, response) => {
-  return response.json([{message: 'Acessou blogs'}]);
-})
 app.get('/certificates/:user_id', (request, response) => {
   return response.json([{message: 'Acessou certificates'}]);
 })
