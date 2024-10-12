@@ -15,6 +15,8 @@ export const Controller = {
     `Failed to process request to create certificate type(s).`,
   "GetCertificateTypes": () =>
     `Failed to process request to get certificate type(s).`,
+  "GetExperiencesByUser": ({ userId }: { userId: string }) =>
+    `Failed to process request for user ID '${userId}'.`,
   "CreateProfile": () =>
     `Failed to process request to create new profile.`,
   "GetProfileById": ({ userId }: { userId: string }) =>
@@ -38,6 +40,8 @@ export const Service = {
     `Unable to create certificate type(s).`,
   "GetCertificateTypes": () =>
     `Unable to retrieve certificate type(s).`,
+  "GetExperiencesByUser": ({ userId }: { userId: string }) =>
+    `Unable to retrieve experience(s) for user ID '${userId}'.`,
   "CreateProfile": () =>
     `Unable to create the new profile.`,
   "GetProfileById": ({ userId }: { userId: string }) =>
@@ -61,6 +65,8 @@ export const Repository = {
     `Failed to create certificate type(s).`,
   "GetCertificateTypes": () =>
     `Failed to fetch certificate type(s).`,
+  "GetExperiencesByUser": ({ userId }: { userId: string }) =>
+    `Failed to fetch experience(s) for user ID '${userId}'.`,
   "CreateProfile": () =>
     `Failed to create the new profile.`,
   "GetProfileById": ({ userId }: { userId: string }) =>
@@ -76,6 +82,8 @@ export const NotFound = {
     `Certificate(s) with user ID '${userId}' not found.`,
   "GetCertificateTypes": () =>
     `Certificate type(s) not found.`,
+  "GetExperiencesByUser": ({ userId }: { userId: string }) =>
+    `Experience(s) with user ID '${userId}' not found.`,
   "GetProfileById": ({ userId }: { userId: string }) =>
     `Profile with user ID '${userId}' not found.`,
 };

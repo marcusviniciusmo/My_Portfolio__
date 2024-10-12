@@ -1,6 +1,9 @@
 import { prisma } from "../../config/Repository";
+import { ThrowRepositoryException } from "../../utils/Functions";
 
-export const GetExperiencesByUserRepository = async (userId: string) => {
+export const GetExperiencesByUserRepository = async (
+  route: string, userId: string
+) => {
   try {
     const experiencesByUser = await prisma.experiences.findMany({
       where: { user_ID: userId }
@@ -13,5 +16,7 @@ export const GetExperiencesByUserRepository = async (userId: string) => {
     }))
 
     return experiencesByUserFormatted;
-  } catch (error) {};
+  } catch (error) {
+    ThrowRepositoryException(route, userId, error);
+  };
 };
