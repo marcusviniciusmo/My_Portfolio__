@@ -8,7 +8,7 @@ import { CreateBlogsByUserRoute, GetBlogsByUserRoute } from './routes/Blogs';
 import { CreateCertificateAreasRoute, GetCertificateAreasRoute } from './routes/CertificateAreas';
 import { CreateCertificatesByUserRoute, GetCertificatesByUserRoute } from './routes/Certificates';
 import { CreateCertificateTypesRoute, GetCertificateTypesRoute } from './routes/CertificateTypes';
-import { GetExperiencesByUserRoute } from './routes/Experiences';
+import { CreateExperiencesByUserRoute, GetExperiencesByUserRoute } from './routes/Experiences';
 import { GenerateTokenRoute } from './routes/Jwt';
 import { CreateProfileRoute, GetProfileByIdRoute } from './routes/Profile';
 
@@ -39,6 +39,7 @@ app.use(GetCertificatesByUserRoute);
 app.use(CreateCertificateTypesRoute);
 app.use(GetCertificateTypesRoute);
 /* EXPERIENCES */
+app.use(CreateExperiencesByUserRoute);
 app.use(GetExperiencesByUserRoute);
 /* JWT */
 app.use(GenerateTokenRoute);

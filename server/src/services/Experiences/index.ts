@@ -1,5 +1,17 @@
-import { GetExperiencesByUserRepository } from "../../repositories/Experiences";
+import { CreateExperiencesByUserRepository, GetExperiencesByUserRepository } from "../../repositories/Experiences";
 import { ThrowServiceException, ThrowNotFoundException } from "../../utils/Functions";
+
+export const CreateExperiencesByUserService = async (
+  route: string, userId: string
+) => {
+  try {
+    const insertedExperiencesByUser = await CreateExperiencesByUserRepository(
+      route, userId
+    );
+
+    return insertedExperiencesByUser;
+  } catch (error) {};
+};
 
 export const GetExperiencesByUserService = async (
   route: string, userId: string
