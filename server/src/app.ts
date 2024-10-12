@@ -8,6 +8,7 @@ import { CreateBlogsByUserRoute, GetBlogsByUserRoute } from './routes/Blogs';
 import { CreateCertificateAreasRoute, GetCertificateAreasRoute } from './routes/CertificateAreas';
 import { CreateCertificatesByUserRoute, GetCertificatesByUserRoute } from './routes/Certificates';
 import { CreateCertificateTypesRoute, GetCertificateTypesRoute } from './routes/CertificateTypes';
+import { GetExperiencesByUserRoute } from './routes/Experiences';
 import { GenerateTokenRoute } from './routes/Jwt';
 import { CreateProfileRoute, GetProfileByIdRoute } from './routes/Profile';
 
@@ -37,15 +38,14 @@ app.use(GetCertificatesByUserRoute);
 /* CERTIFICATE TYPES */
 app.use(CreateCertificateTypesRoute);
 app.use(GetCertificateTypesRoute);
+/* EXPERIENCES */
+app.use(GetExperiencesByUserRoute);
 /* JWT */
 app.use(GenerateTokenRoute);
 /* PROFILE */
 app.use(CreateProfileRoute);
 app.use(GetProfileByIdRoute);
 
-app.get('/experiences/:user_id', (request, response) => {
-  return response.json([{message: 'Acessou experiences'}]);
-})
 app.get('/expertises/:user_id', (request, response) => {
   return response.json([{message: 'Acessou expertises'}]);
 })
