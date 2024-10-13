@@ -5,34 +5,36 @@ import { ThrowRepositoryException, ThrowConflictException } from "../../utils/Fu
 export const CreateBlogsByUserRepository = async (route: string, userId: string) => {
   const blogsByUserToInsert = GetBlogsByUserToInsert(userId);
 
-  try {
-    const existingBlogsByUser = await GetBlogsByUserRepository(route, userId);
-
-    const existingBlogsNamesByUser = new Set(
-      existingBlogsByUser?.map(
-        (existingBlogName) => existingBlogName.name.toLowerCase().trim()
-      )
-    );
-
-    const blogsToInsert = blogsByUserToInsert.filter(
-      (blogToInsert) =>
-        !existingBlogsNamesByUser.has(blogToInsert.name.toLowerCase().trim())
-    );
-
-    if (blogsToInsert.length === 0) {
-      ThrowConflictException(route, userId);
+  return await prisma.$transaction(async (prisma) => {
+    try {
+      const existingBlogsByUser = await GetBlogsByUserRepository(route, userId);
+  
+      const existingBlogsNamesByUser = new Set(
+        existingBlogsByUser?.map(
+          (existingBlogName) => existingBlogName.name.toLowerCase().trim()
+        )
+      );
+  
+      const blogsToInsert = blogsByUserToInsert.filter(
+        (blogToInsert) =>
+          !existingBlogsNamesByUser.has(blogToInsert.name.toLowerCase().trim())
+      );
+  
+      if (blogsToInsert.length === 0) {
+        ThrowConflictException(route, userId);
+      };
+      
+      const blogsInserted = Promise.all(
+        blogsToInsert.map((blogToInsert) => prisma.blogs.create({
+          data: blogToInsert
+        }))
+      );
+  
+      return blogsInserted;
+    } catch (error) {
+      ThrowRepositoryException(route, userId, error);
     };
-    
-    const blogsInserted = Promise.all(
-      blogsToInsert.map((blogToInsert) => prisma.blogs.create({
-        data: blogToInsert
-      }))
-    );
-
-    return blogsInserted;
-  } catch (error) {
-    ThrowRepositoryException(route, userId, error);
-  };
+  });
 };
 
 export const GetBlogsByUserRepository = async (route:string, userId: string) => {
