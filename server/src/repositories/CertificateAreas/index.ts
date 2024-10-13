@@ -5,35 +5,37 @@ import { ThrowRepositoryException, ThrowConflictException } from "../../utils/Fu
 export const CreateCertificateAreasRepository = async (route: string) => {
   const certificateAreasToInsert = GetCertificateAreasToInsert();
 
-  try {
-    const existingCertificateAreas = await GetCertificateAreasRepository(route);
-
-    const existingCertificateAreasDescription = new Set(
-      existingCertificateAreas?.map(
-        (area) => area.areaDescription.toLowerCase().trim()
-      )
-    );
-
-    const areasToInsert = certificateAreasToInsert.filter(
-      (areaToInsert) => !existingCertificateAreasDescription.has(
-        areaToInsert.areaDescription.toLowerCase().trim()
-      )
-    );
-
-    if (areasToInsert.length === 0) {
-      ThrowConflictException(route);
+  return await prisma.$transaction(async (prisma) => {
+    try {
+      const existingCertificateAreas = await GetCertificateAreasRepository(route);
+  
+      const existingCertificateAreasDescription = new Set(
+        existingCertificateAreas?.map(
+          (area) => area.areaDescription.toLowerCase().trim()
+        )
+      );
+  
+      const areasToInsert = certificateAreasToInsert.filter(
+        (areaToInsert) => !existingCertificateAreasDescription.has(
+          areaToInsert.areaDescription.toLowerCase().trim()
+        )
+      );
+  
+      if (areasToInsert.length === 0) {
+        ThrowConflictException(route);
+      };
+  
+      const insertedCertificateAreas = Promise.all(
+        areasToInsert.map((areaToInsert) => prisma.certificateAreas.create({
+          data: areaToInsert
+        }))
+      );
+  
+      return insertedCertificateAreas;
+    } catch (error) {
+      ThrowRepositoryException(route, undefined, error);
     };
-
-    const insertedCertificateAreas = Promise.all(
-      areasToInsert.map((areaToInsert) => prisma.certificateAreas.create({
-        data: areaToInsert
-      }))
-    );
-
-    return insertedCertificateAreas;
-  } catch (error) {
-    ThrowRepositoryException(route, undefined, error);
-  };
+  });
 };
 
 export const GetCertificateAreasRepository = async (route: string) => {
