@@ -1,6 +1,5 @@
 import {
   GraduationType,
-  ExperienceType,
   WorkingSkillType,
   KnowledgeType,
 } from '../@types/Resume';
@@ -11,51 +10,6 @@ export const Graduations: GraduationType[] = [
     period: '2016-2020',
     title: 'Information Systems',
     institution: 'Unifametro, Fortaleza, Brazil',
-  },
-];
-
-export const Experiences: ExperienceType[] = [
-  {
-    id: '1',
-    period: 'Nov/2023 - Now',
-    title: 'Senior Healthcare Assistant',
-    institution: 'TLC Carton',
-  },
-  {
-    id: '2',
-    period: 'Feb/2023 - Nov/2023',
-    title: 'Healthcare Assistant',
-    institution: 'TLC Carton',
-  },
-  {
-    id: '3',
-    period: 'Apr/2022 - Sep/2022',
-    title: 'Healthcare Assistant',
-    institution: 'All In Care',
-  },
-  {
-    id: '4',
-    period: 'Feb/2020 - May/2021',
-    title: 'Web Developer',
-    institution: 'Farmacias Pague Menos',
-  },
-  {
-    id: '5',
-    period: 'Apr/2019 - Feb/2020',
-    title: 'Software Tester',
-    institution: 'Farmacias Pague Menos',
-  },
-  {
-    id: '6',
-    period: 'Dec/2014 - Dec/2018',
-    title: 'Sub Manager',
-    institution: 'Companhia do Saldo',
-  },
-  {
-    id: '7',
-    period: 'Apr/2012 - Dec/2014',
-    title: 'Seller',
-    institution: 'Companhia do Saldo',
   },
 ];
 

@@ -3,12 +3,7 @@ import { SchoolOutlined, WorkOutline } from '@mui/icons-material';
 
 import { TitleContentPage } from '../../components/TitleContentPage';
 
-import {
-  Graduations,
-  Experiences,
-  Skills,
-  Knowledges,
-} from '../../data/resume';
+import { Graduations, Skills, Knowledges } from '../../data/resume';
 import {
   GraduationType,
   ExperienceType,
@@ -32,13 +27,23 @@ export function Resume() {
     new Map(),
   );
 
+  const baseUrlApi = import.meta.env.VITE_BASE_URL_API;
+  const userIdProfile = import.meta.env.VITE_USER_ID_PROFILE;
+
   useEffect(() => {
     setGraduations(Graduations);
   }, []);
 
   useEffect(() => {
-    setExperiences(Experiences);
-  }, []);
+    fetch(`${baseUrlApi}/experiences/${userIdProfile}`)
+      .then((response) => response.json())
+      .then((data) => {
+        setExperiences(data);
+      })
+      .catch((error) => {
+        console.log(`Error: ${error}.`);
+      });
+  }, [baseUrlApi, userIdProfile]);
 
   useEffect(() => {
     setSkills(Skills);
