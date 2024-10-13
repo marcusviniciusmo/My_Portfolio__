@@ -18,7 +18,9 @@ export const CreateExperiencesByUserRepository = async (
       );
 
       return insertedExperiencesByUser;
-    } catch (error) {};
+    } catch (error) {
+      ThrowRepositoryException(route, userId, error);
+    };
   });
 };
 

@@ -15,6 +15,8 @@ export const Controller = {
     `Failed to process request to create certificate type(s).`,
   "GetCertificateTypes": () =>
     `Failed to process request to get certificate type(s).`,
+  "CreateExperiencesByUser": ({ userId }: { userId: string }) =>
+    `Failed to process request for user ID '${userId}'.`,
   "GetExperiencesByUser": ({ userId }: { userId: string }) =>
     `Failed to process request for user ID '${userId}'.`,
   "CreateProfile": () =>
@@ -40,6 +42,8 @@ export const Service = {
     `Unable to create certificate type(s).`,
   "GetCertificateTypes": () =>
     `Unable to retrieve certificate type(s).`,
+  "CreateExperiencesByUser": ({ userId}: { userId: string }) =>
+    `Unable to create experience(s) for user ID '${userId}'.`,
   "GetExperiencesByUser": ({ userId }: { userId: string }) =>
     `Unable to retrieve experience(s) for user ID '${userId}'.`,
   "CreateProfile": () =>
@@ -65,6 +69,8 @@ export const Repository = {
     `Failed to create certificate type(s).`,
   "GetCertificateTypes": () =>
     `Failed to fetch certificate type(s).`,
+  "CreateExperiencesByUser": ({ userId }: { userId: string }) =>
+    `Failed to create experience(s) for user ID '${userId}'.`,
   "GetExperiencesByUser": ({ userId }: { userId: string }) =>
     `Failed to fetch experience(s) for user ID '${userId}'.`,
   "CreateProfile": () =>

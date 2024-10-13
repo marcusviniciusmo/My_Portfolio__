@@ -10,7 +10,9 @@ export const CreateExperiencesByUserService = async (
     );
 
     return insertedExperiencesByUser;
-  } catch (error) {};
+  } catch (error) {
+    ThrowServiceException(error, route, userId);
+  };
 };
 
 export const GetExperiencesByUserService = async (

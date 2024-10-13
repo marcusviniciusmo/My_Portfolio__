@@ -14,7 +14,9 @@ export const CreateExperiencesByUserController = async (
     );
 
     return response.status(201).json(insertedExperiencesByUser);
-  } catch (error) {};
+  } catch (error) {
+    ThrowControllerException(error, response, route, userId);
+  };
 };
 
 export const GetExperiencesByUserController = async (
